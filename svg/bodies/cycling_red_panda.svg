@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="t-cycling_red_panda">
+  <title id="t-cycling_red_panda">Red panda — Cycling</title>
+  <g fill="none" stroke="#5A5560" stroke-width="11" stroke-linecap="round"><circle cx="58" cy="204" r="34"/><circle cx="198" cy="204" r="34"/><path d="M58 204h52l30-54M110 204l30-54M140 150h34M174 150v-18"/></g><rect x="88" y="168" width="34" height="12" rx="6" fill="#5A5560"/><circle cx="128" cy="204" r="12" fill="none" stroke="#5A5560" stroke-width="8"/><ellipse cx="112" cy="140" rx="46" ry="42" transform="rotate(-12 112 140)" fill="#E97A4E"/><ellipse cx="112" cy="146" rx="27" ry="25" fill="#FFF4E8"/><g transform="translate(112,80) rotate(-10) scale(0.48) translate(-128,-126)"><ellipse cx="62" cy="78" rx="36" ry="34" fill="#C9552E"/>
+  <ellipse cx="62" cy="82" rx="23" ry="21" fill="#FFF4E8"/>
+  <ellipse cx="194" cy="78" rx="36" ry="34" fill="#C9552E"/>
+  <ellipse cx="194" cy="82" rx="23" ry="21" fill="#FFF4E8"/>
+  <ellipse cx="128" cy="140" rx="86" ry="78" fill="#E97A4E"/>
+  <defs><clipPath id="clip-red_panda"><ellipse cx="128" cy="140" rx="86" ry="78"/></clipPath></defs>
+  <g clip-path="url(#clip-red_panda)">
+    <ellipse cx="92" cy="116" rx="30" ry="24" fill="#FFF4E8"/>
+    <ellipse cx="164" cy="116" rx="30" ry="24" fill="#FFF4E8"/>
+    <ellipse cx="78" cy="176" rx="32" ry="26" fill="#FFF4E8"/>
+    <ellipse cx="178" cy="176" rx="32" ry="26" fill="#FFF4E8"/>
+    <ellipse cx="128" cy="174" rx="32" ry="28" fill="#FFF4E8"/>
+  </g>
+  <ellipse cx="94" cy="118" rx="11" ry="13" fill="#4A2E24"/><circle cx="90" cy="113" r="3.96" fill="#FFFFFF" opacity="0.95"/><ellipse cx="162" cy="118" rx="11" ry="13" fill="#4A2E24"/><circle cx="158" cy="113" r="3.96" fill="#FFFFFF" opacity="0.95"/>
+  <ellipse cx="72" cy="182" rx="13" ry="8" fill="#F4737F" opacity="0.32"/><ellipse cx="184" cy="182" rx="13" ry="8" fill="#F4737F" opacity="0.32"/>
+  <path d="M114 158a14 8 0 0 1 28 0c0 6-6 12-14 17-8-5-14-11-14-17z" fill="#4A2E24"/>
+  <path d="M112 183q8 11 16 0 q8 11 16 0" fill="none" stroke="#4A2E24" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></g><path d="M156.6 139.3L157.8 140.4L159.5 141.8L161.8 143.5L164.5 145.4L167.5 147.2L170.7 148.9L174.1 150.5L177.6 151.7L181.1 152.7L184.6 153.4L188.0 153.7L191.4 153.8L194.6 153.8L197.6 153.6L200.4 153.3L202.8 153.0L204.8 152.8L206.2 152.5A4.5 4.5 0 0 1 206.8 143.5L205.2 143.1L203.1 142.7L200.7 142.3L198.1 141.9L195.4 141.4L192.8 140.9L190.2 140.2L188.0 139.4L186.2 138.6L184.5 137.3L182.4 135.7L180.1 133.8L177.7 131.9L175.2 129.9L172.8 128.1L170.5 126.6L168.3 125.2L166.6 124.4A9.0 9.0 0 0 1 156.6 139.3Z" fill="#DA6A44"/><g transform="rotate(84 207 148)"><ellipse cx="207" cy="148" rx="13" ry="12.2" fill="#DA6A44"/><ellipse cx="207" cy="151" rx="6.5" ry="5.2" fill="#FFF4E8"/><circle cx="201" cy="142" r="2.7" fill="#FFF4E8"/><circle cx="207" cy="142" r="2.7" fill="#FFF4E8"/><circle cx="213" cy="142" r="2.7" fill="#FFF4E8"/></g><path d="M85.9 129.0L85.0 130.8L84.2 133.1L83.3 135.8L82.5 138.7L81.7 141.8L81.0 144.8L80.3 147.7L79.7 150.2L79.2 152.3L78.3 154.1L77.0 156.1L75.4 158.2L73.7 160.2L71.8 162.3L70.0 164.2L68.4 165.9L67.0 167.5L66.0 168.9A4.5 4.5 0 0 1 72.0 175.6L73.3 174.9L74.9 173.9L77.0 172.7L79.4 171.2L81.9 169.4L84.5 167.5L87.1 165.3L89.5 162.9L91.9 160.3L94.0 157.4L96.0 154.2L97.7 150.9L99.2 147.6L100.5 144.3L101.4 141.2L102.2 138.5L102.7 136.3L102.9 134.7A9.0 9.0 0 0 1 85.9 129.0Z" fill="#DA6A44"/><g transform="rotate(-46 69 172)"><ellipse cx="69" cy="172" rx="13" ry="12.2" fill="#DA6A44"/><ellipse cx="69" cy="175" rx="6.5" ry="5.2" fill="#FFF4E8"/><circle cx="63" cy="166" r="2.7" fill="#FFF4E8"/><circle cx="69" cy="166" r="2.7" fill="#FFF4E8"/><circle cx="75" cy="166" r="2.7" fill="#FFF4E8"/></g>
+</svg>

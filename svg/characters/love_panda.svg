@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="t-love_panda">
+  <title id="t-love_panda">Panda — love</title>
+  <circle cx="60" cy="80" r="32" fill="#3A3335"/>
+  <circle cx="196" cy="80" r="32" fill="#3A3335"/>
+  <ellipse cx="128" cy="146" rx="87" ry="79" fill="#FFFFFF" stroke="#EAE7F0" stroke-width="4"/>
+  <ellipse cx="94" cy="136" rx="25" ry="30" fill="#3A3335" transform="rotate(-18 94 136)"/>
+  <ellipse cx="162" cy="136" rx="25" ry="30" fill="#3A3335" transform="rotate(18 162 136)"/>
+  <path d="M0 8C-12 0-16-6-16-11c0-6 8-8 16 0 8-8 16-6 16 0 0 5-4 11-16 19z" transform="translate(97,136) scale(0.8)" fill="#FF6E8A"/><path d="M0 8C-12 0-16-6-16-11c0-6 8-8 16 0 8-8 16-6 16 0 0 5-4 11-16 19z" transform="translate(159,136) scale(0.8)" fill="#FF6E8A"/>
+  <ellipse cx="70" cy="168" rx="14" ry="8.5" fill="#FF8FA9" opacity="0.55"/><ellipse cx="186" cy="168" rx="14" ry="8.5" fill="#FF8FA9" opacity="0.55"/>
+  <path d="M114 162a14 8 0 0 1 28 0c0 6-6 12-14 17-8-5-14-11-14-17z" fill="#3A3335"/>
+  <path d="M109 183q19 32 38 0z" fill="#3A3335"/><path d="M120 191q8 9 16 0z" fill="#FF8FA9"/>
+  <path d="M0 8C-12 0-16-6-16-11c0-6 8-8 16 0 8-8 16-6 16 0 0 5-4 11-16 19z" transform="translate(46,56) scale(0.6)" fill="#FF6E8A"/><path d="M0 8C-12 0-16-6-16-11c0-6 8-8 16 0 8-8 16-6 16 0 0 5-4 11-16 19z" transform="translate(212,40) scale(0.45)" fill="#FF6E8A"/>
+</svg>

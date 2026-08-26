@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="t-scarf_red_panda">
+  <title id="t-scarf_red_panda">Red panda — Scarf</title>
+  <path d="M78 208C40 208 18 184 18 154" fill="none" stroke="#C9552E" stroke-width="34" stroke-linecap="round"/>
+  <path d="M78 208C40 208 18 184 18 154" fill="none" stroke="#FFF4E8" stroke-width="34" stroke-dasharray="13 25" stroke-dashoffset="20"/>
+  <ellipse cx="62" cy="78" rx="36" ry="34" fill="#C9552E"/>
+  <ellipse cx="62" cy="82" rx="23" ry="21" fill="#FFF4E8"/>
+  <ellipse cx="194" cy="78" rx="36" ry="34" fill="#C9552E"/>
+  <ellipse cx="194" cy="82" rx="23" ry="21" fill="#FFF4E8"/>
+  <ellipse cx="128" cy="140" rx="86" ry="78" fill="#E97A4E"/>
+  <defs><clipPath id="clip-red_panda"><ellipse cx="128" cy="140" rx="86" ry="78"/></clipPath></defs>
+  <g clip-path="url(#clip-red_panda)">
+    <ellipse cx="92" cy="116" rx="30" ry="24" fill="#FFF4E8"/>
+    <ellipse cx="164" cy="116" rx="30" ry="24" fill="#FFF4E8"/>
+    <ellipse cx="78" cy="176" rx="32" ry="26" fill="#FFF4E8"/>
+    <ellipse cx="178" cy="176" rx="32" ry="26" fill="#FFF4E8"/>
+    <ellipse cx="128" cy="174" rx="32" ry="28" fill="#FFF4E8"/>
+  </g>
+  <ellipse cx="94" cy="118" rx="11" ry="13" fill="#4A2E24"/><circle cx="90" cy="113" r="3.96" fill="#FFFFFF" opacity="0.95"/><ellipse cx="162" cy="118" rx="11" ry="13" fill="#4A2E24"/><circle cx="158" cy="113" r="3.96" fill="#FFFFFF" opacity="0.95"/>
+  <ellipse cx="72" cy="182" rx="13" ry="8" fill="#F4737F" opacity="0.32"/><ellipse cx="184" cy="182" rx="13" ry="8" fill="#F4737F" opacity="0.32"/>
+  <path d="M114 158a14 8 0 0 1 28 0c0 6-6 12-14 17-8-5-14-11-14-17z" fill="#4A2E24"/>
+  <path d="M112 183q8 11 16 0 q8 11 16 0" fill="none" stroke="#4A2E24" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M54 200q74 30 148 0v30q-74 30 -148 0z" fill="#E4574C"/><path d="M150 226h32l-8 56h-30z" fill="#C7463C"/><path d="M54 214q74 30 148 0" fill="none" stroke="#C7463C" stroke-width="6"/>
+</svg>

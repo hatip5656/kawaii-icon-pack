@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="t-gardening_rabbit">
+  <title id="t-gardening_rabbit">Rabbit — Gardening</title>
+  <g transform="translate(128,92) scale(0.62) translate(-128,-126)"><g transform="rotate(-14 106 70)">
+    <rect x="86" y="6" width="40" height="112" rx="20" fill="#FDFBFF" stroke="#E4E0F0" stroke-width="4"/>
+    <rect x="97" y="20" width="18" height="84" rx="9" fill="#FFC2D1"/>
+  </g>
+  <g transform="rotate(14 150 70)">
+    <rect x="130" y="6" width="40" height="112" rx="20" fill="#FDFBFF" stroke="#E4E0F0" stroke-width="4"/>
+    <rect x="141" y="20" width="18" height="84" rx="9" fill="#FFC2D1"/>
+  </g>
+  <ellipse cx="128" cy="152" rx="73" ry="70" fill="#FDFBFF" stroke="#E4E0F0" stroke-width="4"/>
+  <ellipse cx="100" cy="142" rx="11" ry="13" fill="#5A4A5E"/><circle cx="96" cy="137" r="3.96" fill="#FFFFFF" opacity="0.95"/><ellipse cx="156" cy="142" rx="11" ry="13" fill="#5A4A5E"/><circle cx="152" cy="137" r="3.96" fill="#FFFFFF" opacity="0.95"/>
+  <ellipse cx="72" cy="168" rx="15" ry="9" fill="#FF8FA9" opacity="0.45"/><ellipse cx="184" cy="168" rx="15" ry="9" fill="#FF8FA9" opacity="0.45"/>
+  <path d="M118 164a10 6.5 0 0 1 20 0c0 4.5-4.5 9-10 12.5-5.5-3.5-10-8-10-12.5z" fill="#FF9BB2"/><path d="M128 176.5v7" stroke="#8A7A8E" stroke-width="4" stroke-linecap="round"/>
+  <path d="M114 182q7 11 14 0 q7 11 14 0" fill="none" stroke="#8A7A8E" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="120" y="192" width="16" height="14" rx="4" fill="#FFFFFF" stroke="#D9D3E6" stroke-width="2.5"/><path d="M128 192v14" stroke="#D9D3E6" stroke-width="2.5"/></g><path d="M92 200h72l-9 44H101z" fill="#F0E2CC" stroke="#C9A87C" stroke-width="6"/><rect x="84" y="184" width="88" height="20" rx="8" fill="#C9A87C"/><path d="M128 184v-30" stroke="#6FBF7F" stroke-width="9" stroke-linecap="round"/><path d="M128 160c0-18 14-32 32-32 0 18-14 32-32 32z" fill="#8FC46A"/><path d="M128 172c-16 0-30-12-30-28 16 0 30 12 30 28z" fill="#6FBF7F"/><g transform="rotate(-16 62 216)"><ellipse cx="62" cy="216" rx="21" ry="26" fill="#FDFBFF" stroke="#E4E0F0" stroke-width="6"/><ellipse cx="62" cy="219" rx="11" ry="14" fill="#FFC2D1"/></g><g transform="rotate(16 194 216)"><ellipse cx="194" cy="216" rx="21" ry="26" fill="#FDFBFF" stroke="#E4E0F0" stroke-width="6"/><ellipse cx="194" cy="219" rx="11" ry="14" fill="#FFC2D1"/></g>
+</svg>

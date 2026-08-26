@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Regenerate the pack
+        run: npm run build
+
+      # The artwork is generated, but committed, so a pull request can be
+      # reviewed visually. This is what stops the two drifting apart.
+      - name: Committed icons match the generators
+        run: |
+          if ! git diff --quiet -- svg icons.json; then
+            echo "::error::svg/ or icons.json is out of date — run 'npm run build' and commit the result"
+            git diff --stat -- svg icons.json
+            exit 1
+          fi
+
+      - name: Validate the pack
+        run: npm run check
+
+      - name: Inspect the tarball
+        run: npm pack --dry-run

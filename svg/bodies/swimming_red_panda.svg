@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="t-swimming_red_panda">
+  <title id="t-swimming_red_panda">Red panda — Swimming</title>
+  <ellipse cx="128" cy="158" rx="56" ry="54" fill="#E97A4E"/><ellipse cx="128" cy="164" rx="32" ry="36" fill="#FFF4E8"/><circle cx="128" cy="196" r="62" fill="none" stroke="#FF8FA9" stroke-width="26"/><circle cx="128" cy="196" r="62" fill="none" stroke="#FFFCF8" stroke-width="26" stroke-dasharray="30 30" stroke-dashoffset="16"/><g fill="none" stroke="#7EC8E3" stroke-width="8" stroke-linecap="round"><path d="M8 234q14-12 28 0t28 0"/><path d="M192 234q14-12 28 0t28 0"/></g><g transform="translate(128,88) scale(0.5) translate(-128,-126)"><ellipse cx="62" cy="78" rx="36" ry="34" fill="#C9552E"/>
+  <ellipse cx="62" cy="82" rx="23" ry="21" fill="#FFF4E8"/>
+  <ellipse cx="194" cy="78" rx="36" ry="34" fill="#C9552E"/>
+  <ellipse cx="194" cy="82" rx="23" ry="21" fill="#FFF4E8"/>
+  <ellipse cx="128" cy="140" rx="86" ry="78" fill="#E97A4E"/>
+  <defs><clipPath id="clip-red_panda"><ellipse cx="128" cy="140" rx="86" ry="78"/></clipPath></defs>
+  <g clip-path="url(#clip-red_panda)">
+    <ellipse cx="92" cy="116" rx="30" ry="24" fill="#FFF4E8"/>
+    <ellipse cx="164" cy="116" rx="30" ry="24" fill="#FFF4E8"/>
+    <ellipse cx="78" cy="176" rx="32" ry="26" fill="#FFF4E8"/>
+    <ellipse cx="178" cy="176" rx="32" ry="26" fill="#FFF4E8"/>
+    <ellipse cx="128" cy="174" rx="32" ry="28" fill="#FFF4E8"/>
+  </g>
+  <ellipse cx="94" cy="118" rx="11" ry="13" fill="#4A2E24"/><circle cx="90" cy="113" r="3.96" fill="#FFFFFF" opacity="0.95"/><ellipse cx="162" cy="118" rx="11" ry="13" fill="#4A2E24"/><circle cx="158" cy="113" r="3.96" fill="#FFFFFF" opacity="0.95"/>
+  <ellipse cx="72" cy="182" rx="13" ry="8" fill="#F4737F" opacity="0.32"/><ellipse cx="184" cy="182" rx="13" ry="8" fill="#F4737F" opacity="0.32"/>
+  <path d="M114 158a14 8 0 0 1 28 0c0 6-6 12-14 17-8-5-14-11-14-17z" fill="#4A2E24"/>
+  <path d="M112 183q8 11 16 0 q8 11 16 0" fill="none" stroke="#4A2E24" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></g><path d="M85.8 129.3L85.0 131.1L84.2 133.5L83.5 136.2L82.7 139.1L82.1 142.2L81.5 145.2L80.9 148.1L80.4 150.7L79.9 152.8L79.1 154.6L77.9 156.7L76.3 158.8L74.7 160.9L72.9 163.0L71.2 165.0L69.6 166.8L68.2 168.5L67.3 169.9A4.5 4.5 0 0 1 73.5 176.4L74.8 175.6L76.4 174.6L78.5 173.3L80.8 171.7L83.2 169.8L85.7 167.8L88.2 165.6L90.6 163.1L92.8 160.3L94.9 157.4L96.8 154.1L98.4 150.8L99.8 147.4L100.9 144.0L101.8 140.9L102.4 138.2L102.8 136.0L103.0 134.4A9.0 9.0 0 0 1 85.8 129.3Z" fill="#DA6A44"/><g transform="rotate(-44 70 173)"><ellipse cx="70" cy="173" rx="13" ry="12.2" fill="#DA6A44"/><ellipse cx="70" cy="176" rx="6.5" ry="5.2" fill="#FFF4E8"/><circle cx="64" cy="167" r="2.7" fill="#FFF4E8"/><circle cx="70" cy="167" r="2.7" fill="#FFF4E8"/><circle cx="76" cy="167" r="2.7" fill="#FFF4E8"/></g><path d="M153.0 134.4L153.2 136.0L153.6 138.2L154.2 140.9L155.1 144.0L156.2 147.4L157.6 150.8L159.2 154.1L161.1 157.4L163.2 160.3L165.4 163.1L167.8 165.6L170.3 167.8L172.8 169.8L175.2 171.7L177.5 173.3L179.6 174.6L181.2 175.6L182.5 176.4A4.5 4.5 0 0 1 188.7 169.9L187.8 168.5L186.4 166.8L184.8 165.0L183.1 163.0L181.3 160.9L179.7 158.8L178.1 156.7L176.9 154.6L176.1 152.8L175.6 150.7L175.1 148.1L174.5 145.2L173.9 142.2L173.3 139.1L172.5 136.2L171.8 133.5L171.0 131.1L170.2 129.3A9.0 9.0 0 0 1 153.0 134.4Z" fill="#DA6A44"/><g transform="rotate(44 186 173)"><ellipse cx="186" cy="173" rx="13" ry="12.2" fill="#DA6A44"/><ellipse cx="186" cy="176" rx="6.5" ry="5.2" fill="#FFF4E8"/><circle cx="180" cy="167" r="2.7" fill="#FFF4E8"/><circle cx="186" cy="167" r="2.7" fill="#FFF4E8"/><circle cx="192" cy="167" r="2.7" fill="#FFF4E8"/></g>
+</svg>

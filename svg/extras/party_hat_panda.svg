@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="t-party_hat_panda">
+  <title id="t-party_hat_panda">Panda — Party hat</title>
+  <circle cx="60" cy="80" r="32" fill="#3A3335"/>
+  <circle cx="196" cy="80" r="32" fill="#3A3335"/>
+  <ellipse cx="128" cy="146" rx="87" ry="79" fill="#FFFFFF" stroke="#EAE7F0" stroke-width="4"/>
+  <ellipse cx="94" cy="136" rx="25" ry="30" fill="#3A3335" transform="rotate(-18 94 136)"/>
+  <ellipse cx="162" cy="136" rx="25" ry="30" fill="#3A3335" transform="rotate(18 162 136)"/>
+  <circle cx="97" cy="138" r="12" fill="#FFFFFF"/><circle cx="98" cy="139" r="7" fill="#3A3335"/><circle cx="94" cy="134" r="2.8" fill="#FFFFFF"/><circle cx="159" cy="138" r="12" fill="#FFFFFF"/><circle cx="158" cy="139" r="7" fill="#3A3335"/><circle cx="156" cy="134" r="2.8" fill="#FFFFFF"/>
+  <ellipse cx="70" cy="168" rx="14" ry="8.5" fill="#FF8FA9" opacity="0.45"/><ellipse cx="186" cy="168" rx="14" ry="8.5" fill="#FF8FA9" opacity="0.45"/>
+  <path d="M114 162a14 8 0 0 1 28 0c0 6-6 12-14 17-8-5-14-11-14-17z" fill="#3A3335"/>
+  <path d="M112 185q8 11 16 0 q8 11 16 0" fill="none" stroke="#3A3335" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <g transform="translate(128,86) rotate(0)"><path d="M0-64-36 2h72z" fill="#FF8FA9"/><path d="M-27-16h54M-18-38h36" stroke="#FFD86B" stroke-width="8" stroke-linecap="round" fill="none"/><circle cx="0" cy="-68" r="11" fill="#FFD86B"/></g>
+</svg>

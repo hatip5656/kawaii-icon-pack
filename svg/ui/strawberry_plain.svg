@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-labelledby="t-strawberry">
+  <title id="t-strawberry">Strawberry</title>
+  <path d="M12 21.4c-3.9-1.7-6.5-4.9-6.5-8.4A6.5 6.5 0 0 1 12 6.6a6.5 6.5 0 0 1 6.5 6.4c0 3.5-2.6 6.7-6.5 8.4z"/><path d="M8.4 7.2 12 3.6l3.6 3.6"/><circle cx="7.4" cy="17" r="0.9" fill="currentColor" stroke="none"/><circle cx="16.6" cy="17" r="0.9" fill="currentColor" stroke="none"/>
+</svg>

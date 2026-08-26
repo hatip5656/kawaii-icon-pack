@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="t-rowing_raccoon">
+  <title id="t-rowing_raccoon">Raccoon — Rowing</title>
+  <path d="M180 214C224 208 244 172 236 132" fill="none" stroke="#8E96A6" stroke-width="36" stroke-linecap="round"/><path d="M180 214C224 208 244 172 236 132" fill="none" stroke="#4A4453" stroke-width="36" stroke-dasharray="14 26" stroke-dashoffset="22"/><ellipse cx="128" cy="162" rx="52" ry="48" transform="rotate(-8 128 162)" fill="#A7AEBC"/><ellipse cx="128" cy="168" rx="30" ry="33" fill="#FBF7F2" transform="rotate(-8 128 168)"/><path d="M42 140 216 214" stroke="#C9A87C" stroke-width="10" stroke-linecap="round"/><ellipse cx="34" cy="136" rx="20" ry="13" transform="rotate(22 34 136)" fill="#5B7BE8"/><g fill="none" stroke="#7EC8E3" stroke-width="9" stroke-linecap="round"><path d="M8 240q16-14 32 0t32 0"/><path d="M184 240q16-14 32 0t32 0"/></g><g transform="translate(128,84) rotate(-6) scale(0.5) translate(-128,-126)"><ellipse cx="60" cy="76" rx="34" ry="32" fill="#8E96A6"/>
+  <ellipse cx="60" cy="80" rx="20" ry="18" fill="#FBF7F2"/>
+  <ellipse cx="196" cy="76" rx="34" ry="32" fill="#8E96A6"/>
+  <ellipse cx="196" cy="80" rx="20" ry="18" fill="#FBF7F2"/>
+  <ellipse cx="128" cy="140" rx="86" ry="78" fill="#A7AEBC"/>
+  <defs><clipPath id="clip-raccoon"><ellipse cx="128" cy="140" rx="86" ry="78"/></clipPath></defs>
+  <g clip-path="url(#clip-raccoon)">
+    <ellipse cx="128" cy="94" rx="25" ry="32" fill="#FBF7F2"/>
+    <ellipse cx="70" cy="172" rx="32" ry="28" fill="#FBF7F2"/>
+    <ellipse cx="186" cy="172" rx="32" ry="28" fill="#FBF7F2"/>
+    <ellipse cx="128" cy="176" rx="44" ry="32" fill="#FBF7F2"/>
+    <ellipse cx="94" cy="124" rx="34" ry="28" fill="#4A4453" transform="rotate(-10 94 124)"/>
+    <ellipse cx="162" cy="124" rx="34" ry="28" fill="#4A4453" transform="rotate(10 162 124)"/>
+  </g>
+  <circle cx="94" cy="124" r="11.5" fill="#FFFFFF"/><circle cx="95" cy="125" r="6.5" fill="#3A3335"/><circle cx="91" cy="120" r="2.6" fill="#FFFFFF"/><circle cx="162" cy="124" r="11.5" fill="#FFFFFF"/><circle cx="161" cy="125" r="6.5" fill="#3A3335"/><circle cx="159" cy="120" r="2.6" fill="#FFFFFF"/>
+  <ellipse cx="70" cy="180" rx="13" ry="8" fill="#FF8FA9" opacity="0.35"/><ellipse cx="186" cy="180" rx="13" ry="8" fill="#FF8FA9" opacity="0.35"/>
+  <path d="M114 158a14 8 0 0 1 28 0c0 6-6 12-14 17-8-5-14-11-14-17z" fill="#3A3335"/>
+  <path d="M112 183q8 11 16 0 q8 11 16 0" fill="none" stroke="#4A4453" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></g><path d="M89.6 127.4L88.4 128.9L87.0 131.0L85.6 133.4L84.2 136.0L82.7 138.8L81.3 141.5L80.0 144.1L78.7 146.3L77.6 148.1L76.2 149.6L74.2 151.2L71.9 152.8L69.3 154.3L66.6 155.8L64.0 157.1L61.7 158.4L59.6 159.5L58.1 160.5A4.2 4.2 0 0 1 61.5 168.2L63.1 167.8L65.2 167.4L67.8 166.7L70.7 165.9L73.9 164.9L77.2 163.7L80.5 162.3L83.8 160.7L86.9 158.7L89.9 156.4L92.6 153.7L95.1 150.9L97.4 147.9L99.4 145.0L101.1 142.2L102.4 139.8L103.4 137.8L104.0 136.3A8.5 8.5 0 0 1 89.6 127.4Z" fill="#99A1B0"/><g transform="rotate(-64 60 164)"><ellipse cx="60" cy="164" rx="12" ry="11.3" fill="#99A1B0"/><ellipse cx="60" cy="167" rx="6.0" ry="4.8" fill="#FBF7F2"/><circle cx="54" cy="159" r="2.5" fill="#FBF7F2"/><circle cx="60" cy="159" r="2.5" fill="#FBF7F2"/><circle cx="65" cy="159" r="2.5" fill="#FBF7F2"/></g><path d="M151.7 135.8L152.2 137.3L153.1 139.3L154.2 141.9L155.7 144.8L157.5 147.9L159.5 150.9L161.8 154.0L164.4 156.8L167.2 159.3L170.2 161.5L173.3 163.4L176.5 165.0L179.7 166.4L182.8 167.6L185.7 168.6L188.3 169.5L190.3 170.1L191.9 170.6A4.2 4.2 0 0 1 195.8 163.1L194.4 162.0L192.4 160.7L190.1 159.3L187.6 157.8L185.1 156.2L182.6 154.5L180.4 152.7L178.5 151.0L177.2 149.4L176.2 147.6L175.1 145.2L174.0 142.6L172.8 139.7L171.5 136.9L170.3 134.2L169.0 131.7L167.8 129.5L166.7 127.9A8.5 8.5 0 0 1 151.7 135.8Z" fill="#99A1B0"/><g transform="rotate(60 194 167)"><ellipse cx="194" cy="167" rx="12" ry="11.3" fill="#99A1B0"/><ellipse cx="194" cy="169" rx="6.0" ry="4.8" fill="#FBF7F2"/><circle cx="188" cy="161" r="2.5" fill="#FBF7F2"/><circle cx="194" cy="161" r="2.5" fill="#FBF7F2"/><circle cx="199" cy="161" r="2.5" fill="#FBF7F2"/></g>
+</svg>

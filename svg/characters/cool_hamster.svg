@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="t-cool_hamster">
+  <title id="t-cool_hamster">Hamster — cool</title>
+  <circle cx="78" cy="72" r="27" fill="#E0A65F"/>
+  <circle cx="78" cy="74" r="15" fill="#FFC3C9"/>
+  <circle cx="178" cy="72" r="27" fill="#E0A65F"/>
+  <circle cx="178" cy="74" r="15" fill="#FFC3C9"/>
+  <circle cx="54" cy="162" r="32" fill="#F5C377"/>
+  <circle cx="202" cy="162" r="32" fill="#F5C377"/>
+  <ellipse cx="128" cy="142" rx="84" ry="76" fill="#F5C377"/>
+  <ellipse cx="128" cy="168" rx="58" ry="38" fill="#FFF3DE"/>
+  <ellipse cx="56" cy="170" rx="25" ry="20" fill="#FFF3DE"/>
+  <ellipse cx="200" cy="170" rx="25" ry="20" fill="#FFF3DE"/>
+  <g stroke="#D89A4E" stroke-width="4" stroke-linecap="round">
+    <path d="M60 150H18"/>
+    <path d="M62 168l-40 12"/>
+    <path d="M196 150h42"/>
+    <path d="M194 168l40 12"/>
+  </g>
+  <rect x="71" y="109.1" width="54" height="37.8" rx="13.23" fill="#2F3A4A"/><path d="M85.85 138.395 100.7 116.66" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.45"/><rect x="131" y="109.1" width="54" height="37.8" rx="13.23" fill="#2F3A4A"/><path d="M145.85 138.395 160.7 116.66" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.45"/><path d="M125 119.495H131" stroke="#2F3A4A" stroke-width="6" stroke-linecap="round"/>
+  <ellipse cx="72" cy="160" rx="15" ry="9" fill="#F4737F" opacity="0.35"/><ellipse cx="184" cy="160" rx="15" ry="9" fill="#F4737F" opacity="0.35"/>
+  <path d="M117 152a11 7 0 0 1 22 0c0 5-5 10-11 14-6-4-11-9-11-14z" fill="#E8798C"/>
+  <path d="M115 179q13 6 26-10" fill="none" stroke="#8C6239" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M0-12q1.5 10.5 12 12-10.5 1.5-12 12-1.5-10.5-12-12 10.5-1.5 12-12z" transform="translate(212,70) scale(0.85)" fill="#FFD86B"/>
+</svg>

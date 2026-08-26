@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="t-flower_crown_hamster">
+  <title id="t-flower_crown_hamster">Hamster — Flower crown</title>
+  <circle cx="78" cy="72" r="27" fill="#E0A65F"/>
+  <circle cx="78" cy="74" r="15" fill="#FFC3C9"/>
+  <circle cx="178" cy="72" r="27" fill="#E0A65F"/>
+  <circle cx="178" cy="74" r="15" fill="#FFC3C9"/>
+  <circle cx="54" cy="162" r="32" fill="#F5C377"/>
+  <circle cx="202" cy="162" r="32" fill="#F5C377"/>
+  <ellipse cx="128" cy="142" rx="84" ry="76" fill="#F5C377"/>
+  <ellipse cx="128" cy="168" rx="58" ry="38" fill="#FFF3DE"/>
+  <ellipse cx="56" cy="170" rx="25" ry="20" fill="#FFF3DE"/>
+  <ellipse cx="200" cy="170" rx="25" ry="20" fill="#FFF3DE"/>
+  <g stroke="#D89A4E" stroke-width="4" stroke-linecap="round">
+    <path d="M60 150H18"/>
+    <path d="M62 168l-40 12"/>
+    <path d="M196 150h42"/>
+    <path d="M194 168l40 12"/>
+  </g>
+  <ellipse cx="98" cy="128" rx="12" ry="14" fill="#4A3728"/><circle cx="94" cy="123" r="4.32" fill="#FFFFFF" opacity="0.95"/><ellipse cx="158" cy="128" rx="12" ry="14" fill="#4A3728"/><circle cx="154" cy="123" r="4.32" fill="#FFFFFF" opacity="0.95"/>
+  <ellipse cx="72" cy="160" rx="15" ry="9" fill="#F4737F" opacity="0.35"/><ellipse cx="184" cy="160" rx="15" ry="9" fill="#F4737F" opacity="0.35"/>
+  <path d="M117 152a11 7 0 0 1 22 0c0 5-5 10-11 14-6-4-11-9-11-14z" fill="#E8798C"/>
+  <path d="M113 173q7.5 11 15 0 q7.5 11 15 0" fill="none" stroke="#8C6239" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="120" y="184" width="16" height="13" rx="4" fill="#FFFDF8" stroke="#D8B98C" stroke-width="2.5"/><path d="M128 184v13" stroke="#D8B98C" stroke-width="2.5"/>
+  <circle cx="69" cy="88" r="6" fill="#FFC2D1"/><circle cx="77" cy="94" r="6" fill="#FFC2D1"/><circle cx="74" cy="105" r="6" fill="#FFC2D1"/><circle cx="64" cy="105" r="6" fill="#FFC2D1"/><circle cx="60" cy="94" r="6" fill="#FFC2D1"/><circle cx="68.80643362531052" cy="97.26211695137289" r="4" fill="#FFD86B"/><circle cx="96" cy="71" r="6" fill="#FFFFFF"/><circle cx="104" cy="78" r="6" fill="#FFFFFF"/><circle cx="101" cy="88" r="6" fill="#FFFFFF"/><circle cx="90" cy="88" r="6" fill="#FFFFFF"/><circle cx="87" cy="78" r="6" fill="#FFFFFF"/><circle cx="95.72858880638111" cy="80.48088841798173" r="4" fill="#FFD86B"/><circle cx="128" cy="66" r="6" fill="#FFC2D1"/><circle cx="137" cy="72" r="6" fill="#FFC2D1"/><circle cx="133" cy="82" r="6" fill="#FFC2D1"/><circle cx="123" cy="82" r="6" fill="#FFC2D1"/><circle cx="119" cy="72" r="6" fill="#FFC2D1"/><circle cx="128.0" cy="74.56" r="4" fill="#FFD86B"/><circle cx="160" cy="71" r="6" fill="#FFFFFF"/><circle cx="169" cy="78" r="6" fill="#FFFFFF"/><circle cx="166" cy="88" r="6" fill="#FFFFFF"/><circle cx="155" cy="88" r="6" fill="#FFFFFF"/><circle cx="152" cy="78" r="6" fill="#FFFFFF"/><circle cx="160.2714111936189" cy="80.48088841798173" r="4" fill="#FFD86B"/><circle cx="187" cy="88" r="6" fill="#FFC2D1"/><circle cx="196" cy="94" r="6" fill="#FFC2D1"/><circle cx="192" cy="105" r="6" fill="#FFC2D1"/><circle cx="182" cy="105" r="6" fill="#FFC2D1"/><circle cx="179" cy="94" r="6" fill="#FFC2D1"/><circle cx="187.19356637468948" cy="97.26211695137289" r="4" fill="#FFD86B"/>
+</svg>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="t-shy_owl">
+  <title id="t-shy_owl">Owl — shy</title>
+  <g transform="rotate(-7 128 150)">
+  <path d="M56 96 66 34l38 34z" fill="#7E6BB8"/>
+  <path d="M200 96 190 34l-38 34z" fill="#7E6BB8"/>
+  <ellipse cx="128" cy="142" rx="84" ry="78" fill="#9C8AD1"/>
+  <path d="M60 108q17-20 34 0 17-20 34 0 17-20 34 0 17-20 34 0" fill="none" stroke="#8878C2" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="98" cy="140" r="40" fill="#FFF3DE"/>
+  <circle cx="158" cy="140" r="40" fill="#FFF3DE"/>
+  <path d="M112 106 128 120l16-14" fill="none" stroke="#9C8AD1" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M74.6 138 q23.4 -13 46.8 0" fill="none" stroke="#3A3335" stroke-width="6" stroke-linecap="round"/><path d="M134.6 138 q23.4 -13 46.8 0" fill="none" stroke="#3A3335" stroke-width="6" stroke-linecap="round"/>
+  <ellipse cx="66" cy="164" rx="18.9" ry="12.15" fill="#F4737F" opacity="0.65"/><ellipse cx="190" cy="164" rx="18.9" ry="12.15" fill="#F4737F" opacity="0.65"/>
+  <path d="M128 150l15 16-15 18-15-18z" fill="#FFB13B"/><path d="M114 190q7-8 14 0 7 8 14 0" fill="none" stroke="#7E6BB8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M104 202q12-14 24 0 12-14 24 0" fill="none" stroke="#8878C2" stroke-width="6" stroke-linecap="round"/>
+  <g transform="translate(214,110)" stroke="#B9AFC9" stroke-width="5" stroke-linecap="round"><path d="M0 0h16"/><path d="M4 14h16"/></g>
+  </g>
+</svg>

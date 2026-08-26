@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="t-cycling_hamster">
+  <title id="t-cycling_hamster">Hamster — Cycling</title>
+  <g fill="none" stroke="#5A5560" stroke-width="11" stroke-linecap="round"><circle cx="58" cy="204" r="34"/><circle cx="198" cy="204" r="34"/><path d="M58 204h52l30-54M110 204l30-54M140 150h34M174 150v-18"/></g><rect x="88" y="168" width="34" height="12" rx="6" fill="#5A5560"/><circle cx="128" cy="204" r="12" fill="none" stroke="#5A5560" stroke-width="8"/><ellipse cx="112" cy="140" rx="46" ry="42" transform="rotate(-12 112 140)" fill="#F5C377"/><ellipse cx="112" cy="146" rx="27" ry="25" fill="#FFF3DE"/><g transform="translate(112,80) rotate(-10) scale(0.48) translate(-128,-126)"><circle cx="78" cy="72" r="27" fill="#E0A65F"/>
+  <circle cx="78" cy="74" r="15" fill="#FFC3C9"/>
+  <circle cx="178" cy="72" r="27" fill="#E0A65F"/>
+  <circle cx="178" cy="74" r="15" fill="#FFC3C9"/>
+  <circle cx="54" cy="162" r="32" fill="#F5C377"/>
+  <circle cx="202" cy="162" r="32" fill="#F5C377"/>
+  <ellipse cx="128" cy="142" rx="84" ry="76" fill="#F5C377"/>
+  <ellipse cx="128" cy="168" rx="58" ry="38" fill="#FFF3DE"/>
+  <ellipse cx="56" cy="170" rx="25" ry="20" fill="#FFF3DE"/>
+  <ellipse cx="200" cy="170" rx="25" ry="20" fill="#FFF3DE"/>
+  <g stroke="#D89A4E" stroke-width="4" stroke-linecap="round">
+    <path d="M60 150H18"/>
+    <path d="M62 168l-40 12"/>
+    <path d="M196 150h42"/>
+    <path d="M194 168l40 12"/>
+  </g>
+  <ellipse cx="98" cy="128" rx="12" ry="14" fill="#4A3728"/><circle cx="94" cy="123" r="4.32" fill="#FFFFFF" opacity="0.95"/><ellipse cx="158" cy="128" rx="12" ry="14" fill="#4A3728"/><circle cx="154" cy="123" r="4.32" fill="#FFFFFF" opacity="0.95"/>
+  <ellipse cx="72" cy="160" rx="15" ry="9" fill="#F4737F" opacity="0.35"/><ellipse cx="184" cy="160" rx="15" ry="9" fill="#F4737F" opacity="0.35"/>
+  <path d="M117 152a11 7 0 0 1 22 0c0 5-5 10-11 14-6-4-11-9-11-14z" fill="#E8798C"/>
+  <path d="M113 173q7.5 11 15 0 q7.5 11 15 0" fill="none" stroke="#8C6239" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="120" y="184" width="16" height="13" rx="4" fill="#FFFDF8" stroke="#D8B98C" stroke-width="2.5"/><path d="M128 184v13" stroke="#D8B98C" stroke-width="2.5"/></g><path d="M158.0 137.2L158.9 138.1L160.2 139.3L162.0 140.8L164.2 142.4L166.6 143.9L169.3 145.4L172.2 146.7L175.3 147.7L178.4 148.5L181.6 148.8L184.6 148.9L187.5 148.6L190.3 148.2L192.8 147.7L195.2 147.2L197.1 146.6L198.7 146.2L199.8 145.8A4.5 4.5 0 0 1 199.4 136.8L198.0 136.5L196.2 136.4L194.1 136.2L192.0 136.1L189.7 135.9L187.6 135.6L185.6 135.2L183.9 134.7L182.8 134.1L181.7 133.2L180.2 132.0L178.5 130.6L176.7 129.1L174.7 127.6L172.7 126.1L170.9 124.9L169.1 123.8L167.6 123.1A8.5 8.5 0 0 1 158.0 137.2Z" fill="#EAB268"/><g transform="rotate(90 200 141)"><ellipse cx="200" cy="141" rx="11" ry="10.3" fill="#EAB268"/><ellipse cx="200" cy="144" rx="5.5" ry="4.4" fill="#FFF3DE"/><circle cx="195" cy="136" r="2.3" fill="#FFF3DE"/><circle cx="200" cy="136" r="2.3" fill="#FFF3DE"/><circle cx="205" cy="136" r="2.3" fill="#FFF3DE"/></g><path d="M85.1 127.6L84.4 129.0L83.6 131.0L82.9 133.1L82.2 135.4L81.6 137.8L81.1 140.2L80.6 142.4L80.2 144.2L79.9 145.6L79.3 146.8L78.4 148.2L77.0 149.7L75.5 151.3L73.9 152.8L72.2 154.2L70.7 155.6L69.4 156.8L68.4 157.9A4.5 4.5 0 0 1 73.6 165.3L74.8 164.9L76.3 164.3L78.2 163.5L80.3 162.5L82.7 161.3L85.1 159.9L87.5 158.3L89.9 156.5L92.1 154.2L94.2 151.7L96.0 149.0L97.4 146.2L98.7 143.4L99.6 140.6L100.4 138.0L100.9 135.8L101.2 134.0L101.3 132.8A8.5 8.5 0 0 1 85.1 127.6Z" fill="#EAB268"/><g transform="rotate(-52 71 162)"><ellipse cx="71" cy="162" rx="11" ry="10.3" fill="#EAB268"/><ellipse cx="71" cy="164" rx="5.5" ry="4.4" fill="#FFF3DE"/><circle cx="66" cy="157" r="2.3" fill="#FFF3DE"/><circle cx="71" cy="157" r="2.3" fill="#FFF3DE"/><circle cx="76" cy="157" r="2.3" fill="#FFF3DE"/></g>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="t-searching_owl">
+  <title id="t-searching_owl">Owl — Searching</title>
+  <g transform="rotate(-7 128 150)"><g transform="translate(128,92) scale(0.62) translate(-128,-126)"><g transform="rotate(-7 128 150)">
+  <path d="M56 96 66 34l38 34z" fill="#7E6BB8"/>
+  <path d="M200 96 190 34l-38 34z" fill="#7E6BB8"/>
+  <ellipse cx="128" cy="142" rx="84" ry="78" fill="#9C8AD1"/>
+  <path d="M60 108q17-20 34 0 17-20 34 0 17-20 34 0 17-20 34 0" fill="none" stroke="#8878C2" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="98" cy="140" r="40" fill="#FFF3DE"/>
+  <circle cx="158" cy="140" r="40" fill="#FFF3DE"/>
+  <path d="M112 106 128 120l16-14" fill="none" stroke="#9C8AD1" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="98" cy="138" r="18" fill="#3A3335"/><circle cx="92" cy="132" r="5.94" fill="#FFFFFF" opacity="0.95"/><circle cx="103" cy="145" r="3.06" fill="#FFFFFF" opacity="0.7"/><circle cx="158" cy="138" r="18" fill="#3A3335"/><circle cx="152" cy="132" r="5.94" fill="#FFFFFF" opacity="0.95"/><circle cx="163" cy="145" r="3.06" fill="#FFFFFF" opacity="0.7"/>
+  <ellipse cx="66" cy="164" rx="14" ry="9" fill="#F4737F" opacity="0.35"/><ellipse cx="190" cy="164" rx="14" ry="9" fill="#F4737F" opacity="0.35"/>
+  <path d="M128 148l15 15h-30z" fill="#FFB13B"/><path d="M113 163h30q0 17-15 17t-15-17z" fill="#E8912B"/>
+  <path d="M104 202q12-14 24 0 12-14 24 0" fill="none" stroke="#8878C2" stroke-width="6" stroke-linecap="round"/>
+  </g></g><circle cx="146" cy="192" r="40" fill="#FFFFFF" fill-opacity="0.6" stroke="#9C8AD1" stroke-width="13"/><path d="m176 222 26 26" stroke="#9C8AD1" stroke-width="15" stroke-linecap="round"/><g transform="rotate(-18 84 206)"><ellipse cx="84" cy="206" rx="21" ry="26" fill="#9C8AD1"/><ellipse cx="84" cy="209" rx="11" ry="14" fill="#FFF3DE"/></g></g>
+</svg>

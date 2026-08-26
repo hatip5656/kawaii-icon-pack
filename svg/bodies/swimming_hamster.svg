@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="t-swimming_hamster">
+  <title id="t-swimming_hamster">Hamster — Swimming</title>
+  <ellipse cx="128" cy="158" rx="58" ry="54" fill="#F5C377"/><ellipse cx="128" cy="164" rx="34" ry="36" fill="#FFF3DE"/><circle cx="128" cy="196" r="62" fill="none" stroke="#FF8FA9" stroke-width="26"/><circle cx="128" cy="196" r="62" fill="none" stroke="#FFFCF8" stroke-width="26" stroke-dasharray="30 30" stroke-dashoffset="16"/><g fill="none" stroke="#7EC8E3" stroke-width="8" stroke-linecap="round"><path d="M8 234q14-12 28 0t28 0"/><path d="M192 234q14-12 28 0t28 0"/></g><g transform="translate(128,88) scale(0.5) translate(-128,-126)"><circle cx="78" cy="72" r="27" fill="#E0A65F"/>
+  <circle cx="78" cy="74" r="15" fill="#FFC3C9"/>
+  <circle cx="178" cy="72" r="27" fill="#E0A65F"/>
+  <circle cx="178" cy="74" r="15" fill="#FFC3C9"/>
+  <circle cx="54" cy="162" r="32" fill="#F5C377"/>
+  <circle cx="202" cy="162" r="32" fill="#F5C377"/>
+  <ellipse cx="128" cy="142" rx="84" ry="76" fill="#F5C377"/>
+  <ellipse cx="128" cy="168" rx="58" ry="38" fill="#FFF3DE"/>
+  <ellipse cx="56" cy="170" rx="25" ry="20" fill="#FFF3DE"/>
+  <ellipse cx="200" cy="170" rx="25" ry="20" fill="#FFF3DE"/>
+  <g stroke="#D89A4E" stroke-width="4" stroke-linecap="round">
+    <path d="M60 150H18"/>
+    <path d="M62 168l-40 12"/>
+    <path d="M196 150h42"/>
+    <path d="M194 168l40 12"/>
+  </g>
+  <ellipse cx="98" cy="128" rx="12" ry="14" fill="#4A3728"/><circle cx="94" cy="123" r="4.32" fill="#FFFFFF" opacity="0.95"/><ellipse cx="158" cy="128" rx="12" ry="14" fill="#4A3728"/><circle cx="154" cy="123" r="4.32" fill="#FFFFFF" opacity="0.95"/>
+  <ellipse cx="72" cy="160" rx="15" ry="9" fill="#F4737F" opacity="0.35"/><ellipse cx="184" cy="160" rx="15" ry="9" fill="#F4737F" opacity="0.35"/>
+  <path d="M117 152a11 7 0 0 1 22 0c0 5-5 10-11 14-6-4-11-9-11-14z" fill="#E8798C"/>
+  <path d="M113 173q7.5 11 15 0 q7.5 11 15 0" fill="none" stroke="#8C6239" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="120" y="184" width="16" height="13" rx="4" fill="#FFFDF8" stroke="#D8B98C" stroke-width="2.5"/><path d="M128 184v13" stroke="#D8B98C" stroke-width="2.5"/></g><path d="M85.0 127.8L84.3 129.3L83.6 131.3L83.0 133.5L82.4 135.8L81.9 138.2L81.4 140.6L81.0 142.8L80.7 144.6L80.4 146.0L79.9 147.2L79.0 148.7L77.7 150.3L76.2 151.9L74.7 153.4L73.1 154.9L71.6 156.3L70.3 157.7L69.4 158.8A4.5 4.5 0 0 1 74.9 165.9L76.0 165.5L77.5 164.9L79.4 164.0L81.5 162.9L83.7 161.7L86.1 160.2L88.5 158.5L90.8 156.6L93.0 154.2L95.0 151.6L96.6 148.9L98.0 146.0L99.1 143.2L100.0 140.4L100.6 137.8L101.1 135.5L101.3 133.8L101.4 132.5A8.5 8.5 0 0 1 85.0 127.8Z" fill="#EAB268"/><g transform="rotate(-50 72 162)"><ellipse cx="72" cy="162" rx="11" ry="10.3" fill="#EAB268"/><ellipse cx="72" cy="165" rx="5.5" ry="4.4" fill="#FFF3DE"/><circle cx="67" cy="157" r="2.3" fill="#FFF3DE"/><circle cx="72" cy="157" r="2.3" fill="#FFF3DE"/><circle cx="77" cy="157" r="2.3" fill="#FFF3DE"/></g><path d="M154.6 132.5L154.7 133.8L154.9 135.5L155.4 137.8L156.0 140.4L156.9 143.2L158.0 146.0L159.4 148.9L161.0 151.6L163.0 154.2L165.2 156.6L167.5 158.5L169.9 160.2L172.3 161.7L174.5 162.9L176.6 164.0L178.5 164.9L180.0 165.5L181.1 165.9A4.5 4.5 0 0 1 186.6 158.8L185.7 157.7L184.4 156.3L182.9 154.9L181.3 153.4L179.8 151.9L178.3 150.3L177.0 148.7L176.1 147.2L175.6 146.0L175.3 144.6L175.0 142.8L174.6 140.6L174.1 138.2L173.6 135.8L173.0 133.5L172.4 131.3L171.7 129.3L171.0 127.8A8.5 8.5 0 0 1 154.6 132.5Z" fill="#EAB268"/><g transform="rotate(50 184 162)"><ellipse cx="184" cy="162" rx="11" ry="10.3" fill="#EAB268"/><ellipse cx="184" cy="165" rx="5.5" ry="4.4" fill="#FFF3DE"/><circle cx="179" cy="157" r="2.3" fill="#FFF3DE"/><circle cx="184" cy="157" r="2.3" fill="#FFF3DE"/><circle cx="189" cy="157" r="2.3" fill="#FFF3DE"/></g>
+</svg>

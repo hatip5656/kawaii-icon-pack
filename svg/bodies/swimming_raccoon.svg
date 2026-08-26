@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="t-swimming_raccoon">
+  <title id="t-swimming_raccoon">Raccoon — Swimming</title>
+  <ellipse cx="128" cy="158" rx="52" ry="54" fill="#A7AEBC"/><ellipse cx="128" cy="164" rx="30" ry="36" fill="#FBF7F2"/><circle cx="128" cy="196" r="62" fill="none" stroke="#FF8FA9" stroke-width="26"/><circle cx="128" cy="196" r="62" fill="none" stroke="#FFFCF8" stroke-width="26" stroke-dasharray="30 30" stroke-dashoffset="16"/><g fill="none" stroke="#7EC8E3" stroke-width="8" stroke-linecap="round"><path d="M8 234q14-12 28 0t28 0"/><path d="M192 234q14-12 28 0t28 0"/></g><g transform="translate(128,88) scale(0.5) translate(-128,-126)"><ellipse cx="60" cy="76" rx="34" ry="32" fill="#8E96A6"/>
+  <ellipse cx="60" cy="80" rx="20" ry="18" fill="#FBF7F2"/>
+  <ellipse cx="196" cy="76" rx="34" ry="32" fill="#8E96A6"/>
+  <ellipse cx="196" cy="80" rx="20" ry="18" fill="#FBF7F2"/>
+  <ellipse cx="128" cy="140" rx="86" ry="78" fill="#A7AEBC"/>
+  <defs><clipPath id="clip-raccoon"><ellipse cx="128" cy="140" rx="86" ry="78"/></clipPath></defs>
+  <g clip-path="url(#clip-raccoon)">
+    <ellipse cx="128" cy="94" rx="25" ry="32" fill="#FBF7F2"/>
+    <ellipse cx="70" cy="172" rx="32" ry="28" fill="#FBF7F2"/>
+    <ellipse cx="186" cy="172" rx="32" ry="28" fill="#FBF7F2"/>
+    <ellipse cx="128" cy="176" rx="44" ry="32" fill="#FBF7F2"/>
+    <ellipse cx="94" cy="124" rx="34" ry="28" fill="#4A4453" transform="rotate(-10 94 124)"/>
+    <ellipse cx="162" cy="124" rx="34" ry="28" fill="#4A4453" transform="rotate(10 162 124)"/>
+  </g>
+  <circle cx="94" cy="124" r="11.5" fill="#FFFFFF"/><circle cx="95" cy="125" r="6.5" fill="#3A3335"/><circle cx="91" cy="120" r="2.6" fill="#FFFFFF"/><circle cx="162" cy="124" r="11.5" fill="#FFFFFF"/><circle cx="161" cy="125" r="6.5" fill="#3A3335"/><circle cx="159" cy="120" r="2.6" fill="#FFFFFF"/>
+  <ellipse cx="70" cy="180" rx="13" ry="8" fill="#FF8FA9" opacity="0.35"/><ellipse cx="186" cy="180" rx="13" ry="8" fill="#FF8FA9" opacity="0.35"/>
+  <path d="M114 158a14 8 0 0 1 28 0c0 6-6 12-14 17-8-5-14-11-14-17z" fill="#3A3335"/>
+  <path d="M112 183q8 11 16 0 q8 11 16 0" fill="none" stroke="#4A4453" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></g><path d="M88.6 129.5L87.9 131.3L87.2 133.7L86.5 136.4L85.8 139.4L85.2 142.4L84.6 145.4L84.0 148.2L83.4 150.8L82.9 152.8L81.9 154.6L80.4 156.7L78.6 158.9L76.5 161.0L74.4 163.2L72.3 165.2L70.4 167.0L68.7 168.7L67.5 170.1A4.2 4.2 0 0 1 72.9 176.5L74.3 175.8L76.2 174.7L78.5 173.3L81.1 171.7L83.9 169.9L86.7 167.9L89.5 165.6L92.2 163.1L94.7 160.3L96.9 157.3L98.8 154.0L100.5 150.6L101.8 147.1L102.9 143.8L103.8 140.7L104.4 137.9L104.7 135.7L105.0 134.2A8.5 8.5 0 0 1 88.6 129.5Z" fill="#99A1B0"/><g transform="rotate(-48 70 173)"><ellipse cx="70" cy="173" rx="12" ry="11.3" fill="#99A1B0"/><ellipse cx="70" cy="176" rx="6.0" ry="4.8" fill="#FBF7F2"/><circle cx="65" cy="168" r="2.5" fill="#FBF7F2"/><circle cx="70" cy="168" r="2.5" fill="#FBF7F2"/><circle cx="76" cy="168" r="2.5" fill="#FBF7F2"/></g><path d="M151.0 134.2L151.3 135.7L151.6 137.9L152.2 140.7L153.1 143.8L154.2 147.1L155.5 150.6L157.2 154.0L159.1 157.3L161.3 160.3L163.8 163.1L166.5 165.6L169.3 167.9L172.1 169.9L174.9 171.7L177.5 173.3L179.8 174.7L181.7 175.8L183.1 176.5A4.2 4.2 0 0 1 188.5 170.1L187.3 168.7L185.6 167.0L183.7 165.2L181.6 163.2L179.5 161.0L177.4 158.9L175.6 156.7L174.1 154.6L173.1 152.8L172.6 150.8L172.0 148.2L171.4 145.4L170.8 142.4L170.2 139.4L169.5 136.4L168.8 133.7L168.1 131.3L167.4 129.5A8.5 8.5 0 0 1 151.0 134.2Z" fill="#99A1B0"/><g transform="rotate(48 186 173)"><ellipse cx="186" cy="173" rx="12" ry="11.3" fill="#99A1B0"/><ellipse cx="186" cy="176" rx="6.0" ry="4.8" fill="#FBF7F2"/><circle cx="180" cy="168" r="2.5" fill="#FBF7F2"/><circle cx="186" cy="168" r="2.5" fill="#FBF7F2"/><circle cx="191" cy="168" r="2.5" fill="#FBF7F2"/></g>
+</svg>

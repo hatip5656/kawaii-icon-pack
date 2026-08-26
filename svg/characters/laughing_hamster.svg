@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="t-laughing_hamster">
+  <title id="t-laughing_hamster">Hamster — laughing</title>
+  <circle cx="78" cy="72" r="27" fill="#E0A65F"/>
+  <circle cx="78" cy="74" r="15" fill="#FFC3C9"/>
+  <circle cx="178" cy="72" r="27" fill="#E0A65F"/>
+  <circle cx="178" cy="74" r="15" fill="#FFC3C9"/>
+  <circle cx="54" cy="162" r="32" fill="#F5C377"/>
+  <circle cx="202" cy="162" r="32" fill="#F5C377"/>
+  <ellipse cx="128" cy="142" rx="84" ry="76" fill="#F5C377"/>
+  <ellipse cx="128" cy="168" rx="58" ry="38" fill="#FFF3DE"/>
+  <ellipse cx="56" cy="170" rx="25" ry="20" fill="#FFF3DE"/>
+  <ellipse cx="200" cy="170" rx="25" ry="20" fill="#FFF3DE"/>
+  <g stroke="#D89A4E" stroke-width="4" stroke-linecap="round">
+    <path d="M60 150H18"/>
+    <path d="M62 168l-40 12"/>
+    <path d="M196 150h42"/>
+    <path d="M194 168l40 12"/>
+  </g>
+  <path d="M82.4 128 q15.6 -13 31.2 0" fill="none" stroke="#8C6239" stroke-width="6" stroke-linecap="round"/><path d="M142.4 128 q15.6 -13 31.2 0" fill="none" stroke="#8C6239" stroke-width="6" stroke-linecap="round"/>
+  <ellipse cx="72" cy="160" rx="15" ry="9" fill="#F4737F" opacity="0.6"/><ellipse cx="184" cy="160" rx="15" ry="9" fill="#F4737F" opacity="0.6"/>
+  <path d="M117 152a11 7 0 0 1 22 0c0 5-5 10-11 14-6-4-11-9-11-14z" fill="#E8798C"/>
+  <path d="M109 171q19 32 38 0z" fill="#8C6239"/><path d="M120 179q8 9 16 0z" fill="#FF8FA9"/>
+</svg>

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="t-rate_3_raccoon">
+  <title id="t-rate_3_raccoon">Raccoon — Okay</title>
+  <path d="M78 208C40 208 18 184 18 154" fill="none" stroke="#8E96A6" stroke-width="34" stroke-linecap="round"/>
+  <path d="M78 208C40 208 18 184 18 154" fill="none" stroke="#4A4453" stroke-width="34" stroke-dasharray="13 25" stroke-dashoffset="20"/>
+  <ellipse cx="60" cy="76" rx="34" ry="32" fill="#8E96A6"/>
+  <ellipse cx="60" cy="80" rx="20" ry="18" fill="#FBF7F2"/>
+  <ellipse cx="196" cy="76" rx="34" ry="32" fill="#8E96A6"/>
+  <ellipse cx="196" cy="80" rx="20" ry="18" fill="#FBF7F2"/>
+  <ellipse cx="128" cy="140" rx="86" ry="78" fill="#A7AEBC"/>
+  <defs><clipPath id="clip-raccoon"><ellipse cx="128" cy="140" rx="86" ry="78"/></clipPath></defs>
+  <g clip-path="url(#clip-raccoon)">
+    <ellipse cx="128" cy="94" rx="25" ry="32" fill="#FBF7F2"/>
+    <ellipse cx="70" cy="172" rx="32" ry="28" fill="#FBF7F2"/>
+    <ellipse cx="186" cy="172" rx="32" ry="28" fill="#FBF7F2"/>
+    <ellipse cx="128" cy="176" rx="44" ry="32" fill="#FBF7F2"/>
+    <ellipse cx="94" cy="124" rx="34" ry="28" fill="#4A4453" transform="rotate(-10 94 124)"/>
+    <ellipse cx="162" cy="124" rx="34" ry="28" fill="#4A4453" transform="rotate(10 162 124)"/>
+  </g>
+  <circle cx="94" cy="124" r="11.5" fill="#FFFFFF"/><circle cx="95" cy="125" r="6.5" fill="#3A3335"/><circle cx="91" cy="120" r="2.6" fill="#FFFFFF"/><circle cx="162" cy="124" r="11.5" fill="#FFFFFF"/><circle cx="161" cy="125" r="6.5" fill="#3A3335"/><circle cx="159" cy="120" r="2.6" fill="#FFFFFF"/>
+  <ellipse cx="70" cy="180" rx="13" ry="8" fill="#FF8FA9" opacity="0.3"/><ellipse cx="186" cy="180" rx="13" ry="8" fill="#FF8FA9" opacity="0.3"/>
+  <path d="M114 158a14 8 0 0 1 28 0c0 6-6 12-14 17-8-5-14-11-14-17z" fill="#3A3335"/>
+  <path d="M119 186h18" fill="none" stroke="#4A4453" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
