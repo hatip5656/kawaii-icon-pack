@@ -1,21 +1,78 @@
-# Kawaii Animals
+# Kawaii Icon Pack
 
-**Five kawaii characters, drawn for every mood and every state** — plus a companion
-set of plain UI icons for the interface around them.
+**Six kawaii characters, drawn for every mood and every state** — plus a companion
+set of plain UI icons for the interface around them. 1119 icons, zero dependencies.
+
+<p align="center">
+  <img src="preview/sheets/hero.svg" alt="Sample icons from the pack" width="840">
+</p>
 
 ```
-characters/   95 faces   5 animals x 14 expressions + a 5-step rating scale
-paws/         50 icons   every gesture in each character's colours (wings for the owl)
-frames/       20 icons   characters composed into bubbles, stickers, ledges, hugs
-extras/       30 icons   accessories, plus one signature snack per character
-actions/      60 icons   the characters doing things — 12 verbs each
-bodies/        5 icons   full-body standing pose
-status/       50 avatars every animal x every status
-badges/       10 badges  status dots, character-independent
 ui/          251 icons   kawaii UI set — faces, paws, deco, food, doodles
+jobs/        258 icons   43 occupations, drawn for each character
+bodies/      198 icons   33 full-body poses and sports, each character
+characters/  114 faces   6 animals x 14 expressions + a 5-step rating scale
+actions/     108 icons   the characters doing things — 18 verbs each
+paws/         60 icons   every gesture per character (wing and talon for the owl)
+status/       60 avatars every character x every status
+extras/       36 icons   accessories, plus one signature snack per character
+frames/       24 icons   characters composed into bubbles, stickers, ledges, hugs
+badges/       10 badges  status dots, character-independent
 ```
 
-**Characters:** red panda · rabbit · panda · hamster · owl
+## Preview
+
+**[Browse all 1119 icons →](https://hatip5656.github.io/kawaii-icon-pack/)** — searchable,
+click any icon to copy its code.
+
+Working from a clone? Open `preview/index.html` in a browser. It is one
+self-contained file with every icon inlined — no server, no build, just open it.
+
+<details>
+<summary><b>Characters</b> — 114 faces, 14 expressions and a rating scale</summary>
+<p><img src="preview/sheets/characters.svg" alt="Character faces" width="840"></p>
+</details>
+
+<details>
+<summary><b>Hand gestures</b> — 60 paws, wings and talons</summary>
+<p><img src="preview/sheets/paws.svg" alt="Hand gestures" width="840"></p>
+</details>
+
+<details>
+<summary><b>Full bodies</b> — 198 poses and sports</summary>
+<p><img src="preview/sheets/bodies.svg" alt="Full body poses" width="840"></p>
+</details>
+
+<details>
+<summary><b>Occupations</b> — 258 icons</summary>
+<p><img src="preview/sheets/jobs.svg" alt="Occupations" width="840"></p>
+</details>
+
+<details>
+<summary><b>Actions</b> — 108 verbs</summary>
+<p><img src="preview/sheets/actions.svg" alt="Actions" width="840"></p>
+</details>
+
+<details>
+<summary><b>Status avatars and badges</b> — 60 + 10</summary>
+<p><img src="preview/sheets/status.svg" alt="Status avatars" width="840"></p>
+<p><img src="preview/sheets/badges.svg" alt="Status badges" width="700"></p>
+</details>
+
+<details>
+<summary><b>Accessories and compositions</b> — 36 + 24</summary>
+<p><img src="preview/sheets/extras.svg" alt="Accessories" width="840"></p>
+<p><img src="preview/sheets/frames.svg" alt="Compositions" width="840"></p>
+</details>
+
+<details>
+<summary><b>UI icons</b> — 251 line glyphs, currentColor</summary>
+<p><img src="preview/sheets/ui.svg" alt="UI icons" width="840"></p>
+</details>
+
+The sheets above are samples spread across each layer. The link goes to all of them.
+
+**Characters:** red panda · rabbit · panda · hamster · raccoon · owl
 
 Each is drawn from its own anatomy rather than being a recolour of one face:
 

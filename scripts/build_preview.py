@@ -351,6 +351,107 @@ def build() -> str:
 """
 
 
+# --------------------------------------------------------------- README sheets
+#
+# GitHub cannot embed the interactive preview, but it does render SVG images, so
+# the pack ships flat contact sheets the README can show inline. Icons are
+# inlined as <g transform> rather than nested <svg>, which GitHub's sanitiser
+# handles far more reliably.
+
+SHEETS_DIR = ROOT / "preview" / "sheets"
+INK = "#3F3550"
+
+SAMPLE = {
+    "characters": 42, "ui": 48, "paws": 30, "bodies": 24, "jobs": 24,
+    "actions": 24, "status": 18, "extras": 18, "frames": 12, "badges": 10,
+}
+
+HERO = [
+    "characters/happy_red_panda", "characters/love_rabbit", "characters/cool_panda",
+    "characters/sleepy_hamster", "characters/wink_raccoon", "characters/laughing_owl",
+    "paws/wave_rabbit", "paws/heart_hands_panda", "paws/thumbs_up_raccoon",
+    "paws/peace_hamster", "paws/high_five_red_panda", "paws/grab_owl",
+    "bodies/running_rabbit", "bodies/skateboarding_raccoon", "jobs/chef_panda",
+    "jobs/astronaut_owl", "actions/celebrating_red_panda", "frames/hug_hamster",
+    "status/online_rabbit", "status/busy_panda", "extras/party_hat_raccoon",
+    "ui/heart", "ui/star", "ui/search", "ui/bell", "ui/cloud", "ui/rocket", "ui/paw",
+]
+
+
+def _inner(path: Path, suffix: str):
+    """(drawing, viewBox size) with ids namespaced and the title dropped.
+
+    Layers do not share a canvas — characters are 256, UI glyphs are 24 — so the
+    box has to be read per icon or the small ones end up as dots.
+    """
+    svg = path.read_text()
+    root = svg[svg.index("<svg"):svg.index(">", svg.index("<svg"))]
+    box = re.search(r'viewBox="([\d.\s-]+)"', svg).group(1).split()
+    size = max(float(box[2]), float(box[3]))
+
+    # The UI layer sets fill/stroke on the root <svg>; drop those and the line
+    # icons render as solid black blobs, so they move onto the wrapper.
+    carried = ("fill", "stroke", "stroke-width", "stroke-linecap", "stroke-linejoin",
+               "stroke-miterlimit", "fill-rule", "clip-rule", "opacity", "color")
+    attrs = " ".join(f'{k}="{v}"' for k, v in re.findall(r'([\w-]+)="([^"]*)"', root)
+                     if k in carried)
+
+    body = svg[svg.index(">", svg.index("<svg")) + 1:svg.rindex("</svg>")]
+    body = re.sub(r"<title.*?</title>", "", body, flags=re.S)
+    for ident in set(re.findall(r'id="([^"]+)"', body)):
+        body = body.replace(f'id="{ident}"', f'id="{ident}-{suffix}"')
+        body = body.replace(f"url(#{ident})", f"url(#{ident}-{suffix})")
+    return body.strip(), size, attrs
+
+
+def sheet(paths, cols: int, cell: int = 128, pad: float = 0.86) -> str:
+    rows = -(-len(paths) // cols)
+    parts = []
+    for i, path in enumerate(paths):
+        art, size, attrs = _inner(path, str(i))
+        scale = cell * pad / size
+        ox = (i % cols) * cell + (cell - size * scale) / 2
+        oy = (i // cols) * cell + (cell - size * scale) / 2
+        head = f'transform="translate({ox:.4g} {oy:.4g}) scale({scale:.4g})"'
+        parts.append(f'<g {head}{" " + attrs if attrs else ""}>{art}</g>')
+    body = "".join(parts)
+    w, h = cols * cell, rows * cell
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" '
+            f'viewBox="0 0 {w} {h}" role="img">'
+            f'<rect width="100%" height="100%" fill="#FFFCF8" rx="16"/>'
+            f'<g color="{INK}">{body}</g></svg>\n')
+
+
+def spread(items, n):
+    """n items sampled evenly across the list, so a sheet shows the whole range."""
+    if len(items) <= n:
+        return items
+    step = len(items) / n
+    return [items[int(i * step)] for i in range(n)]
+
+
+def build_sheets() -> None:
+    SHEETS_DIR.mkdir(parents=True, exist_ok=True)
+    written = []
+
+    hero = [SVG_DIR / f"{name}.svg" for name in HERO]
+    missing = [p for p in hero if not p.exists()]
+    if missing:
+        raise SystemExit(f"hero sheet references missing icons: {missing}")
+    (SHEETS_DIR / "hero.svg").write_text(sheet(hero, cols=7))
+    written.append("hero")
+
+    for layer, n in SAMPLE.items():
+        paths = spread(sorted((SVG_DIR / layer).glob("*.svg")), n)
+        cols = 10 if layer in ("ui", "badges") else 6
+        (SHEETS_DIR / f"{layer}.svg").write_text(sheet(paths, cols=cols))
+        written.append(layer)
+
+    total = sum((SHEETS_DIR / f"{n}.svg").stat().st_size for n in written)
+    print(f"wrote {len(written)} README sheets ({total // 1024} KB total)")
+
+
 if __name__ == "__main__":
     OUT.write_text(build())
     print(f"wrote {OUT.relative_to(ROOT)} ({OUT.stat().st_size // 1024} KB)")
+    build_sheets()
