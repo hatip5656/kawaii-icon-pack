@@ -5,7 +5,8 @@ on:
     branches: [main]
   workflow_dispatch:
 
-# One-time setup: Settings → Pages → Source = GitHub Actions.
+# configure-pages enables Pages itself (enablement: true below); if the API
+# call is refused, set Settings → Pages → Source = GitHub Actions by hand.
 permissions:
   contents: read
   pages: write
@@ -45,6 +46,9 @@ jobs:
           cp preview/index.html _site/index.html
 
       - uses: actions/configure-pages@v5
+        with:
+          # turns Pages on via the API rather than needing the repo setting
+          enablement: true
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
