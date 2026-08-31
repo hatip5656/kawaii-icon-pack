@@ -29,9 +29,9 @@ jobs:
       # reviewed visually. This is what stops the two drifting apart.
       - name: Committed icons match the generators
         run: |
-          if ! git diff --quiet -- svg icons.json preview/sheets; then
+          if ! git diff --quiet -- svg icons.json preview; then
             echo "::error::generated files are out of date — run 'npm run build' and commit the result"
-            git diff --stat -- svg icons.json preview/sheets
+            git diff --stat -- svg icons.json preview
             exit 1
           fi
 

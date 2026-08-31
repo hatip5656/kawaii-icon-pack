@@ -3,4 +3,3 @@ preview/contact-sheet.svg
 *.tgz
 .DS_Store
 dist/
-preview/index.html

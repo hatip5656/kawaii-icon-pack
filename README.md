@@ -25,8 +25,10 @@ badges/       10 badges  status dots, character-independent
 **[Browse all 1119 icons →](https://hatip5656.github.io/kawaii-icon-pack/)** — searchable,
 click any icon to copy its code.
 
-Working from a clone? Open `preview/index.html` in a browser. It is one
-self-contained file with every icon inlined — no server, no build, just open it.
+The same page is committed as [`preview/index.html`](preview/index.html) — one
+self-contained file with every icon inlined. Clone or download it and open it
+straight in a browser: no server, no build step, nothing to install. (GitHub
+renders HTML files as source, so use the link above or open your own copy.)
 
 <details>
 <summary><b>Characters</b> — 114 faces, 14 expressions and a rating scale</summary>
