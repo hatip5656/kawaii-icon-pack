@@ -1,8 +1,13 @@
 name: Preview site
 
+# Manual only. GitHub Pages has to be switched on for the repository first —
+# a workflow cannot create the site when the default token is read-only, and
+# running this on every push just paints the repo red. Once either
+#   Settings → Pages → Source = GitHub Actions          (creates the site), or
+#   Settings → Actions → General → Workflow permissions = Read and write
+#                                                       (lets enablement do it)
+# is set, run this workflow once and put the push trigger back.
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 # configure-pages enables Pages itself (enablement: true below); if the API

@@ -22,8 +22,12 @@ badges/       10 badges  status dots, character-independent
 
 ## Preview
 
-**[Browse all 1119 icons →](https://hatip5656.github.io/kawaii-icon-pack/)** — searchable,
-click any icon to copy its code.
+**[Browse all 1119 icons →](https://raw.githack.com/hatip5656/kawaii-icon-pack/main/preview/index.html)**
+— searchable, click any icon to copy its code.
+
+<!-- Interim host: githack serves the committed file with the right content type.
+     Once GitHub Pages is enabled, swap this for
+     https://hatip5656.github.io/kawaii-icon-pack/ -->
 
 The same page is committed as [`preview/index.html`](preview/index.html) — one
 self-contained file with every icon inlined. Clone or download it and open it
