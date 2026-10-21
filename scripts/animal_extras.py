@@ -84,11 +84,11 @@ def accessory(animal, kind):
                     for x in (cx - band_r - 15, cx + band_r - 15))) 
 
     if kind == "scarf":
-        y = cy + ry - 18
+        y = cy + ry - 30
         w = rx * 0.86
         return (f'<path d="M{cx - w:.0f} {y:.0f}q{w:.0f} 30 {2 * w:.0f} 0v30q-{w:.0f} 30 -{2 * w:.0f} 0z" '
                 'fill="#E4574C"/>'
-                f'<path d="M{cx + w * 0.3:.0f} {y + 26:.0f}h32l-8 56h-30z" fill="#C7463C"/>'
+                f'<path d="M{cx + w * 0.3:.0f} {y + 26:.0f}h30l-6 32h-26z" fill="#C7463C"/>'
                 f'<path d="M{cx - w:.0f} {y + 14:.0f}q{w:.0f} 30 {2 * w:.0f} 0" fill="none" '
                 'stroke="#C7463C" stroke-width="6"/>')
 

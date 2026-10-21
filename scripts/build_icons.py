@@ -734,7 +734,7 @@ def render_body(animal, pose):
     slug = f"{pose}_{animal}"
     label = f'{ANIMALS[animal]["label"]} — {POSE_LABELS[pose]}'
     art = body_pose(animal, pose, _face_art(animal, behind=False))
-    art = sticker(art, _ink(animal), OUTLINE_SCENE)
+    art = _inset(sticker(art, _ink(animal), OUTLINE_SCENE), 0.93)
     # the owl's head tilt is already in its face art; tilting the whole scene
     # would knock feet, boards and poles off level
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" '
@@ -766,7 +766,7 @@ def render_job(animal, job):
     art = body_pose(animal, "holding", _face_art(animal, behind=False), grip=job_grip(job), held=tool)
     cut = art.index('<g transform="translate(128,74)')
     art = behind + art[:cut] + worn + _after_head(art, cut, hat)
-    art = sticker(art, _ink(animal), OUTLINE_SCENE)
+    art = _inset(sticker(art, _ink(animal), OUTLINE_SCENE), 0.93)
     # the owl's head tilt is already in its face art; tilting the whole scene
     # would knock feet, boards and poles off level
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" '

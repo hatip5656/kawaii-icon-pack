@@ -24,8 +24,8 @@ def hat(kind):
         return hat("cap").replace("#3B4A6B", "#4F8A5B").replace("#313E5A", "#3D6E48")
     if kind == "toque":
         return ('<g fill="#FFFFFF" stroke="#E4E0F0" stroke-width="4">'
-                '<circle cx="104" cy="28" r="21"/><circle cx="152" cy="28" r="21"/>'
-                '<circle cx="128" cy="20" r="25"/>'
+                '<circle cx="104" cy="32" r="20"/><circle cx="152" cy="32" r="20"/>'
+                '<circle cx="128" cy="26" r="23"/>'
                 '<rect x="96" y="36" width="64" height="22" rx="9"/></g>')
     if kind == "hardhat":
         return ('<path d="M92 50a36 32 0 0 1 72 0z" fill="#FFC24A"/>'

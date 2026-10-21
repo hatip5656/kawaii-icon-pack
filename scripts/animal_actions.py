@@ -60,10 +60,11 @@ def prop(kind, fur, pad, key, ink=None):
                 + P([(166, 216, 18)], fur, pad, key))
 
     if kind == "searching":
-        return (f'<circle cx="146" cy="192" r="40" fill="{PAPER}" fill-opacity="0.6" '
-                f'stroke="{fur}" stroke-width="13"/>'
-                f'<path d="m176 222 26 26" stroke="{fur}" stroke-width="15" stroke-linecap="round"/>'
-                + P([(84, 206, -18)], fur, pad, key))
+        # held by the handle, lens raised to look through
+        return (f'<circle cx="122" cy="176" r="34" fill="{PAPER}" fill-opacity="0.6" '
+                f'stroke="{fur}" stroke-width="12"/>'
+                f'<path d="m148 202 24 24" stroke="{fur}" stroke-width="14" stroke-linecap="round"/>'
+                + P([(166, 220, 0)], fur, pad, key))
 
     if kind == "shopping":
         return (f'<path d="M74 180h108l-11 64H85z" fill="{fur}"/>'
@@ -86,9 +87,9 @@ def prop(kind, fur, pad, key, ink=None):
         return (f'<path d="M232 82a26 26 0 0 1-26 26h-38a24 24 0 0 1-4-47 27 27 0 0 1 52-5 26 26 0 0 1 '
                 f'16 26z" fill="{PAPER}" stroke="{L}" stroke-width="7"/>'
                 + "".join(f'<circle cx="{cx}" cy="82" r="6" fill="{fur}"/>' for cx in (176, 196, 216))
-                + f'<circle cx="160" cy="126" r="11" fill="{PAPER}" stroke="{L}" stroke-width="6"/>'
-                f'<circle cx="142" cy="146" r="6" fill="{PAPER}" stroke="{L}" stroke-width="5"/>'
-                + P([(150, 162, 0)], fur, pad, key))
+                + f'<circle cx="186" cy="122" r="10" fill="{PAPER}" stroke="{L}" stroke-width="6"/>'
+                f'<circle cx="172" cy="140" r="6" fill="{PAPER}" stroke="{L}" stroke-width="5"/>'
+                + P([(140, 160, 0)], fur, pad, key))
 
     if kind == "drinking":
         return (f'<path d="M86 174h72v48a26 26 0 0 1-26 26h-20a26 26 0 0 1-26-26z" fill="{PAPER}" '

@@ -342,9 +342,9 @@ def gesture(animal, kind):
         if kind == "high_five":
             return _wing(p, "open")
         if kind == "wave":
-            return _wing(p, "open", cx=112, rot=-13, scale=0.92) + _arcs(p, 200, 108)
+            return _wing(p, "open", cx=108, rot=-13, scale=0.88) + _arcs(p, 190, 108)
         if kind == "swipe":
-            return _wing(p, "half", cy=206, scale=0.78) + _arrow(p)
+            return _wing(p, "half", cy=200, scale=0.76) + _arrow(p)
         if kind == "peace":
             return _wing(p, "vee")
         if kind == "thumbs_up":
@@ -363,7 +363,7 @@ def gesture(animal, kind):
     if kind == "high_five":
         return hand
     if kind == "wave":
-        return _place(hand, 118, 188, -13, 0.92) + _arcs(p, 206, 104)
+        return _place(hand, 112, 188, -13, 0.88) + _arcs(p, 190, 108)
     if kind == "swipe":
         return _place(hand, 142, 214, 0, 0.82) + _arrow(p)
     if kind == "thumbs_up":
