@@ -1,7 +1,7 @@
 # Kawaii Icon Pack
 
 **Six kawaii characters, drawn for every mood and every state** — plus a companion
-set of plain UI icons for the interface around them. 1119 icons, zero dependencies.
+set of plain UI icons for the interface around them. 1125 icons, zero dependencies.
 
 <p align="center">
   <img src="preview/sheets/hero.svg" alt="Sample icons from the pack" width="840">
@@ -11,7 +11,7 @@ set of plain UI icons for the interface around them. 1119 icons, zero dependenci
 ui/          251 icons   kawaii UI set — faces, paws, deco, food, doodles
 jobs/        258 icons   43 occupations, drawn for each character
 bodies/      198 icons   33 full-body poses and sports, each character
-characters/  114 faces   6 animals x 14 expressions + a 5-step rating scale
+characters/  120 faces   6 animals x 15 expressions + a 5-step rating scale
 actions/     108 icons   the characters doing things — 18 verbs each
 paws/         60 icons   every gesture per character (wing and talon for the owl)
 status/       60 avatars every character x every status
@@ -22,7 +22,7 @@ badges/       10 badges  status dots, character-independent
 
 ## Preview
 
-**[Browse all 1119 icons →](https://raw.githack.com/hatip5656/kawaii-icon-pack/main/preview/index.html)**
+**[Browse all 1125 icons →](https://raw.githack.com/hatip5656/kawaii-icon-pack/main/preview/index.html)**
 — searchable, click any icon to copy its code.
 
 <!-- Interim host: githack serves the committed file with the right content type.
@@ -35,7 +35,7 @@ straight in a browser: no server, no build step, nothing to install. (GitHub
 renders HTML files as source, so use the link above or open your own copy.)
 
 <details>
-<summary><b>Characters</b> — 114 faces, 14 expressions and a rating scale</summary>
+<summary><b>Characters</b> — 120 faces, 15 expressions and a rating scale</summary>
 <p><img src="preview/sheets/characters.svg" alt="Character faces" width="840"></p>
 </details>
 
@@ -122,10 +122,10 @@ sprite id. Nothing to translate between.
 | Badge | `badge_<status>` | `badge_online`, `badge_verified` |
 | UI | `<name>` | `search`, `cart_add`, `chevron_down`, `settings` |
 
-**Animals:** `red_panda` · `rabbit` · `panda` · `hamster` · `owl`
+**Animals:** `red_panda` · `rabbit` · `panda` · `hamster` · `raccoon` · `owl`
 
 **Expressions:** happy · neutral · sad · crying · angry · surprised · sleepy · love ·
-wink · laughing · cool · confused · shy · sick
+wink · laughing · cool · confused · shy · sick · sparkly
 
 **Statuses:** online · away · busy · offline · typing · notification · muted ·
 verified · locked · star
@@ -267,7 +267,7 @@ badge("online");                        // -> badge_online
 img.src = dataUri(happy_rabbit);        // for <img> or CSS url()
 ```
 
-Every character has all 14 expressions, so a single component can drive the mood:
+Every character has all 15 expressions, so a single component can drive the mood:
 
 ```js
 const mood = unread ? "surprised" : idle ? "sleepy" : "happy";

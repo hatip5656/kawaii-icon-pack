@@ -20,7 +20,7 @@ BUDGET = {
     "actions": 15_000,
     "badges": 500,
     "bodies": 20_000,
-    "characters": 6_500,
+    "characters": 9_500,
     "extras": 11_250,
     "frames": 6_250,
     "jobs": 22_750,

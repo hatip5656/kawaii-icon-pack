@@ -21,7 +21,8 @@
     "cool",
     "confused",
     "shy",
-    "sick"
+    "sick",
+    "sparkly"
   ],
   "ratings": {
     "rate_1": "Terrible",
@@ -750,7 +751,7 @@
   ],
   "counts": {
     "ui": 251,
-    "characters": 114,
+    "characters": 120,
     "badges": 10,
     "paws": 60,
     "frames": 24,
@@ -760,5 +761,5 @@
     "jobs": 258,
     "status": 60
   },
-  "total": 1119
+  "total": 1125
 }

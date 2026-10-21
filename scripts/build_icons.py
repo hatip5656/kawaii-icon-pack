@@ -54,56 +54,57 @@ def _inset(art, s=0.94):
 # ---------------------------------------------------------------- animals
 
 ANIMALS = {
+    # bright orange, dark russet ears and limbs, white muzzle, cheek patches and brow spots
     "red_panda": {
-        "ink": "#5A2E1E",
+        "ink": "#5A2412",
         "label": "Red panda",
-        "line": "#4A2E24",
-        "over_eye": "#4A2E24",
-        "eye": {"style": "dot", "cx": (94, 162), "cy": 118, "rx": 11, "ry": 13, "ink": "#4A2E24"},
-        "brow_dy": 24, "brow_w": 16,
-        "mouth_kind": "line", "mouth_y": 183, "mouth_w": 16, "mouth_sw": 5,
-        "nose": '<path d="M114 158a14 8 0 0 1 28 0c0 6-6 12-14 17-8-5-14-11-14-17z" fill="#4A2E24"/>',
+        "line": "#5A2412",
+        "over_eye": "#5A2412",
+        "eye": {"style": "dot", "cx": (94, 162), "cy": 122, "rx": 11, "ry": 13, "ink": "#2E1610"},
+        "brow_dy": 28, "brow_w": 15,
+        "mouth_kind": "line", "mouth_y": 186, "mouth_w": 15, "mouth_sw": 5,
+        "nose": '<path d="M116 160a12 7.5 0 0 1 24 0c0 5.5-5.5 11-12 15-6.5-4-12-9.5-12-15z" fill="#2E1610"/>',
         "teeth": None,
-        "blush": {"cx": (72, 184), "cy": 182, "rx": 13, "ry": 8, "fill": "#F4737F", "opacity": 0.32},
-        "behind": """  <path d="M78 208C40 208 18 184 18 154" fill="none" stroke="#C9552E" stroke-width="34" stroke-linecap="round"/>
-  <path d="M78 208C40 208 18 184 18 154" fill="none" stroke="#FFF4E8" stroke-width="34" stroke-dasharray="13 25" stroke-dashoffset="20"/>""",
-        "base": """  <ellipse cx="62" cy="78" rx="36" ry="34" fill="#C9552E"/>
-  <ellipse cx="62" cy="82" rx="23" ry="21" fill="#FFF4E8"/>
-  <ellipse cx="194" cy="78" rx="36" ry="34" fill="#C9552E"/>
-  <ellipse cx="194" cy="82" rx="23" ry="21" fill="#FFF4E8"/>
-  <ellipse cx="128" cy="140" rx="86" ry="78" fill="#E97A4E"/>
+        "blush": {"cx": (70, 186), "cy": 150, "rx": 12, "ry": 7.5, "fill": "#F4737F", "opacity": 0.4},
+        "behind": """  <path d="M78 208C40 208 18 184 18 154" fill="none" stroke="#F28A2E" stroke-width="34" stroke-linecap="round"/>
+  <path d="M78 208C40 208 18 184 18 154" fill="none" stroke="#7A2E1C" stroke-width="34" stroke-dasharray="13 25" stroke-dashoffset="20"/>""",
+        "base": """  <ellipse cx="62" cy="76" rx="35" ry="34" fill="#7A2E1C"/>
+  <ellipse cx="64" cy="80" rx="21" ry="20" fill="#F6B9A8"/>
+  <ellipse cx="194" cy="76" rx="35" ry="34" fill="#7A2E1C"/>
+  <ellipse cx="192" cy="80" rx="21" ry="20" fill="#F6B9A8"/>
+  <ellipse cx="128" cy="140" rx="86" ry="78" fill="#F28A2E"/>
   <defs><clipPath id="clip-red_panda"><ellipse cx="128" cy="140" rx="86" ry="78"/></clipPath></defs>
   <g clip-path="url(#clip-red_panda)">
-    <ellipse cx="92" cy="116" rx="30" ry="24" fill="#FFF4E8"/>
-    <ellipse cx="164" cy="116" rx="30" ry="24" fill="#FFF4E8"/>
-    <ellipse cx="78" cy="176" rx="32" ry="26" fill="#FFF4E8"/>
-    <ellipse cx="178" cy="176" rx="32" ry="26" fill="#FFF4E8"/>
-    <ellipse cx="128" cy="174" rx="32" ry="28" fill="#FFF4E8"/>
+    <ellipse cx="98" cy="88" rx="11" ry="8" fill="#FFF8F0"/>
+    <ellipse cx="158" cy="88" rx="11" ry="8" fill="#FFF8F0"/>
+    <ellipse cx="56" cy="168" rx="24" ry="28" fill="#FFF8F0"/>
+    <ellipse cx="200" cy="168" rx="24" ry="28" fill="#FFF8F0"/>
+    <ellipse cx="128" cy="178" rx="34" ry="28" fill="#FFF8F0"/>
   </g>""",
     },
+    # white head and body, long ears with peach lining, peach limbs, lashes
     "rabbit": {
-        "ink": "#5E4A66",
+        "ink": "#6B5250",
         "label": "Rabbit",
-        "line": "#8A7A8E",
-        "over_eye": "#8A7A8E",
-        "eye": {"style": "dot", "cx": (100, 156), "cy": 142, "rx": 11, "ry": 13, "ink": "#5A4A5E"},
-        "brow_dy": 26, "brow_w": 15,
-        "mouth_kind": "line", "mouth_y": 182, "mouth_w": 14, "mouth_sw": 4.5,
-        "nose": '<path d="M118 164a10 6.5 0 0 1 20 0c0 4.5-4.5 9-10 12.5-5.5-3.5-10-8-10-12.5z" fill="#FF9BB2"/>'
-                '<path d="M128 176.5v7" stroke="#8A7A8E" stroke-width="4" stroke-linecap="round"/>',
-        "teeth": ('<rect x="120" y="192" width="16" height="14" rx="4" fill="#FFFFFF" '
-                  'stroke="#D9D3E6" stroke-width="2.5"/><path d="M128 192v14" stroke="#D9D3E6" '
-                  'stroke-width="2.5"/>'),
-        "blush": {"cx": (72, 184), "cy": 168, "rx": 15, "ry": 9, "fill": "#FF8FA9", "opacity": 0.45},
-        "base": """  <g transform="rotate(-14 106 70)">
-    <rect x="86" y="6" width="40" height="112" rx="20" fill="#FDFBFF" stroke="#E4E0F0" stroke-width="4"/>
-    <rect x="97" y="20" width="18" height="84" rx="9" fill="#FFC2D1"/>
+        "line": "#6B5250",
+        "over_eye": "#6B5250",
+        "eye": {"style": "dot", "cx": (102, 154), "cy": 142, "rx": 10, "ry": 12.5, "ink": "#2A2226",
+                "lashes": True},
+        "brow_dy": 26, "brow_w": 14,
+        "mouth_kind": "line", "mouth_y": 182, "mouth_w": 13, "mouth_sw": 4.5,
+        "nose": '<path d="M119 164a9 6 0 0 1 18 0c0 4-4 8-9 11-5-3-9-7-9-11z" fill="#E8949A"/>'
+                '<path d="M128 175v7" stroke="#6B5250" stroke-width="4" stroke-linecap="round"/>',
+        "teeth": None,
+        "blush": {"cx": (74, 182), "cy": 166, "rx": 13, "ry": 8, "fill": "#FF8FA9", "opacity": 0.45},
+        "base": """  <g transform="rotate(-12 106 70)">
+    <rect x="84" y="4" width="44" height="116" rx="22" fill="#FFFDFB"/>
+    <rect x="96" y="18" width="20" height="88" rx="10" fill="#F8C4A8"/>
   </g>
-  <g transform="rotate(14 150 70)">
-    <rect x="130" y="6" width="40" height="112" rx="20" fill="#FDFBFF" stroke="#E4E0F0" stroke-width="4"/>
-    <rect x="141" y="20" width="18" height="84" rx="9" fill="#FFC2D1"/>
+  <g transform="rotate(12 150 70)">
+    <rect x="128" y="4" width="44" height="116" rx="22" fill="#FFFDFB"/>
+    <rect x="140" y="18" width="20" height="88" rx="10" fill="#F8C4A8"/>
   </g>
-  <ellipse cx="128" cy="152" rx="73" ry="70" fill="#FDFBFF" stroke="#E4E0F0" stroke-width="4"/>""",
+  <ellipse cx="128" cy="152" rx="72" ry="68" fill="#FFFDFB"/>""",
     },
     "panda": {
         "ink": "#2E282A",
@@ -116,92 +117,92 @@ ANIMALS = {
         "nose": '<path d="M114 162a14 8 0 0 1 28 0c0 6-6 12-14 17-8-5-14-11-14-17z" fill="#3A3335"/>',
         "teeth": None,
         "blush": {"cx": (70, 186), "cy": 168, "rx": 14, "ry": 8.5, "fill": "#FF8FA9", "opacity": 0.45},
-        "base": """  <circle cx="60" cy="80" r="32" fill="#3A3335"/>
-  <circle cx="196" cy="80" r="32" fill="#3A3335"/>
-  <ellipse cx="128" cy="146" rx="87" ry="79" fill="#FFFFFF" stroke="#EAE7F0" stroke-width="4"/>
-  <ellipse cx="94" cy="136" rx="25" ry="30" fill="#3A3335" transform="rotate(-18 94 136)"/>
-  <ellipse cx="162" cy="136" rx="25" ry="30" fill="#3A3335" transform="rotate(18 162 136)"/>""",
+        "base": """  <circle cx="60" cy="80" r="32" fill="#2F2A2C"/>
+  <circle cx="196" cy="80" r="32" fill="#2F2A2C"/>
+  <ellipse cx="128" cy="146" rx="87" ry="79" fill="#FFFFFF"/>
+  <ellipse cx="94" cy="136" rx="25" ry="30" fill="#2F2A2C" transform="rotate(-18 94 136)"/>
+  <ellipse cx="162" cy="136" rx="25" ry="30" fill="#2F2A2C" transform="rotate(18 162 136)"/>""",
     },
+    # grey-taupe round body, white cheeks and muzzle, peach ear linings, pink stitched mouth
     "hamster": {
-        "ink": "#6E4524",
+        "ink": "#4A3E38",
         "label": "Hamster",
-        "line": "#8C6239",
-        "over_eye": "#8C6239",
-        "eye": {"style": "dot", "cx": (98, 158), "cy": 128, "rx": 12, "ry": 14, "ink": "#4A3728"},
+        "line": "#C9708A",
+        "over_eye": "#4A3E38",
+        "eye": {"style": "dot", "cx": (98, 158), "cy": 126, "rx": 12, "ry": 14, "ink": "#161214"},
         "brow_dy": 26, "brow_w": 16,
-        "mouth_kind": "line", "mouth_y": 173, "mouth_w": 15, "mouth_sw": 5,
-        "nose": '<path d="M117 152a11 7 0 0 1 22 0c0 5-5 10-11 14-6-4-11-9-11-14z" fill="#E8798C"/>',
-        "teeth": ('<rect x="120" y="184" width="16" height="13" rx="4" fill="#FFFDF8" '
-                  'stroke="#D8B98C" stroke-width="2.5"/><path d="M128 184v13" stroke="#D8B98C" '
-                  'stroke-width="2.5"/>'),
-        "blush": {"cx": (72, 184), "cy": 160, "rx": 15, "ry": 9, "fill": "#F4737F", "opacity": 0.35},
-        "base": """  <circle cx="78" cy="72" r="27" fill="#E0A65F"/>
-  <circle cx="78" cy="74" r="15" fill="#FFC3C9"/>
-  <circle cx="178" cy="72" r="27" fill="#E0A65F"/>
-  <circle cx="178" cy="74" r="15" fill="#FFC3C9"/>
-  <circle cx="54" cy="162" r="32" fill="#F5C377"/>
-  <circle cx="202" cy="162" r="32" fill="#F5C377"/>
-  <ellipse cx="128" cy="142" rx="84" ry="76" fill="#F5C377"/>
-  <ellipse cx="128" cy="168" rx="58" ry="38" fill="#FFF3DE"/>
-  <ellipse cx="56" cy="170" rx="25" ry="20" fill="#FFF3DE"/>
-  <ellipse cx="200" cy="170" rx="25" ry="20" fill="#FFF3DE"/>
-  <g stroke="#D89A4E" stroke-width="4" stroke-linecap="round">
-    <path d="M60 150H18"/>
-    <path d="M62 168l-40 12"/>
-    <path d="M196 150h42"/>
-    <path d="M194 168l40 12"/>
-  </g>""",
-    },
-    "raccoon": {
-        "ink": "#3B3644",
-        "label": "Raccoon",
-        "line": "#4A4453",
-        "over_eye": "#FFFFFF",
-        "eye": {"style": "patch", "cx": (94, 162), "cy": 124, "r": 11.5, "pr": 6.5, "ink": "#3A3335"},
-        "brow_dy": 22, "brow_w": 14,
-        "mouth_kind": "line", "mouth_y": 183, "mouth_w": 16, "mouth_sw": 5,
-        "nose": '<path d="M114 158a14 8 0 0 1 28 0c0 6-6 12-14 17-8-5-14-11-14-17z" fill="#3A3335"/>',
+        "mouth_kind": "line", "mouth_y": 173, "mouth_w": 13, "mouth_sw": 4.5,
+        "nose": '<path d="M120 154a8 5 0 0 1 16 0c0 4-4 7-8 10-4-3-8-6-8-10z" fill="#E8798C"/>',
         "teeth": None,
-        "blush": {"cx": (70, 186), "cy": 180, "rx": 13, "ry": 8, "fill": "#FF8FA9", "opacity": 0.35},
-        "behind": """  <path d="M78 208C40 208 18 184 18 154" fill="none" stroke="#8E96A6" stroke-width="34" stroke-linecap="round"/>
-  <path d="M78 208C40 208 18 184 18 154" fill="none" stroke="#4A4453" stroke-width="34" stroke-dasharray="13 25" stroke-dashoffset="20"/>""",
-        "base": """  <ellipse cx="60" cy="76" rx="34" ry="32" fill="#8E96A6"/>
-  <ellipse cx="60" cy="80" rx="20" ry="18" fill="#FBF7F2"/>
-  <ellipse cx="196" cy="76" rx="34" ry="32" fill="#8E96A6"/>
-  <ellipse cx="196" cy="80" rx="20" ry="18" fill="#FBF7F2"/>
-  <ellipse cx="128" cy="140" rx="86" ry="78" fill="#A7AEBC"/>
+        "blush": {"cx": (70, 186), "cy": 156, "rx": 14, "ry": 8.5, "fill": "#F4737F", "opacity": 0.38},
+        "base": """  <circle cx="74" cy="72" r="24" fill="#8F847D"/>
+  <circle cx="75" cy="74" r="13" fill="#F4A48C"/>
+  <circle cx="182" cy="72" r="24" fill="#8F847D"/>
+  <circle cx="181" cy="74" r="13" fill="#F4A48C"/>
+  <circle cx="54" cy="162" r="32" fill="#9A8F88"/>
+  <circle cx="202" cy="162" r="32" fill="#9A8F88"/>
+  <ellipse cx="128" cy="142" rx="84" ry="76" fill="#9A8F88"/>
+  <defs><clipPath id="clip-hamster"><ellipse cx="128" cy="142" rx="84" ry="76"/></clipPath></defs>
+  <g clip-path="url(#clip-hamster)">
+    <ellipse cx="128" cy="184" rx="70" ry="44" fill="#FFFFFF"/>
+  </g>
+  <ellipse cx="56" cy="170" rx="27" ry="22" fill="#FFFFFF"/>
+  <ellipse cx="200" cy="170" rx="27" ry="22" fill="#FFFFFF"/>""",
+    },
+    # grey, dark brown mask with white brows over it, white muzzle and ear linings
+    "raccoon": {
+        "ink": "#3A2C26",
+        "label": "Raccoon",
+        "line": "#3A2C26",
+        "over_eye": "#FFFFFF",
+        "eye": {"style": "patch", "cx": (94, 162), "cy": 128, "r": 11.5, "pr": 6.5, "ink": "#1E1614"},
+        "brow_dy": 22, "brow_w": 14,
+        "mouth_kind": "line", "mouth_y": 185, "mouth_w": 15, "mouth_sw": 5,
+        "nose": '<path d="M114 160a14 8 0 0 1 28 0c0 6-6 12-14 17-8-5-14-11-14-17z" fill="#1E1614"/>',
+        "teeth": None,
+        "blush": {"cx": (70, 186), "cy": 176, "rx": 13, "ry": 8, "fill": "#FF8FA9", "opacity": 0.35},
+        "behind": """  <path d="M78 208C40 208 18 184 18 154" fill="none" stroke="#A9AAB0" stroke-width="34" stroke-linecap="round"/>
+  <path d="M78 208C40 208 18 184 18 154" fill="none" stroke="#4A3428" stroke-width="34" stroke-dasharray="13 25" stroke-dashoffset="20"/>""",
+        "base": """  <path d="M40 104 52 44l52 22z" fill="#A9AAB0" stroke="#A9AAB0" stroke-width="16" stroke-linejoin="round"/>
+  <path d="M56 86 62 58l24 12z" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M216 104 204 44l-52 22z" fill="#A9AAB0" stroke="#A9AAB0" stroke-width="16" stroke-linejoin="round"/>
+  <path d="M200 86 194 58l-24 12z" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="8" stroke-linejoin="round"/>
+  <ellipse cx="44" cy="160" rx="22" ry="20" fill="#FFFFFF"/>
+  <ellipse cx="212" cy="160" rx="22" ry="20" fill="#FFFFFF"/>
+  <ellipse cx="128" cy="140" rx="86" ry="78" fill="#A9AAB0"/>
   <defs><clipPath id="clip-raccoon"><ellipse cx="128" cy="140" rx="86" ry="78"/></clipPath></defs>
   <g clip-path="url(#clip-raccoon)">
-    <ellipse cx="128" cy="94" rx="25" ry="32" fill="#FBF7F2"/>
-    <ellipse cx="70" cy="172" rx="32" ry="28" fill="#FBF7F2"/>
-    <ellipse cx="186" cy="172" rx="32" ry="28" fill="#FBF7F2"/>
-    <ellipse cx="128" cy="176" rx="44" ry="32" fill="#FBF7F2"/>
-    <ellipse cx="94" cy="124" rx="34" ry="28" fill="#4A4453" transform="rotate(-10 94 124)"/>
-    <ellipse cx="162" cy="124" rx="34" ry="28" fill="#4A4453" transform="rotate(10 162 124)"/>
+    <ellipse cx="86" cy="100" rx="40" ry="16" fill="#FFFFFF" transform="rotate(-14 86 100)"/>
+    <ellipse cx="170" cy="100" rx="40" ry="16" fill="#FFFFFF" transform="rotate(14 170 100)"/>
+    <ellipse cx="94" cy="128" rx="34" ry="26" fill="#4A3428" transform="rotate(-10 94 128)"/>
+    <ellipse cx="162" cy="128" rx="34" ry="26" fill="#4A3428" transform="rotate(10 162 128)"/>
+    <ellipse cx="128" cy="178" rx="40" ry="30" fill="#FFFFFF"/>
   </g>""",
     },
+    # grey, white facial discs and belly, dark tufts, yellow eyes, grey beak
     "owl": {
-        "ink": "#41356E",
+        "ink": "#45434B",
         "label": "Owl",
-        "line": "#8878C2",
+        "line": "#6E6A72",
         "over_eye": "#3A3335",
-        "eye": {"style": "big", "cx": (98, 158), "cy": 138, "r": 18, "ink": "#3A3335"},
+        "eye": {"style": "owl", "cx": (98, 158), "cy": 138, "r": 19, "ink": "#161214"},
         "brow_dy": 30, "brow_w": 20,
         "mouth_kind": "beak", "mouth_y": 166, "mouth_w": 15, "mouth_sw": 5,
         "nose": None,
         "teeth": None,
-        "blush": {"cx": (66, 190), "cy": 164, "rx": 14, "ry": 9, "fill": "#F4737F", "opacity": 0.35},
-        "base": """  <ellipse cx="56" cy="172" rx="20" ry="34" transform="rotate(14 56 172)" fill="#7E6BB8"/>
-  <ellipse cx="200" cy="172" rx="20" ry="34" transform="rotate(-14 200 172)" fill="#7E6BB8"/>
-  <ellipse cx="110" cy="70" rx="9" ry="19" transform="rotate(-28 110 70)" fill="#7E6BB8"/>
-  <ellipse cx="128" cy="62" rx="10" ry="22" fill="#8878C2"/>
-  <ellipse cx="146" cy="70" rx="9" ry="19" transform="rotate(28 146 70)" fill="#7E6BB8"/>
-  <ellipse cx="128" cy="144" rx="84" ry="80" fill="#9C8AD1"/>
-  <path d="M128 112c-12-16-34-22-52-14-22 10-28 38-18 58 10 20 34 30 56 24 6-2 10-4 14-8 4 4 8 6 14 8 22 6 46-4 56-24 10-20 4-48-18-58-18-8-40-2-52 14z" fill="#8878C2"/>
-  <circle cx="98" cy="140" r="36" fill="#FFF3DE"/>
-  <circle cx="158" cy="140" r="36" fill="#FFF3DE"/>
-""",
-        "front": '  <path d="M104 202q12-14 24 0 12-14 24 0" fill="none" stroke="#8878C2" stroke-width="6" stroke-linecap="round"/>',
+        "blush": {"cx": (82, 174), "cy": 168, "rx": 11, "ry": 7, "fill": "#F4737F", "opacity": 0.5},
+        "base": """  <ellipse cx="54" cy="176" rx="20" ry="34" transform="rotate(14 54 176)" fill="#969BA3"/>
+  <ellipse cx="202" cy="176" rx="20" ry="34" transform="rotate(-14 202 176)" fill="#969BA3"/>
+  <ellipse cx="80" cy="76" rx="12" ry="28" transform="rotate(-48 80 76)" fill="#6E6A72"/>
+  <ellipse cx="176" cy="76" rx="12" ry="28" transform="rotate(48 176 76)" fill="#6E6A72"/>
+  <ellipse cx="128" cy="144" rx="84" ry="80" fill="#A9AEB5"/>
+  <defs><clipPath id="clip-owl"><ellipse cx="128" cy="144" rx="84" ry="80"/></clipPath></defs>
+  <g clip-path="url(#clip-owl)">
+    <ellipse cx="128" cy="214" rx="50" ry="32" fill="#FFFFFF"/>
+    <path d="M110 206q6-5 12 0M134 206q6-5 12 0M122 218q6-5 12 0" fill="none" stroke="#A9AEB5" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  <circle cx="96" cy="140" r="36" fill="#FFFFFF"/>
+  <circle cx="160" cy="140" r="36" fill="#FFFFFF"/>""",
     },
 }
 
@@ -217,14 +218,60 @@ def _eye_open(a, cx, cy, scale=1.0):
         return (f'<circle cx="{cx}" cy="{cy}" r="{r:g}" fill="{WHITE}"/>'
                 f'<circle cx="{cx + inward}" cy="{cy + 1}" r="{pr:g}" fill="{ink}"/>'
                 f'<circle cx="{cx - 3}" cy="{cy - 4}" r="{pr * 0.4:g}" fill="{WHITE}"/>')
+    if e["style"] == "owl":
+        r = e["r"] * scale
+        return (f'<circle cx="{cx}" cy="{cy}" r="{r:g}" fill="#F2B630"/>'
+                f'<circle cx="{cx}" cy="{cy}" r="{r * 0.7:.1f}" fill="{ink}"/>'
+                f'<circle cx="{cx - 4}" cy="{cy - 5}" r="{r * 0.24:.1f}" fill="{WHITE}"/>'
+                f'<circle cx="{cx + 4}" cy="{cy + 5}" r="{r * 0.1:.1f}" fill="{WHITE}"/>')
     if e["style"] == "big":
         r = e["r"] * scale
         return (f'<circle cx="{cx}" cy="{cy}" r="{r:g}" fill="{ink}"/>'
                 f'<circle cx="{cx - 6}" cy="{cy - 6}" r="{r * 0.33:g}" fill="{WHITE}" opacity="0.95"/>'
                 f'<circle cx="{cx + 5}" cy="{cy + 7}" r="{r * 0.17:g}" fill="{WHITE}" opacity="0.7"/>')
     rx, ry = e["rx"] * scale, e["ry"] * scale
+    lashes = ""
+    if e.get("lashes"):
+        out = -1 if cx < 128 else 1
+        lashes = "".join(
+            f'<path d="M{cx + out * rx * 0.55:.1f} {cy - ry * 0.75:.1f}l{out * dx:g} {dy:g}" '
+            f'stroke="{ink}" stroke-width="3.2" stroke-linecap="round"/>'
+            for dx, dy in ((7, -6), (9, 0)))
     return (f'<ellipse cx="{cx}" cy="{cy}" rx="{rx:g}" ry="{ry:g}" fill="{ink}"/>'
-            f'<circle cx="{cx - 4}" cy="{cy - 5}" r="{rx * 0.36:g}" fill="{WHITE}" opacity="0.95"/>')
+            f'<circle cx="{cx - 4}" cy="{cy - 5}" r="{rx * 0.36:g}" fill="{WHITE}" opacity="0.95"/>'
+            + lashes)
+
+
+# glitter ring for the big "sparkly" eyes — one colour per character
+SPARKLE_RING = {
+    "red_panda": ("#2FB5A8", "#9BEBE2"), "rabbit": ("#F27BA6", "#FFD0E1"),
+    "panda": ("#3E8FD8", "#AFDCFF"), "hamster": ("#4DB37A", "#B8F0CC"),
+    "raccoon": ("#C9952E", "#FFE29A"), "owl": ("#F2B630", "#FFE7A0"),
+}
+
+
+def _eye_sparkly(a, key, cx, cy, R):
+    """Oversized glossy eye: glitter ring, deep pupil, two catchlights and a gloss arc."""
+    ring, glint = SPARKLE_RING[key]
+    out = [f'<circle cx="{cx}" cy="{cy}" r="{R:g}" fill="{ring}"/>']
+    # glitter: light and dark flecks scattered round the ring
+    for i in range(14):
+        ang = math.radians(i * 360 / 14 + (i % 3) * 9)
+        rr = R * (0.86 if i % 2 else 0.93)
+        x, y = cx + rr * math.cos(ang), cy + rr * math.sin(ang)
+        fill = glint if i % 3 else WHITE
+        out.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{1.5 if i % 2 else 1.9}" fill="{fill}" '
+                   'opacity="0.7"/>')
+    pr = R * 0.68
+    out.append(f'<circle cx="{cx}" cy="{cy + 1:g}" r="{pr:.1f}" fill="#1E1A22"/>')
+    out.append(f'<path d="M{cx - pr * 0.62:.1f} {cy + pr * 0.45:.1f}a{pr * 0.78:.1f} {pr * 0.78:.1f} '
+               f'0 0 0 {pr * 1.24:.1f} 0" fill="none" stroke="{WHITE}" stroke-width="2.5" '
+               'stroke-linecap="round" opacity="0.28"/>')
+    out.append(f'<ellipse cx="{cx - pr * 0.36:.1f}" cy="{cy - pr * 0.34:.1f}" rx="{pr * 0.34:.1f}" '
+               f'ry="{pr * 0.28:.1f}" fill="{WHITE}"/>')
+    out.append(f'<circle cx="{cx + pr * 0.38:.1f}" cy="{cy + pr * 0.36:.1f}" r="{pr * 0.14:.1f}" '
+               f'fill="{WHITE}"/>')
+    return "".join(out)
 
 
 def _eye_arc(a, cx, cy, depth):
@@ -283,6 +330,10 @@ def eyes(a, kind="open", scale=1.0):
         return _eye_cross(a, lx, cy) + _eye_cross(a, rx, cy)
     if kind == "shades":
         return _sunglasses(a)
+    if kind == "sparkly":
+        key = next(k for k, v in ANIMALS.items() if v is a)
+        R = min(25 if a["eye"]["style"] in ("big", "owl") else 22, (rx - lx) / 2 - 6)
+        return _eye_sparkly(a, key, lx, cy, R) + _eye_sparkly(a, key, rx, cy, R)
     raise ValueError(kind)
 
 
@@ -308,11 +359,11 @@ def brows(a, kind):
 
 # ------------------------------------------------------------------ mouth
 
-BEAK_CLOSED = '<path d="M128 150l15 16-15 18-15-18z" fill="#FFB13B"/>'
-BEAK_SMILE = ('<path d="M128 148l15 15h-30z" fill="#FFB13B"/>'
-              '<path d="M113 163h30q0 17-15 17t-15-17z" fill="#E8912B"/>')
-BEAK_OPEN = ('<path d="M128 144l16 16h-32z" fill="#FFB13B"/>'
-             '<path d="M112 166h32l-16 20z" fill="#E8912B"/>')
+BEAK_CLOSED = '<path d="M128 150l13 15-13 19-13-19z" fill="#6E6A72"/>'
+BEAK_SMILE = ('<path d="M128 148l15 15h-30z" fill="#6E6A72"/>'
+              '<path d="M113 163h30q0 17-15 17t-15-17z" fill="#57535B"/>')
+BEAK_OPEN = ('<path d="M128 144l16 16h-32z" fill="#6E6A72"/>'
+             '<path d="M112 166h32l-16 20z" fill="#57535B"/>')
 
 
 def _beak(kind):
@@ -321,10 +372,10 @@ def _beak(kind):
         return BEAK_OPEN
     if kind == "smile":
         return BEAK_SMILE
-    line = ('<path d="M114 192q14 -12 28 0" fill="none" stroke="#7E6BB8" stroke-width="5" '
+    line = ('<path d="M114 192q14 -12 28 0" fill="none" stroke="#6E6A72" stroke-width="5" '
             'stroke-linecap="round"/>') if kind == "frown" else ""
     if kind == "wavy":
-        line = ('<path d="M114 190q7-8 14 0 7 8 14 0" fill="none" stroke="#7E6BB8" '
+        line = ('<path d="M114 190q7-8 14 0 7 8 14 0" fill="none" stroke="#6E6A72" '
                 'stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>')
     return BEAK_CLOSED + line
 
@@ -440,6 +491,8 @@ def expressions(a):
         "confused": _expr(mouth_kind="wavy", brow="confused", extras=question()),
         "shy": _expr(eyes_kind="happy", mouth_kind="wavy", blush_scale=1.35, blush_opacity=0.65,
                      extras=motion_lines()),
+        "sparkly": _expr(eyes_kind="sparkly", blush_scale=1.15, blush_opacity=0.55,
+                         extras=sparkle(212, 58, 0.8) + sparkle(44, 70, 0.55)),
         "sick": _expr(eyes_kind="cross", mouth_kind="wavy", teeth=False, blush_fill="#9BC58E",
                       blush_opacity=0.5, extras=teardrop(206, 108, 1.05, "#9BD7F0")),
 
@@ -467,7 +520,7 @@ RATING_LABELS = {
 RATING_ORDER = list(RATING_LABELS)
 
 EXPRESSION_ORDER = ["happy", "neutral", "sad", "crying", "angry", "surprised", "sleepy",
-                    "love", "wink", "laughing", "cool", "confused", "shy", "sick"]
+                    "love", "wink", "laughing", "cool", "confused", "shy", "sick", "sparkly"]
 
 
 # ---------------------------------------------------------------- badges

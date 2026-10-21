@@ -23,8 +23,8 @@ MIN_STROKE = 5.0
 
 # one keyline colour per character — a darker, warmer take on its own fur
 INKS = {
-    "red_panda": "#5A2E1E", "rabbit": "#5E4A66", "panda": "#2E282A",
-    "hamster": "#6E4524", "raccoon": "#3B3644", "owl": "#41356E",
+    "red_panda": "#5A2412", "rabbit": "#6B5250", "panda": "#2E282A",
+    "hamster": "#4A3E38", "raccoon": "#3A2C26", "owl": "#45434B",
 }
 _TAG = re.compile(r"<(/?)([a-zA-Z]+)((?:\s+[^\s=>/]+=\"[^\"]*\")*)\s*(/?)>")
 _ATTR = re.compile(r'([^\s=]+)="([^"]*)"')

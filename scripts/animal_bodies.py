@@ -31,12 +31,19 @@ POSE_ORDER = list(POSE_LABELS)
 
 # torso, belly, limb, keyline
 BODY = {
-    "red_panda": ("#E97A4E", "#FFF4E8", "#DA6A44", None),
-    "rabbit": ("#FDFBFF", "#FFF6FA", "#F7F3FC", None),
-    "panda": ("#FFFFFF", "#F7F5FB", "#3A3335", None),
-    "hamster": ("#F5C377", "#FFF3DE", "#EAB268", None),
-    "raccoon": ("#A7AEBC", "#FBF7F2", "#99A1B0", None),
-    "owl": ("#9C8AD1", "#FFF3DE", "#8878C2", None),
+    "red_panda": ("#F28A2E", "#F7A452", "#7A2E1C", None),
+    "rabbit": ("#FFFDFB", "#FFFFFF", "#F2A99A", None),
+    "panda": ("#FFFFFF", "#F7F5FB", "#2F2A2C", None),
+    "hamster": ("#9A8F88", "#FFFFFF", "#F4A48C", None),
+    "raccoon": ("#A9AAB0", "#F7F5F2", "#4A3428", None),
+    "owl": ("#A9AEB5", "#FFFFFF", "#969BA3", None),
+}
+
+# paw beans and foot soles — not always the belly colour: the panda has grey soles
+# with beige pads, the dark-limbed red panda and raccoon have pink ones
+BEANS = {
+    "red_panda": "#F6B9A8", "rabbit": "#FFE0D6", "panda": "#F3C98B",
+    "hamster": "#FFD9CC", "raccoon": "#D9B3A3", "owl": "#FFFFFF",
 }
 
 DARK, LINE, WOOD = "#5A5560", "#D9D3E6", "#C9A87C"
@@ -49,12 +56,11 @@ def _ringed_tail(fur, ring, d="M180 214C224 208 244 172 236 132"):
 
 
 TAILS = {
-    "red_panda": _ringed_tail("#C9552E", "#FFF4E8"),
-    "raccoon": _ringed_tail("#8E96A6", "#4A4453"),
+    "red_panda": _ringed_tail("#F28A2E", "#7A2E1C"),
+    "raccoon": _ringed_tail("#A9AAB0", "#4A3428"),
     # a rabbit's tail is a cotton puff, not a plume
-    "rabbit": ('<circle cx="180" cy="196" r="17" fill="#FDFBFF" stroke="#E4E0F0" stroke-width="5"/>'
-               '<circle cx="174" cy="190" r="5" fill="#F3EDFA"/>'),
-    "hamster": '<ellipse cx="188" cy="206" rx="14" ry="11" fill="#E0A65F"/>',
+    "rabbit": '<circle cx="180" cy="196" r="17" fill="#FFFFFF"/>',
+    "hamster": '<ellipse cx="188" cy="206" rx="14" ry="11" fill="#8F847D"/>',
 }
 
 
@@ -231,7 +237,7 @@ def _wing(x, y, rot, fill, rx, ry):
     ux, uy = math.sin(r), math.cos(r)
     feathers = "".join(
         f'<path d="M{tx - ux * 20 + i * 6 * uy:.0f} {ty - uy * 20 - i * 6 * ux:.0f}'
-        f'l{ux * 17:.0f} {uy * 17:.0f}" stroke="#7E6BB8" stroke-width="3.5" '
+        f'l{ux * 17:.0f} {uy * 17:.0f}" stroke="#6E6A72" stroke-width="3.5" '
         'stroke-linecap="round" fill="none"/>' for i in (-1, 0, 1))
     _WRISTS.append((tx, ty))
     _DEFERRED.append(art + feathers)
@@ -265,8 +271,8 @@ def _leg(x, limb, k, y=206, rot=0):
     if _BIRD:
         k1, k2 = (v * _FLEX for v in _sk("knee"))
         art, (fx, fy), _ = _chain(ox, oy, _sk("hind"), (rot, k1 * sign, k2 * sign),
-                                  "#E8912B", "")
-        return (art + f'<g stroke="#FFB13B" stroke-width="8" stroke-linecap="round" fill="none">'
+                                  "#E0A21F", "")
+        return (art + f'<g stroke="#F2B630" stroke-width="8" stroke-linecap="round" fill="none">'
                 f'<path d="M{fx:.0f} {fy:.0f}l-16 11M{fx:.0f} {fy:.0f}v13'
                 f'M{fx:.0f} {fy:.0f}l16 11"/></g>')
 
@@ -325,7 +331,7 @@ def _speed(x=34, y=150, n=3, colour=LINE):
 def _pose_art(animal, name, head_art):
     global _PAD, _BIRD, _ANIMAL
     fur, pad, limb, k = _parts(animal)
-    _PAD, _BIRD, _ANIMAL = pad, animal == "owl", animal
+    _PAD, _BIRD, _ANIMAL = BEANS[animal], animal == "owl", animal
     tail = TAILS.get(animal, "")
 
     if name == "standing":

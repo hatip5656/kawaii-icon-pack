@@ -24,6 +24,12 @@ facial disc instead of cat-like ear triangles), body limbs carry an inner contou
 paws are attached to a seated body by real arms, and the pointing-hand family was redrawn
 with the index finger off-centre so it can't read as a rude gesture.
 
+**Plush pass:** characters were recoloured from plush references — grey owl with white
+facial discs and yellow eyes, grey-taupe hamster with white cheeks and peach paws,
+white rabbit with peach limbs and lashes, raccoon with a brown mask and dark legs,
+bright red panda with russet limbs. New `sparkly` expression: oversized glossy eyes
+with a glitter ring in each character's own colour.
+
 **The two layers must not share a contract.** UI icons are monochrome and inherit
 `currentColor` so a button can recolour them; characters are multicolour and fixed.
 Packs that blur this are the ones nobody can theme. Everything below assumes the split.

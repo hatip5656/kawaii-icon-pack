@@ -23,39 +23,39 @@ render(animal, kind, label).
 
 PALETTE = {
     "red_panda": {
-        "fur": "#E97A4E", "pad": "#FFF4E8", "line": "#C9552E", "key": None,
-        "edge": "#C9552E", "claw": "#7A3419",
+        "fur": "#7A2E1C", "pad": "#F6B9A8", "line": "#7A2E1C", "key": None,
+        "edge": "#5A2412", "claw": "#2E1610",
         "digits": 4, "flen": 76, "fw": 29, "spread": 22, "pw": 126,
         "claw_len": 1.0, "thumb": ("false", 0.46, -58, 1.0),
     },
     "rabbit": {
-        "fur": "#FDFBFF", "pad": "#FFC2D1", "line": "#B9AFC9", "key": "#E4E0F0",
-        "edge": "#E4E0F0", "claw": "#CFC7DE",
+        "fur": "#F2A99A", "pad": "#FFE0D6", "line": "#D98A7A", "key": None,
+        "edge": "#D98A7A", "claw": "#C47868",
         "digits": 4, "flen": 64, "fw": 29, "spread": 18, "pw": 122,
         "claw_len": 0.55, "thumb": ("dewclaw", 0.24, -72, 0.62),
     },
     "panda": {
-        "fur": "#3A3335", "pad": "#FF9EB5", "line": "#3A3335", "key": None,
+        "fur": "#2F2A2C", "pad": "#F3C98B", "line": "#2F2A2C", "key": None,
         "edge": "#5C5054", "claw": "#1C1819",
         "digits": 4, "flen": 72, "fw": 32, "spread": 20, "pw": 138,
         "claw_len": 1.15, "thumb": ("pseudo", 0.52, -62, 1.18),
     },
     "hamster": {
-        "fur": "#F5C377", "pad": "#FFC3C9", "line": "#D89A4E", "key": None,
-        "edge": "#D89A4E", "claw": "#B07C3C",
+        "fur": "#F4A48C", "pad": "#FFD9CC", "line": "#D9806B", "key": None,
+        "edge": "#D9806B", "claw": "#B5604E",
         "digits": 4, "flen": 88, "fw": 21, "spread": 21, "pw": 112,
         "claw_len": 0.6, "thumb": ("stub", 0.32, -62, 1.0),
     },
     "raccoon": {
-        "fur": "#A7AEBC", "pad": "#FFC2D1", "line": "#7D8492", "key": None,
-        "edge": "#7D8492", "claw": "#4E5561",
+        "fur": "#4A3428", "pad": "#D9B3A3", "line": "#4A3428", "key": None,
+        "edge": "#2E1F17", "claw": "#1E140F",
         "digits": 4, "flen": 98, "fw": 23, "spread": 24, "pw": 118,
         "claw_len": 0.85, "thumb": ("long", 0.62, -52, 0.95),
     },
     "owl": {
-        "fur": "#9C8AD1", "pad": "#FFF3DE", "line": "#7E6BB8", "key": None,
-        "edge": "#7E6BB8", "claw": "#3A3335", "quill": "#8878C2",
-        "toe": "#E0A96A", "wing": True,
+        "fur": "#A9AEB5", "pad": "#FFFFFF", "line": "#6E6A72", "key": None,
+        "edge": "#6E6A72", "claw": "#3A3335", "quill": "#969BA3",
+        "toe": "#F2B630", "wing": True,
     },
 }
 
