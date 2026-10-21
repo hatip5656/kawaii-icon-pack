@@ -18,6 +18,12 @@ characters read as different animals rather than one face in five palettes. — 
 character layer as it stood, sprites, a React wrapper and a searchable preview.
 Decisions 2–4 in Part 6 are settled; decision 1 still blocks the scenes.
 
+**Redesign pass:** every character layer now carries a die-cut sticker keyline in a
+per-character ink (`scripts/outline.py`), the owl was redrawn as a bird (crest, wings,
+facial disc instead of cat-like ear triangles), body limbs carry an inner contour, action
+paws are attached to a seated body by real arms, and the pointing-hand family was redrawn
+with the index finger off-centre so it can't read as a rude gesture.
+
 **The two layers must not share a contract.** UI icons are monochrome and inherit
 `currentColor` so a button can recolour them; characters are multicolour and fixed.
 Packs that blur this are the ones nobody can theme. Everything below assumes the split.

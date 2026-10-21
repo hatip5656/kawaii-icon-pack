@@ -20,10 +20,12 @@ from pathlib import Path
 from animal_paws import GESTURE_LABELS, GESTURE_ORDER
 from animal_paws import PALETTE as PAW_PALETTE
 from animal_paws import render as render_paw
-from animal_bodies import POSE_LABELS, POSE_ORDER, pose as body_pose
+from animal_bodies import BODY, POSE_LABELS, POSE_ORDER, pose as body_pose
 from animal_jobs import JOB_LABELS, JOB_ORDER, outfit
 from animal_actions import ACTION_LABELS, ACTION_ORDER, prop
+from animal_actions import body as action_body
 from animal_extras import ACCESSORY_LABELS, ACCESSORY_ORDER, SNACKS, SNACK_LABEL, accessory
+from outline import INKS, sticker
 from ui_icons import FACES, UI_ICONS, groups
 from ui_icons import render as render_ui
 
@@ -34,11 +36,26 @@ WHITE = "#FFFFFF"
 # a head tilt applied to the entire drawing, layers included
 TILT = {"owl": -7}
 
+# sticker keyline, in output px: a face alone, and a face inside a composition
+OUTLINE_FACE = 6
+OUTLINE_SCENE = 4.5
+
+
+def _ink(animal):
+    return ANIMALS[animal]["ink"]
+
+
+def _inset(art, s=0.94):
+    """Pull a sticker in from the canvas edge so the keyline is never clipped."""
+    o = 128 * (1 - s)
+    return f'<g transform="translate({o:g},{o:g}) scale({s:g})">{art}</g>'
+
 
 # ---------------------------------------------------------------- animals
 
 ANIMALS = {
     "red_panda": {
+        "ink": "#5A2E1E",
         "label": "Red panda",
         "line": "#4A2E24",
         "over_eye": "#4A2E24",
@@ -65,6 +82,7 @@ ANIMALS = {
   </g>""",
     },
     "rabbit": {
+        "ink": "#5E4A66",
         "label": "Rabbit",
         "line": "#8A7A8E",
         "over_eye": "#8A7A8E",
@@ -88,6 +106,7 @@ ANIMALS = {
   <ellipse cx="128" cy="152" rx="73" ry="70" fill="#FDFBFF" stroke="#E4E0F0" stroke-width="4"/>""",
     },
     "panda": {
+        "ink": "#2E282A",
         "label": "Panda",
         "line": "#3A3335",
         "over_eye": WHITE,
@@ -104,6 +123,7 @@ ANIMALS = {
   <ellipse cx="162" cy="136" rx="25" ry="30" fill="#3A3335" transform="rotate(18 162 136)"/>""",
     },
     "hamster": {
+        "ink": "#6E4524",
         "label": "Hamster",
         "line": "#8C6239",
         "over_eye": "#8C6239",
@@ -133,6 +153,7 @@ ANIMALS = {
   </g>""",
     },
     "raccoon": {
+        "ink": "#3B3644",
         "label": "Raccoon",
         "line": "#4A4453",
         "over_eye": "#FFFFFF",
@@ -160,6 +181,7 @@ ANIMALS = {
   </g>""",
     },
     "owl": {
+        "ink": "#41356E",
         "label": "Owl",
         "line": "#8878C2",
         "over_eye": "#3A3335",
@@ -169,13 +191,16 @@ ANIMALS = {
         "nose": None,
         "teeth": None,
         "blush": {"cx": (66, 190), "cy": 164, "rx": 14, "ry": 9, "fill": "#F4737F", "opacity": 0.35},
-        "base": """  <path d="M56 96 66 34l38 34z" fill="#7E6BB8"/>
-  <path d="M200 96 190 34l-38 34z" fill="#7E6BB8"/>
-  <ellipse cx="128" cy="142" rx="84" ry="78" fill="#9C8AD1"/>
-  <path d="M60 108q17-20 34 0 17-20 34 0 17-20 34 0 17-20 34 0" fill="none" stroke="#8878C2" stroke-width="6" stroke-linecap="round"/>
-  <circle cx="98" cy="140" r="40" fill="#FFF3DE"/>
-  <circle cx="158" cy="140" r="40" fill="#FFF3DE"/>
-  <path d="M112 106 128 120l16-14" fill="none" stroke="#9C8AD1" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>""",
+        "base": """  <ellipse cx="56" cy="172" rx="20" ry="34" transform="rotate(14 56 172)" fill="#7E6BB8"/>
+  <ellipse cx="200" cy="172" rx="20" ry="34" transform="rotate(-14 200 172)" fill="#7E6BB8"/>
+  <ellipse cx="110" cy="70" rx="9" ry="19" transform="rotate(-28 110 70)" fill="#7E6BB8"/>
+  <ellipse cx="128" cy="62" rx="10" ry="22" fill="#8878C2"/>
+  <ellipse cx="146" cy="70" rx="9" ry="19" transform="rotate(28 146 70)" fill="#7E6BB8"/>
+  <ellipse cx="128" cy="144" rx="84" ry="80" fill="#9C8AD1"/>
+  <path d="M128 112c-12-16-34-22-52-14-22 10-28 38-18 58 10 20 34 30 56 24 6-2 10-4 14-8 4 4 8 6 14 8 22 6 46-4 56-24 10-20 4-48-18-58-18-8-40-2-52 14z" fill="#8878C2"/>
+  <circle cx="98" cy="140" r="36" fill="#FFF3DE"/>
+  <circle cx="158" cy="140" r="36" fill="#FFF3DE"/>
+""",
         "front": '  <path d="M104 202q12-14 24 0 12-14 24 0" fill="none" stroke="#8878C2" stroke-width="6" stroke-linecap="round"/>',
     },
 }
@@ -504,7 +529,7 @@ def blush(a, expr):
     )
 
 
-def render(animal_key, expr_key, badge_key=None):
+def render(animal_key, expr_key, badge_key=None, outline=True):
     a = ANIMALS[animal_key]
     expr = expressions(a)[expr_key]
 
@@ -522,6 +547,9 @@ def render(animal_key, expr_key, badge_key=None):
         layers.append(a["front"])
     if expr["extras"]:
         layers.append("  " + expr["extras"])
+
+    if outline:
+        layers = [_inset(sticker("\n".join(layers), a["ink"], OUTLINE_FACE))]
 
     if badge_key:
         # shrink the face a touch so the corner badge does not crowd it
@@ -558,7 +586,7 @@ def _face_art(animal, expr="happy", behind=True):
 
     `behind=False` drops the layer that sits behind the head — the red panda's
     tail — so a full body can draw a full-size one instead."""
-    svg = render(animal, expr)
+    svg = render(animal, expr, outline=False)
     art = svg[svg.index("</title>") + 8:svg.rindex("</svg>")].strip()
     if not behind and ANIMALS[animal].get("behind"):
         art = art.replace(ANIMALS[animal]["behind"].strip(), "").strip()
@@ -600,6 +628,7 @@ def render_frame(animal, frame):
                f'transform="rotate(24 210 200)" fill="{pad}"/>')
     else:
         raise ValueError(frame)
+    art = sticker(art, _ink(animal), OUTLINE_SCENE)
 
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" '
             f'role="img" aria-labelledby="t-{slug}">\n  <title id="t-{slug}">{label}</title>\n'
@@ -613,10 +642,11 @@ def render_extra(animal, kind):
     label = f'{ANIMALS[animal]["label"]} — {label_for}'
     overlay = SNACKS[animal] if kind == "snack" else accessory(animal, kind)
     if animal in TILT:
-        overlay = f'<g transform="rotate({TILT[animal]} 128 150)">{overlay}</g>' 
+        overlay = f'<g transform="rotate({TILT[animal]} 128 150)">{overlay}</g>'
+    art = _inset(sticker(f"{_face_art(animal)}{overlay}", _ink(animal), OUTLINE_FACE))
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" '
             f'role="img" aria-labelledby="t-{slug}">\n  <title id="t-{slug}">{label}</title>\n'
-            f'  {_face_art(animal)}\n  {overlay}\n</svg>\n')
+            f'  {art}\n</svg>\n')
 
 
 def render_action(animal, kind):
@@ -624,7 +654,15 @@ def render_action(animal, kind):
     pal = PAW_PALETTE[animal]
     slug = f"{kind}_{animal}"
     label = f'{ANIMALS[animal]["label"]} — {ACTION_LABELS[kind]}'
-    art = _placed(animal, 128, 92, 0.62) + prop(kind, pal["fur"], pal["pad"], pal.get("key"))
+    ink = INKS[animal]
+    held = prop(kind, pal["fur"], pal["pad"], None, ink)
+    held = sticker(held, ink, 3.2)      # its own contour, so a fur-coloured prop reads over the body
+    torso, belly, limb, _ = BODY[animal]
+    face = sticker(_face_art(animal), ink, 3.2 / 0.62)
+    art = (action_body(torso, belly, limb, ink)
+           + f'<g transform="translate(128,92) scale(0.62) translate(-128,-126)">{face}</g>'
+           + held)
+    art = sticker(art, _ink(animal), OUTLINE_SCENE)
     if animal in TILT:
         art = f'<g transform="rotate({TILT[animal]} 128 150)">{art}</g>'
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" '
@@ -636,6 +674,7 @@ def render_body(animal, pose):
     slug = f"{pose}_{animal}"
     label = f'{ANIMALS[animal]["label"]} — {POSE_LABELS[pose]}'
     art = body_pose(animal, pose, _face_art(animal, behind=False))
+    art = sticker(art, _ink(animal), OUTLINE_SCENE)
     if animal in TILT:
         art = f'<g transform="rotate({TILT[animal]} 128 150)">{art}</g>'
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" '
@@ -651,6 +690,7 @@ def render_job(animal, job):
     behind, worn, held = outfit(job)
     cut = art.rindex('<g transform="translate(128,')
     art = behind + art[:cut] + worn + art[cut:] + held
+    art = sticker(art, _ink(animal), OUTLINE_SCENE)
     if animal in TILT:
         art = f'<g transform="rotate({TILT[animal]} 128 150)">{art}</g>'
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" '
@@ -692,7 +732,10 @@ def build():
     for animal in ANIMALS:
         for g in GESTURE_ORDER:
             label = f'{ANIMALS[animal]["label"]} — {GESTURE_LABELS[g]}'
-            (paws / f"{g}_{animal}.svg").write_text(render_paw(animal, g, label))
+            svg = render_paw(animal, g, label)
+            i, j = svg.index("</title>") + 8, svg.rindex("</svg>")
+            svg = svg[:i] + _inset(sticker(svg[i:j], _ink(animal), OUTLINE_FACE)) + "\n" + svg[j:]
+            (paws / f"{g}_{animal}.svg").write_text(svg)
 
     frames = SVG_DIR / "frames"
     frames.mkdir(parents=True)

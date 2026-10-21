@@ -9,6 +9,11 @@ panda and raccoon get their ringed tails at full size.
 
 import math
 
+from outline import INKS, sticker
+
+# inner contour on limbs, so a limb crossing the torso still reads as a limb
+INNER = 3.2
+
 POSE_LABELS = {
     "standing": "Standing", "sitting": "Sitting", "waving": "Waving",
     "running": "Running", "jumping": "Jumping", "dancing": "Dancing",
@@ -27,8 +32,8 @@ POSE_ORDER = list(POSE_LABELS)
 # torso, belly, limb, keyline
 BODY = {
     "red_panda": ("#E97A4E", "#FFF4E8", "#DA6A44", None),
-    "rabbit": ("#FDFBFF", "#FFF6FA", "#F4F0FB", "#D5CDE6"),
-    "panda": ("#FFFFFF", "#F7F5FB", "#3A3335", "#DFDAEC"),
+    "rabbit": ("#FDFBFF", "#FFF6FA", "#F7F3FC", None),
+    "panda": ("#FFFFFF", "#F7F5FB", "#3A3335", None),
     "hamster": ("#F5C377", "#FFF3DE", "#EAB268", None),
     "raccoon": ("#A7AEBC", "#FBF7F2", "#99A1B0", None),
     "owl": ("#9C8AD1", "#FFF3DE", "#8878C2", None),
@@ -170,6 +175,7 @@ def _outline(pts, ws):
 
 def _chain(ox, oy, bones, angles, fill, k, tip=0.6, wing=False):
     """Walk a bone chain, then wrap it in a tapered silhouette."""
+    bones = [(ln, w * 1.15) for ln, w in bones]
     joints, a = [(ox, oy)], 0.0
     for (ln, _w), ang in zip(bones, angles):
         a += ang
@@ -186,7 +192,8 @@ def _chain(ox, oy, bones, angles, fill, k, tip=0.6, wing=False):
         col = k.split('stroke="')[1].split('"')[0]
         _OUTLINE.append(f'<path d="{d}" fill="{col}" stroke="{col}" stroke-width="7" '
                         'stroke-linejoin="round"/>')
-    art = f'<path d="{d}" fill="{fill}"/>'
+    edge = "" if wing else f' stroke="{INKS[_ANIMAL]}" stroke-width="{INNER}" stroke-linejoin="round"'
+    art = f'<path d="{d}" fill="{fill}"{edge}/>'
     return art, joints[-1], a
 
 
@@ -195,7 +202,7 @@ def _solid(head, fill, k):
     if k:
         col = k.split('stroke="')[1].split('"')[0]
         _OUTLINE.append(f'{head} fill="{col}" stroke="{col}" stroke-width="7"/>')
-    return f'{head} fill="{fill}"/>'
+    return f'{head} fill="{fill}" stroke="{INKS[_ANIMAL]}" stroke-width="{INNER}"/>'
 
 
 def _paw(x, y, rot, fill, k, r):
@@ -300,6 +307,7 @@ def _belly(pad, cx=128, cy=158, rx=None, ry=None, rot=0):
 
 def _head(art, x=128, y=74, s=0.5, rot=0):
     r = f" rotate({rot})" if rot else ""
+    art = sticker(art, INKS[_ANIMAL], INNER / s)
     return f'<g transform="translate({x},{y}){r} scale({s}) translate(-128,-126)">{art}</g>'
 
 
