@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
 """Hand gestures, drawn with each species' actual hand anatomy.
 
-This family is the one place in the pack where a paw is big enough (256 canvas)
-to show how the animal is really built, so it does:
+Every mammal hand shows exactly five digits — four fingers and a thumb. Real
+anatomy would give the red panda and panda a sixth (the false thumb, an enlarged
+wrist bone) and the raccoon five fingers plus a thumb, but at icon size an extra
+digit only ever reads as a mistake. Species still differ in proportion:
 
-    red_panda  5 digits, semi-retractable claws, plus the false thumb — an
-               enlarged wrist bone — it grips bamboo with
-    panda      5 digits and the famous pseudo-thumb, heavy blunt claws
-    raccoon    5 long dexterous fingers, the longest in the pack, fine claws
+    red_panda  short fingers, semi-retractable claws, the false thumb drawn as
+               the thumb
+    panda      thick fingers, heavy blunt claws, pseudo-thumb as the thumb
+    raccoon    long dexterous fingers, the longest in the pack, fine claws
     hamster    4 slender fingers and a thumb stub, small pale nails
     rabbit     4 furred digits, blunt non-retractable claws, narrow paw
     owl        no hands at all. Wing (coverts + primaries, serrated leading
@@ -23,7 +25,7 @@ PALETTE = {
     "red_panda": {
         "fur": "#E97A4E", "pad": "#FFF4E8", "line": "#C9552E", "key": None,
         "edge": "#C9552E", "claw": "#7A3419",
-        "digits": 5, "flen": 76, "fw": 29, "spread": 22, "pw": 126,
+        "digits": 4, "flen": 76, "fw": 29, "spread": 22, "pw": 126,
         "claw_len": 1.0, "thumb": ("false", 0.46, -58, 1.0),
     },
     "rabbit": {
@@ -35,7 +37,7 @@ PALETTE = {
     "panda": {
         "fur": "#3A3335", "pad": "#FF9EB5", "line": "#3A3335", "key": None,
         "edge": "#5C5054", "claw": "#1C1819",
-        "digits": 5, "flen": 72, "fw": 32, "spread": 20, "pw": 138,
+        "digits": 4, "flen": 72, "fw": 32, "spread": 20, "pw": 138,
         "claw_len": 1.15, "thumb": ("pseudo", 0.52, -62, 1.18),
     },
     "hamster": {
@@ -47,7 +49,7 @@ PALETTE = {
     "raccoon": {
         "fur": "#A7AEBC", "pad": "#FFC2D1", "line": "#7D8492", "key": None,
         "edge": "#7D8492", "claw": "#4E5561",
-        "digits": 5, "flen": 98, "fw": 23, "spread": 24, "pw": 118,
+        "digits": 4, "flen": 98, "fw": 23, "spread": 24, "pw": 118,
         "claw_len": 0.85, "thumb": ("long", 0.62, -52, 0.95),
     },
     "owl": {
@@ -112,11 +114,16 @@ def _finger(p, cx, angle, length, width=None, claw=True, pad=True):
             + "".join(parts) + "</g>")
 
 
-def _knuckles(p):
-    """Curled fingers seen end-on — the row of bumps on top of a fist."""
+def _knuckles(p, skip=()):
+    """Curled fingers seen end-on — the row of bumps on top of a fist.
+
+    `skip` leaves out the digits that are raised, so a pointing finger rises from
+    its own slot instead of out of the middle of a full fist."""
     w = p["fw"]
     out = []
-    for dx, _, _ in _layout(p):
+    for i, (dx, _, _) in enumerate(_layout(p)):
+        if i in skip:
+            continue
         cx = 128 + dx * p["pw"]
         out.append(f'<rect x="{cx - w / 2:.4g}" y="{PALM_TOP - w * 1.05:.4g}" width="{w:.4g}" '
                    f'height="{w * 1.75:.4g}" rx="{w / 2:.4g}" {_fur(p)}/>')
@@ -191,13 +198,15 @@ def _hand(p, pose):
         behind = [_finger(p, 128 + dx * p["pw"], a, p["flen"] * m) for dx, a, m in lay]
     elif pose == "peace":
         # index and middle up in a V, the rest folded in front of the palm
-        behind = [_finger(p, 128 - p["pw"] * 0.17, -20, p["flen"] * 1.06),
-                  _finger(p, 128 + p["pw"] * 0.09, 7, p["flen"] * 1.1)]
-        overlay = [_knuckles(p)]
+        (d0, _, _), (d1, _, _) = lay[0], lay[1]
+        behind = [_finger(p, 128 + d0 * p["pw"], -16, p["flen"] * 1.02),
+                  _finger(p, 128 + d1 * p["pw"], 8, p["flen"] * 1.1)]
+        overlay = [_knuckles(p, skip=(0, 1))]
     elif pose in ("point", "tap"):
-        behind = [_finger(p, 128 - p["pw"] * 0.08, -3,
+        # the index finger — the one beside the thumb — never the middle one
+        behind = [_finger(p, 128 + lay[0][0] * p["pw"], -4,
                           p["flen"] * (1.3 if pose == "point" else 1.0))]
-        overlay = [_knuckles(p)]
+        overlay = [_knuckles(p, skip=(0,))]
     elif pose == "fist":
         overlay = [_knuckles(p)]
     elif pose == "grab":
