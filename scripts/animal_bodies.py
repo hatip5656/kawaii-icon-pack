@@ -124,6 +124,9 @@ _ANIMAL = "red_panda"
 _DEFERRED = []
 _WRISTS = []
 _OUTLINE = []
+_BEHIND = []
+_ARMS = []
+ARM_SLOT = "<!--arms-->"
 
 
 def _b(key):
@@ -223,46 +226,96 @@ def _paw(x, y, rot, fill, k, r):
 
 
 def _wing(x, y, rot, fill, rx, ry):
-    """A wing is a limb too: humerus, radius, manus — broad at the shoulder, tapering
-    to primary feathers at the tip."""
+    """A plush wing: a soft rounded paddle off the side of the body, broad at the
+    shoulder and rounded at the tip, with two feather scallops — not a fan of quills."""
     sl, sr, _, _ = _anchors()
     side = 0 if x < 128 else 1
     ox, oy = (sl, sr)[side]
     if y < oy + 8:
         rot = math.degrees(math.atan2(x - ox, y - oy))
     sign = 1 if side else -1
-    art, (tx, ty), a = _chain(ox, oy, [(27, 24), (25, 19), (19, 14)],
-                              (rot, 11 * sign, 13 * sign), fill, "", wing=True)
+    (tx, ty), _ = _walk(ox, oy, [(27, 24), (25, 19), (19, 14)], (rot, 11 * sign, 13 * sign))
+    trx, try_ = _b("torso")
+    raised = ty < 152 - try_ * 0.2
+    sx = 128 + sign * trx * (0.66 if raised else 0.74)
+    sy = 152 - try_ * (0.5 if raised else 0.36)
+    art, a = _limb((sx, sy), (tx, ty), 34, 24, 6 * sign, fill)
     r = math.radians(a)
     ux, uy = math.sin(r), math.cos(r)
-    feathers = "".join(
-        f'<path d="M{tx - ux * 20 + i * 6 * uy:.0f} {ty - uy * 20 - i * 6 * ux:.0f}'
-        f'l{ux * 17:.0f} {uy * 17:.0f}" stroke="#6E6A72" stroke-width="3.5" '
-        'stroke-linecap="round" fill="none"/>' for i in (-1, 0, 1))
+    px, py = uy, -ux
+    scallops = "".join(
+        f'<path d="M{tx - ux * 16 + px * o - px * 6:.1f} {ty - uy * 16 + py * o - py * 6:.1f}'
+        f'q{ux * 6 + px * 6:.1f} {uy * 6 + py * 6:.1f} {px * 12:.1f} {py * 12:.1f}" '
+        'fill="none" stroke="#6E6A72" stroke-width="3" stroke-linecap="round"/>'
+        for o in (-5, 5))
     _WRISTS.append((tx, ty))
-    _DEFERRED.append(art + feathers)
-    return ""            # painted after the torso, so a folded wing is actually visible
+    _DEFERRED.append(art + scallops)
+    return ""
 
 
-def _arm(x, y, rot, fill, k, rx=None, ry=None):
-    """A forelimb rooted at the shoulder. `rot` drives the humerus; the radius follows
-    at the species' elbow angle, bent away from the body."""
+def _walk(ox, oy, bones, angles):
+    """Where a bone chain ends, without drawing it. Poses were tuned against these
+    end points — props sit in the hands — so the new limbs keep them."""
+    x, y, a = ox, oy, 0.0
+    for (ln, _w), ang in zip(bones, angles):
+        a += ang
+        r = math.radians(a)
+        x, y = x + math.sin(r) * ln * 1.0, y + math.cos(r) * ln * 1.0
+    return (x, y), a
+
+
+def _limb(s, e, w0, w1, bend, fill):
+    """A plush limb: one soft, tapered sausage with a gentle bend, not a bone chain.
+
+    `bend` pushes the middle sideways (positive = to the limb's right), which is
+    what turns a pipe into an arm with an elbow or a leg with a knee."""
+    (sx, sy), (ex, ey) = s, e
+    dx, dy = ex - sx, ey - sy
+    L = math.hypot(dx, dy) or 1
+    nx, ny = -dy / L, dx / L
+    m = ((sx + ex) / 2 + nx * bend, (sy + ey) / 2 + ny * bend)
+    pts, ws = _centreline([s, m, e], [w0, (w0 + w1) / 2 * 1.04, w1], per_bone=8, bulge=0.06)
+    d = _outline(pts, ws)
+    return (f'<path d="{d}" fill="{fill}" stroke="{INKS[_ANIMAL]}" stroke-width="{INNER}" '
+            'stroke-linejoin="round"/>'), math.degrees(math.atan2(dx, dy))
+
+
+def _arm(x, y, rot, fill, k, rx=None, ry=None, to=None):
+    """A forelimb. Its hand lands where the pose always put it; the arm itself now
+    grows out of the side of the torso, short and chubby, the way a plush's does."""
     if _BIRD:
         return _wing(x, y, rot, fill, rx or _b("arm")[0], ry or _b("arm")[1])
     sl, sr, _, _ = _anchors()
     side = 0 if x < 128 else 1
+    sign = 1 if side else -1
     ox, oy = (sl, sr)[side]
     if y < oy + 8:                      # the pose wants this limb raised
         rot = math.degrees(math.atan2(x - ox, y - oy))
-    elbow = _sk("elbow") * (1 if side else -1)
-    art, (wx, wy), a = _chain(ox, oy, _sk("fore"), (rot, elbow), fill, k)
+    elbow = _sk("elbow") * sign
+    (wx, wy), _ = _walk(ox, oy, [(ln * 1.0, w) for ln, w in _sk("fore")], (rot, elbow))
+    if to:
+        wx, wy = to
+
+    trx, try_ = _b("torso")
+    raised = wy < 152 - try_ * 0.2
+    sx = 128 + sign * trx * (0.70 if raised else 0.80)
+    sy = 152 - try_ * (0.50 if raised else 0.34)
+    (b0, b1) = _sk("fore")
+    w0, w1 = b0[1] * 1.45, b1[1] * 1.3
+    art, a = _limb((sx, sy), (wx, wy), w0, w1, 4 * sign, fill)
     _WRISTS.append((wx, wy))
-    _DEFERRED.append(art + _paw(wx, wy, a, fill, k, _b("paw")))
+    paw = _paw(wx, wy, a, fill, k, max(_b("paw"), w1 * 0.56))
+    across = abs(wx - 128) < trx * 0.72 and 152 - try_ < wy < 152 + try_
+    if across:
+        _DEFERRED.append(art + paw)     # reaching over the chest: the whole arm is in front
+    else:
+        _ARMS.append(art)               # attached at the side: arm behind the torso,
+        _DEFERRED.append(paw)           # paw resting in front of it
     return ""
 
 
 def _leg(x, limb, k, y=206, rot=0):
-    """A hindlimb rooted at the hip: femur, tibia, metatarsus, then a foot."""
+    """A hindlimb: a short, stout leg tucked behind the body, and a round foot."""
     _, _, hl, hr = _anchors()
     side = 0 if x < 128 else 1
     ox, oy = (hl, hr)[side]
@@ -270,21 +323,36 @@ def _leg(x, limb, k, y=206, rot=0):
 
     if _BIRD:
         k1, k2 = (v * _FLEX for v in _sk("knee"))
-        art, (fx, fy), _ = _chain(ox, oy, _sk("hind"), (rot, k1 * sign, k2 * sign),
-                                  "#E0A21F", "")
-        return (art + f'<g stroke="#F2B630" stroke-width="8" stroke-linecap="round" fill="none">'
-                f'<path d="M{fx:.0f} {fy:.0f}l-16 11M{fx:.0f} {fy:.0f}v13'
-                f'M{fx:.0f} {fy:.0f}l16 11"/></g>')
+        (fx, fy), _ = _walk(ox, oy, _sk("hind"), (rot, k1 * sign, k2 * sign))
+        trx, try_ = _b("torso")
+        hip = (128 + sign * trx * 0.36, 152 + try_ * 0.55)
+        # owls keep their legs inside the feathers: only a short shank and the feet show
+        foot = (hip[0] + (fx - hip[0]) * 0.75, hip[1] + (fy - hip[1]) * 0.75 + 8)
+        art, _ = _limb(hip, foot, 16, 12, 0, "#E0A21F")
+        _BEHIND.append(art)
+        fx, fy = foot
+        toes = "".join(
+            _solid(f'<ellipse cx="{fx + dx:.0f}" cy="{fy + 10:.0f}" rx="7" ry="12" '
+                   f'transform="rotate({ang} {fx:.0f} {fy:.0f})"', "#F2B630", "")
+            for dx, ang in ((-1, 38), (0, 0), (1, -38)))
+        return toes
 
     k1, k2 = (v * _FLEX for v in _sk("knee"))
-    art, (fx, fy), a = _chain(ox, oy, _sk("hind"), (rot, k1 * sign, k2 * sign), limb, k)
+    (fx, fy), _ = _walk(ox, oy, _sk("hind"), (rot, k1 * sign, k2 * sign))
+    trx, try_ = _b("torso")
+    hip = (128 + sign * trx * 0.42, 152 + try_ * 0.45)
+    femur = _sk("hind")[0][1]
+    art, _ = _limb(hip, (fx, fy), femur * 1.5, femur * 1.25, -3 * sign, limb)
+    _BEHIND.append(art)
+
     fw, fh = _sk("foot")
-    toe = fw * 0.34 * sign
-    return (art
-            + _solid(f'<ellipse cx="{fx + toe:.0f}" cy="{fy + 4:.0f}" rx="{fw}" ry="{fh}"',
-                     limb, k)
-            + f'<ellipse cx="{fx + toe:.0f}" cy="{fy + 5:.0f}" rx="{fw * 0.44:.0f}" '
-              f'ry="{fh * 0.5:.0f}" fill="{_PAD}"/>')
+    fw, fh = fw * 0.92, fh * 1.25
+    toe = fw * 0.22 * sign
+    cx, cy = fx + toe, fy + 5
+    beans = "".join(f'<circle cx="{cx + dx * fw:.0f}" cy="{cy - fh * 0.15:.0f}" r="{fh * 0.2:.1f}" '
+                    f'fill="{_PAD}"/>' for dx in (-0.42, 0, 0.42))
+    return (_solid(f'<ellipse cx="{cx:.0f}" cy="{cy:.0f}" rx="{fw:.1f}" ry="{fh:.1f}"', limb, k)
+            + beans)
 
 
 def _foot(x, y, rot, fill, k, rx=27, ry=15):
@@ -301,7 +369,7 @@ def _torso(fur, k, cx=128, cy=152, rx=None, ry=None, rot=0):
     if _ANIMAL == "panda":     # the black band that joins a panda's forelimbs
         band = (f'<path d="M{cx - rx + 10} {cy - 8}a{rx - 10} {ry - 8} 0 0 1 {2 * (rx - 10)} 0" '
                 f'fill="none" stroke="#3A3335" stroke-width="26"{t}/>')
-    return _solid(f'<ellipse cx="{cx}" cy="{cy}" rx="{rx}" ry="{ry}"{t}', fur, k) + band
+    return ARM_SLOT + _solid(f'<ellipse cx="{cx}" cy="{cy}" rx="{rx}" ry="{ry}"{t}', fur, k) + band
 
 
 def _belly(pad, cx=128, cy=158, rx=None, ry=None, rot=0):
@@ -574,7 +642,8 @@ def _pose_art(animal, name, head_art):
                 + _head(head_art, x=130, y=80, rot=-8))
 
     if name == "boxing":
-        body = (tail + _arm(84, 112, 0, limb, k) + _arm(172, 112, 0, limb, k)
+        # a guard held at the chest — gloves in front of the face hide it
+        body = (tail + _arm(84, 112, 0, limb, k, to=(98, 150)) + _arm(172, 112, 0, limb, k, to=(158, 150))
                 + _torso(fur, k) + _belly(pad)
                 + _leg(100, limb, k) + _leg(156, limb, k)
                 + _head(head_art))
@@ -582,7 +651,8 @@ def _pose_art(animal, name, head_art):
             f'<circle cx="{gx:.0f}" cy="{gy:.0f}" r="24" fill="#E4574C"/>'
             f'<path d="M{gx - 22:.0f} {gy + 4:.0f}a24 24 0 0 0 20 18" fill="none" '
             f'stroke="#C0392B" stroke-width="6"/>' for gx, gy in _WRISTS[-2:])
-        return body + gloves
+        _DEFERRED.append(gloves)        # over the paws, not under them
+        return body
 
     if name == "karate":
         return (tail + _arm(36, 168, -76, limb, k) + _torso(fur, k) + _belly(pad)
@@ -654,11 +724,14 @@ def _pose_art(animal, name, head_art):
 
 def pose(animal, name, head_art):
     """Draw the body, then paint any deferred parts — the owl's wings — over it."""
-    global _DEFERRED, _WRISTS, _OUTLINE
-    _DEFERRED, _WRISTS, _OUTLINE = [], [], []
+    global _DEFERRED, _WRISTS, _OUTLINE, _BEHIND, _ARMS
+    _DEFERRED, _WRISTS, _OUTLINE, _BEHIND, _ARMS = [], [], [], [], []
     art = _pose_art(animal, name, head_art)
-    body = "".join(_OUTLINE) + art + "".join(_DEFERRED)
-    _DEFERRED, _OUTLINE = [], []
+    # side-attached arms sit between the tail and the torso
+    art = art.replace(ARM_SLOT, "".join(_ARMS), 1).replace(ARM_SLOT, "")
+    # legs go behind everything, so they grow out from under the body
+    body = "".join(_BEHIND) + "".join(_OUTLINE) + art + "".join(_DEFERRED)
+    _DEFERRED, _OUTLINE, _BEHIND = [], [], []
     return body
 
 

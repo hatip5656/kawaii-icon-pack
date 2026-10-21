@@ -181,6 +181,8 @@ ANIMALS = {
     },
     # grey, white facial discs and belly, dark tufts, yellow eyes, grey beak
     "owl": {
+        "behind": """  <ellipse cx="54" cy="176" rx="20" ry="34" transform="rotate(14 54 176)" fill="#969BA3"/>
+  <ellipse cx="202" cy="176" rx="20" ry="34" transform="rotate(-14 202 176)" fill="#969BA3"/>""",
         "ink": "#45434B",
         "label": "Owl",
         "line": "#6E6A72",
@@ -191,9 +193,7 @@ ANIMALS = {
         "nose": None,
         "teeth": None,
         "blush": {"cx": (82, 174), "cy": 168, "rx": 11, "ry": 7, "fill": "#F4737F", "opacity": 0.5},
-        "base": """  <ellipse cx="54" cy="176" rx="20" ry="34" transform="rotate(14 54 176)" fill="#969BA3"/>
-  <ellipse cx="202" cy="176" rx="20" ry="34" transform="rotate(-14 202 176)" fill="#969BA3"/>
-  <ellipse cx="80" cy="76" rx="12" ry="28" transform="rotate(-48 80 76)" fill="#6E6A72"/>
+        "base": """  <ellipse cx="80" cy="76" rx="12" ry="28" transform="rotate(-48 80 76)" fill="#6E6A72"/>
   <ellipse cx="176" cy="76" rx="12" ry="28" transform="rotate(48 176 76)" fill="#6E6A72"/>
   <ellipse cx="128" cy="144" rx="84" ry="80" fill="#A9AEB5"/>
   <defs><clipPath id="clip-owl"><ellipse cx="128" cy="144" rx="84" ry="80"/></clipPath></defs>
