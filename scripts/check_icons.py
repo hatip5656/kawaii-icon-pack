@@ -17,7 +17,7 @@ SVG_DIR = ROOT / "svg"
 # argue with the artwork: a full body with a prop is fairly meant to outweigh a
 # 24px UI glyph.
 BUDGET = {
-    "actions": 15_000,
+    "actions": 20_000,
     "badges": 500,
     "bodies": 20_000,
     "characters": 9_500,

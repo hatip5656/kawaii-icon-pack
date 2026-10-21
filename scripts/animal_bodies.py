@@ -59,8 +59,9 @@ TAILS = {
     "red_panda": _ringed_tail("#F28A2E", "#7A2E1C"),
     "raccoon": _ringed_tail("#A9AAB0", "#4A3428"),
     # a rabbit's tail is a cotton puff, not a plume
-    "rabbit": '<circle cx="180" cy="196" r="17" fill="#FFFFFF"/>',
-    "hamster": '<ellipse cx="188" cy="206" rx="14" ry="11" fill="#8F847D"/>',
+    # front view: the puff only peeks out beside the hip
+    "rabbit": '<circle cx="166" cy="184" r="15" fill="#FFFFFF"/>',
+    "hamster": '<ellipse cx="170" cy="192" rx="12" ry="9" fill="#8F847D"/>',
 }
 
 
@@ -131,23 +132,43 @@ def _centreline(joints, widths, per_bone=9, bulge=0.13):
     return pts, ws
 
 
-def _outline(pts, ws):
+def _outline(pts, ws, tans=None):
     """Close a tapered silhouette around a centreline, rounded at both ends."""
     left, right = [], []
     for i, (x, y) in enumerate(pts):
-        px, py = pts[max(i - 1, 0)]
-        nx, ny = pts[min(i + 1, len(pts) - 1)]
-        tx, ty = nx - px, ny - py
+        if tans:
+            tx, ty = tans[i]
+        else:
+            px, py = pts[max(i - 1, 0)]
+            nx, ny = pts[min(i + 1, len(pts) - 1)]
+            tx, ty = nx - px, ny - py
         L = math.hypot(tx, ty) or 1
         ox, oy = -ty / L * ws[i] / 2, tx / L * ws[i] / 2
         left.append((x + ox, y + oy))
         right.append((x - ox, y - oy))
     r0, r1 = max(ws[0] / 2, 0.5), max(ws[-1] / 2, 0.5)
+
+    def sweep(frm, centre, out):
+        # 1 if turning from `frm` towards the outward direction is clockwise on screen
+        ax, ay = frm[0] - centre[0], frm[1] - centre[1]
+        return 1 if ax * out[1] - ay * out[0] > 0 else 0
+
+    def tangent(i):
+        if tans:
+            tx, ty = tans[i]
+        else:
+            a, b = pts[max(i - 1, 0)], pts[min(i + 1, len(pts) - 1)]
+            tx, ty = b[0] - a[0], b[1] - a[1]
+        L = math.hypot(tx, ty) or 1
+        return tx / L, ty / L
+
+    te, ts = tangent(len(pts) - 1), tangent(0)
     d = "M%.1f %.1f" % left[0]
     d += "".join("L%.1f %.1f" % q for q in left[1:])
-    d += "A%.1f %.1f 0 0 1 %.1f %.1f" % (r1, r1, right[-1][0], right[-1][1])
+    d += "A%.1f %.1f 0 0 %d %.1f %.1f" % (r1, r1, sweep(left[-1], pts[-1], te), right[-1][0], right[-1][1])
     d += "".join("L%.1f %.1f" % q for q in reversed(right[:-1]))
-    d += "A%.1f %.1f 0 0 1 %.1f %.1f" % (r0, r0, left[0][0], left[0][1])
+    d += "A%.1f %.1f 0 0 %d %.1f %.1f" % (r0, r0, sweep(right[0], pts[0], (-ts[0], -ts[1])),
+                                          left[0][0], left[0][1])
     return d + "Z"
 
 
@@ -205,18 +226,37 @@ def _solid(head, fill, k=None):
     return f'{head} fill="{fill}" stroke="{INKS[_ANIMAL]}" stroke-width="{INNER}"/>'
 
 
-def _limb(s, e, w0, w1, bend, fill, stroke=True):
+def _limb(s, e, w0, w1, bend, fill, stroke=True, clean_root=False):
     """A plush limb: one soft tapered sausage with a gentle bend, not a bone chain.
-    `bend` pushes the middle sideways (positive = to the limb's right)."""
+    `bend` pushes the middle sideways (positive = to the limb's right).
+    `clean_root` leaves the first third unstroked, so an arm laid over the body
+    melts into it at the shoulder instead of showing a stitched cap."""
     (sx, sy), (ex, ey) = s, e
     dx, dy = ex - sx, ey - sy
     L = math.hypot(dx, dy) or 1
     nx, ny = -dy / L, dx / L
-    m = ((sx + ex) / 2 + nx * bend, (sy + ey) / 2 + ny * bend)
-    pts, ws = _centreline([s, m, e], [w0, (w0 + w1) / 2 * 1.05, w1], per_bone=8, bulge=0.06)
-    d = _outline(pts, ws)
+    # a quadratic Bezier whose midpoint is pushed `bend` sideways: smooth, no cusp,
+    # so the inner edge of a short chubby limb never folds over itself
+    cx_, cy_ = (sx + ex) / 2 + nx * bend * 2, (sy + ey) / 2 + ny * bend * 2
+    n = 16
+    pts, ws, tans = [], [], []
+    for i in range(n + 1):
+        t = i / n
+        u = 1 - t
+        pts.append((u * u * sx + 2 * u * t * cx_ + t * t * ex, u * u * sy + 2 * u * t * cy_ + t * t * ey))
+        tans.append((2 * u * (cx_ - sx) + 2 * t * (ex - cx_), 2 * u * (cy_ - sy) + 2 * t * (ey - cy_)))
+        ws.append((w0 + (w1 - w0) * t) * (1 + 0.05 * math.sin(math.pi * t)))
+    d = _outline(pts, ws, tans)
+    ang = math.degrees(math.atan2(dx, dy))
+    if clean_root:
+        k = len(pts) // 3
+        open_d = _outline(pts[k:], ws[k:], tans[k:])
+        open_d = open_d[:open_d.rindex("A")]          # drop the root cap and the close
+        return (f'<path d="{d}" fill="{fill}"/>'
+                f'<path d="{open_d}" fill="none" stroke="{INKS[_ANIMAL]}" stroke-width="{INNER}" '
+                'stroke-linejoin="round" stroke-linecap="round"/>'), ang
     edge = f' stroke="{INKS[_ANIMAL]}" stroke-width="{INNER}" stroke-linejoin="round"' if stroke else ""
-    return f'<path d="{d}" fill="{fill}"{edge}/>', math.degrees(math.atan2(dx, dy))
+    return f'<path d="{d}" fill="{fill}"{edge}/>', ang
 
 
 def _paw(x, y, a, fill, r, grip=False):
@@ -301,6 +341,8 @@ def _resolve():
             if hy < S[1] - 14:                      # raised: shoulder rides higher and inward
                 S = _world(sign * T["rx"] * 0.70, -T["ry"] * 0.50)
             infront = sp["front"] if sp["front"] is not None else _inside((hx, hy))
+            if _BIRD and sp["front"] is None:
+                infront = True       # a wing lies over the body; behind it, it vanishes
             if _BIRD:
                 art, paw = _wing_art(S, (hx, hy), sign, sp["fill"], sp["grip"])
             else:
@@ -312,7 +354,7 @@ def _resolve():
                 if not infront and L < lmin:        # tuck the root deeper, it is hidden anyway
                     S = (hx + (S[0] - hx) / L * lmin, hy + (S[1] - hy) / L * lmin)
                 w0, w1 = fore[0][1] * 1.45, fore[1][1] * 1.3
-                art, a = _limb(S, (hx, hy), w0, w1, 5 * sign, sp["fill"])
+                art, a = _limb(S, (hx, hy), w0, w1, 5 * sign, sp["fill"], clean_root=infront)
                 paw = _paw(hx, hy, a, sp["fill"], max(_b("paw"), w1 * 0.58), sp["grip"])
             _WRISTS.append((hx, hy))
             if infront:
@@ -328,13 +370,17 @@ def _resolve():
                 fh = fh * 1.12
             if sp["foot"]:
                 fx, fy = sp["foot"]
+            elif _BIRD:
+                bottom = _world(sign * T["rx"] * 0.34, T["ry"])[1]
+                r = math.radians(sp["rot"])
+                fx, fy = hip[0] + math.sin(r) * 30, bottom + 12
             else:
                 drop = GROUND - fh - hip[1]
                 r = math.radians(sp["rot"])
                 fx, fy = hip[0] + math.sin(r) * drop, hip[1] + math.cos(r) * drop
                 fy = min(fy, GROUND - fh)
             if _BIRD:
-                behind_art, foot_art = _owl_foot(hip, (fx, fy), sign)
+                behind_art, foot_art = _owl_foot(hip, (fx, fy), sign, sp["sole"])
                 behind.append(behind_art)
                 feet.append(foot_art)
                 continue
@@ -368,34 +414,53 @@ def _wing_art(S, tip, sign, fill, grip):
     lmax = _T["ry"] * 0.95 + 8
     if L > lmax:
         tip = (S[0] + (tip[0] - S[0]) / L * lmax, S[1] + (tip[1] - S[1]) / L * lmax)
-    art, a = _limb(S, tip, 30, 19, 7 * sign, fill)
+    art, a = _limb(S, tip, 34, 24, 7 * sign, fill, clean_root=True)
     r = math.radians(a)
     ux, uy = math.sin(r), math.cos(r)
-    px, py = uy * sign, -ux * sign
-    # one soft feather line following the wing's outer edge, inside its tip
-    c = (tip[0] - ux * 14, tip[1] - uy * 14)
-    feather = (f'<path d="M{c[0] - px * 6:.1f} {c[1] - py * 6:.1f}q{ux * 8 + px * 6:.1f} '
-               f'{uy * 8 + py * 6:.1f} {px * 12:.1f} {py * 12:.1f}" fill="none" stroke="#6E6A72" '
-               'stroke-width="2.6" stroke-linecap="round" opacity="0.7"/>')
+    px, py = uy, -ux
+    # one soft feather curve, well inside the wing near its tip
+    c = (tip[0] - ux * 20, tip[1] - uy * 20)
+    o = 5.5
+    feather = (f'<path d="M{c[0] - px * o:.1f} {c[1] - py * o:.1f}Q{c[0] + ux * 7:.1f} {c[1] + uy * 7:.1f} '
+               f'{c[0] + px * o:.1f} {c[1] + py * o:.1f}" fill="none" stroke="#6E6A72" '
+               'stroke-width="2.4" stroke-linecap="round" opacity="0.6"/>')
     thumb = ""
     if grip:   # a little feather thumb folded over the handle
         thumb = _solid(f'<ellipse cx="{tip[0]:.1f}" cy="{tip[1]:.1f}" rx="8" ry="6.5" '
                        f'transform="rotate({-a:.0f} {tip[0]:.1f} {tip[1]:.1f})"', fill)
-    _WRISTS.append(tip)
     return art + feather, thumb
 
 
-def _owl_foot(hip, target, sign):
-    """Owls keep their legs in the feathers: a stub of yellow shank and plump toes."""
+def _mitten(x, y, s=1.0):
+    """A plush owl foot: one flat yellow mitten with three rounded toes."""
+    d = (f"M{x - 11 * s:.1f} {y - 3 * s:.1f}C{x - 15 * s:.1f} {y + 7 * s:.1f} {x - 12 * s:.1f} {y + 13 * s:.1f} "
+         f"{x - 7 * s:.1f} {y + 12 * s:.1f}Q{x - 3.5 * s:.1f} {y + 15 * s:.1f} {x:.1f} {y + 12.5 * s:.1f}"
+         f"Q{x + 3.5 * s:.1f} {y + 15 * s:.1f} {x + 7 * s:.1f} {y + 12 * s:.1f}C{x + 12 * s:.1f} {y + 13 * s:.1f} "
+         f"{x + 15 * s:.1f} {y + 7 * s:.1f} {x + 11 * s:.1f} {y - 3 * s:.1f}Z")
+    return _solid(f'<path d="{d}"', "#F2B630")
+
+
+def _owl_foot(hip, target, sign, sole=False):
+    """Owls keep their legs in the feathers. Near the body only a stub of shank
+    shows; reaching further (a kick, a stride, a pedal) the feathered thigh comes
+    out first, in body colour, and the yellow shank ends it."""
     bottom = _world(sign * _T["rx"] * 0.34, _T["ry"])[1]
-    fx = hip[0] + (target[0] - hip[0]) * 0.35
-    fy = min(target[1], bottom + 10)
-    shank, _ = _limb(hip, (fx, fy), 14, 11, 0, "#E0A21F")
-    toes = "".join(
-        _solid(f'<ellipse cx="{fx:.1f}" cy="{fy + 7:.1f}" rx="5.5" ry="8.5" '
-               f'transform="rotate({ang} {fx:.1f} {fy:.1f})"', "#F2B630")
-        for ang in (30, 0, -30))
-    return shank, toes
+    fx, fy = target
+    if sole:
+        return "", _mitten(fx, fy - 4, 1.2)
+    out = []
+    reach = math.hypot(fx - hip[0], fy - bottom)
+    if fy > bottom + 16 or abs(fx - hip[0]) > 26:
+        ankle = (fx, fy - 9)
+        thigh, _ = _limb(hip, ankle, 22, 16, -3 * sign, BODY[_ANIMAL][0])
+        out.append(thigh)
+        shank, _ = _limb(ankle, (fx, fy - 2), 8, 7, 0, "#E0A21F")
+        out.append(shank)
+    else:
+        fy = max(fy, bottom + 6)
+        shank, _ = _limb((fx, bottom - 6), (fx, fy - 2), 9, 7, 0, "#E0A21F")
+        out.append(shank)
+    return "".join(out), _mitten(fx, fy)
 
 
 def _head(art, x=128, y=74, s=0.5, rot=0):
@@ -476,6 +541,8 @@ def _pose_art(animal, name, head_art):
     RX, RY = _b("torso")
     c, cy = 128, 152
     hang_l, hang_r = (c - RX - 12, cy + 22), (c + RX + 12, cy + 22)
+    if animal == "owl":
+        hang_l, hang_r = (c - RX - 20, cy + 12), (c + RX + 20, cy + 12)
     head = _head(head_art)
 
     def arm(p, **kw):
@@ -595,7 +662,7 @@ def _pose_art(animal, name, head_art):
                 'stroke="#FFFCF8" stroke-width="4.5" stroke-linecap="round"/></g>')
 
     if name == "golf":
-        hl, hr = (c - 6, cy + 34), (c + 6, cy + 28)
+        hl, hr = (c - 2, cy + 44), (c + 10, cy + 40)
         head_pt = (72, 232)
         club = (f'<path d="M{hr[0] + 4} {hr[1] - 10}L{head_pt[0]} {head_pt[1]}" stroke="{WOOD}" '
                 'stroke-width="9" stroke-linecap="round"/>'
@@ -680,38 +747,47 @@ def _pose_art(animal, name, head_art):
                 + leg(-1, foot=fl) + leg(1, foot=fr) + blades + _head(head_art, x=130, rot=-6))
 
     if name == "yoga":
-        return ('<rect x="16" y="228" width="224" height="16" rx="8" fill="#7EC8E3"/>'
-                + tail + arm((c - RX - 40, cy - 26)) + arm((c + RX + 40, cy - 26))
-                + _torso(fur, cy=164) + _belly(pad, cy=170)
-                + leg(-1, foot=(c - 48, 226 - _sk("foot")[1])) + leg(1, foot=(c + 48, 226 - _sk("foot")[1]))
-                + _head(head_art, y=86, s=0.52))
+        # tree pose: standing on one foot, the other sole at the knee, paws together
+        return ('<rect x="40" y="228" width="176" height="16" rx="8" fill="#7EC8E3"/>'
+                + tail + arm((c - 9, cy - 4), front=True) + arm((c + 9, cy - 4), front=True)
+                + _torso(fur, cy=156) + _belly(pad, cy=162)
+                + leg(-1, foot=(c - 8, 226 - _sk("foot")[1])) + leg(1, foot=(c + RX * 0.45, cy + 52), sole=True)
+                + _head(head_art, y=78))
 
     if name == "boxing":
-        hl, hr = (c - 26, cy - 26), (c + 26, cy - 26)
+        # guard up and out in front of the shoulders, a white cuff where glove meets arm
+        hl, hr = (c - RX + 4, cy - 6), (c + RX - 4, cy - 6)
         art = (tail + arm(hl, front=True) + arm(hr, front=True) + std() + head)
         _DEFERRED.append("".join(
-            f'<circle cx="{x}" cy="{y}" r="22" fill="#E4574C"/>'
-            f'<path d="M{x - 20} {y + 4}a22 22 0 0 0 18 17" fill="none" stroke="#C0392B" stroke-width="5"/>'
+            f'<circle cx="{x}" cy="{y + 2}" r="26" fill="#FFFFFF" stroke="{INKS[_ANIMAL]}" stroke-width="{INNER}"/>'
+            f'<circle cx="{x}" cy="{y - 2}" r="24" fill="#E4574C" stroke="{INKS[_ANIMAL]}" stroke-width="{INNER}"/>'
+            f'<path d="M{x - 20} {y + 2}a22 22 0 0 0 18 17" fill="none" stroke="#C0392B" stroke-width="5"/>'
             for x, y in (hl, hr)))
         return art
 
     if name == "karate":
-        return (tail + arm((c - RX - 44, cy - 16)) + arm((c + RX + 4, cy + 14), grip=True)
-                + _torso(fur) + _belly(pad)
-                + f'<rect x="{c - RX + 6}" y="{cy + 30}" width="{2 * RX - 12}" height="14" rx="7" fill="{DARK}"/>'
-                f'<path d="M{c + 20} {cy + 40}v26M{c + 8} {cy + 42}v22" stroke="{DARK}" stroke-width="9" '
-                'stroke-linecap="round"/>'
+        by = cy + 14
+        cid = f"belt-{_ANIMAL}"
+        belt = (f'<defs><clipPath id="{cid}"><ellipse cx="{c}" cy="{cy}" rx="{RX - 1.6}" ry="{RY - 1.6}"/>'
+                f'</clipPath></defs><g clip-path="url(#{cid})">'
+                f'<path d="M{c - RX} {by - 6}Q{c} {by + 4} {c + RX} {by - 6}v13Q{c} {by + 17} {c - RX} {by + 7}z" '
+                f'fill="{DARK}"/></g>'
+                f'<path d="M{c + 14} {by + 6}l6 26M{c + 6} {by + 8}l-2 24" stroke="{DARK}" stroke-width="8" '
+                'stroke-linecap="round"/>')
+        return (tail + arm((c - RX - 44, cy - 16), grip=True) + arm((c + RX + 4, cy + 14), grip=True)
+                + _torso(fur) + _belly(pad) + belt
                 + leg(-1, foot=(c - 50, GROUND - 12)) + leg(1, foot=(c + 50, GROUND - 12)) + head)
 
     if name == "weightlifting":
-        y = cy + 30
-        hl, hr = (c - RX + 4, y), (c + RX - 4, y)
-        bar = (f'<rect x="{c - RX - 36}" y="{y - 6}" width="{2 * RX + 72}" height="12" rx="6" fill="#C9C3D6"/>'
+        # a deadlift: arms straight down in front, bar just above the feet
+        y = cy + 56
+        hl, hr = (c - RX + 10, y), (c + RX - 10, y)
+        bar = (f'<rect x="{c - RX - 40}" y="{y - 6}" width="{2 * RX + 80}" height="12" rx="6" fill="#C9C3D6"/>'
                + "".join(f'<rect x="{x - 11}" y="{y - 30}" width="22" height="60" rx="9" fill="{DARK}"/>'
-                         for x in (c - RX - 26, c + RX + 26)))
+                         for x in (c - RX - 28, c + RX + 28)))
         return (tail + arm(hl, grip=True, front=True) + arm(hr, grip=True, front=True)
                 + _torso(fur) + _belly(pad)
-                + leg(-1, foot=(c - 44, GROUND - 12)) + leg(1, foot=(c + 44, GROUND - 12)) + head + _prop(bar))
+                + leg(-1, foot=(c - 40, GROUND - 12)) + leg(1, foot=(c + 40, GROUND - 12)) + head + _prop(bar))
 
     if name == "archery":
         hl, hr = (c - RX - 36, cy - 14), (c + 10, cy - 14)
@@ -738,11 +814,14 @@ def _pose_art(animal, name, head_art):
         hl, hr = (c - 4, cy + 10), (c + 18, cy + 16)
         oar = (f'<path d="M{c + 44} {cy + 30}L44 140" stroke="{WOOD}" stroke-width="9" stroke-linecap="round"/>'
                '<ellipse cx="36" cy="136" rx="20" ry="12" transform="rotate(22 36 136)" fill="#5B7BE8"/>')
+        hull = ('<path d="M24 196h208l-18 34a14 14 0 0 1-12 8H54a14 14 0 0 1-12-8z" fill="#E4574C"/>'
+                '<path d="M30 206h196" stroke="#FFFCF8" stroke-width="6" stroke-linecap="round"/>')
         return (tail + arm(hl, grip=True, front=True) + arm(hr, grip=True, front=True)
                 + _torso(fur, cy=160, rot=-8) + _belly(pad, cy=166, rot=-8)
+                + _head(head_art, y=84, rot=-6) + hull
                 + '<g fill="none" stroke="#7EC8E3" stroke-width="9" stroke-linecap="round">'
-                '<path d="M8 240q16-14 32 0t32 0"/><path d="M184 240q16-14 32 0t32 0"/></g>'
-                + _head(head_art, y=84, rot=-6) + _prop(oar))
+                '<path d="M8 246q16-12 32 0t32 0"/><path d="M184 246q16-12 32 0t32 0"/></g>'
+                + _prop(oar))
 
     if name == "fishing":
         h = (c + RX + 12, cy + 2)
@@ -819,7 +898,11 @@ def seated(animal, face, held, grips, owl_tilt=0):
     if not grips:
         _arm(56, 226, fill=limb)
         _arm(200, 226, fill=limb)
+    # soles peeking out under the seated body
+    _leg(64, limb, foot=(90, 238), sole=True)
+    _leg(192, limb, foot=(166, 238), sole=True)
     behind, arms, feet, front, paws = _resolve()
     torso = torso.replace(ARM_SLOT, "".join(arms))
     head = f'<g transform="translate(128,92) scale(0.62) translate(-128,-126)">{face}</g>'
-    return tail + torso + head + held + "".join(front) + "".join(paws)
+    return ("".join(behind) + tail + torso + "".join(feet) + head + "".join(front) + held
+            + "".join(paws))

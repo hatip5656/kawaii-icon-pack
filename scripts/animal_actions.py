@@ -53,8 +53,8 @@ def prop(kind, fur, pad, key, ink=None):
 
     if kind == "calling":
         return (f'<g transform="rotate(24 192 178)"><rect x="172" y="132" width="40" height="96" '
-                f'rx="20" fill="{fur}"/><rect x="180" y="146" width="24" height="60" rx="12" '
-                f'fill="{pad}"/></g>'
+                f'rx="20" fill="#5A5560"/><rect x="180" y="146" width="24" height="60" rx="12" '
+                f'fill="#9BD7E8"/></g>'
                 f'<g fill="none" stroke="{fur}" stroke-width="9" stroke-linecap="round">'
                 '<path d="M226 156a30 30 0 0 1 0 44"/></g>'
                 + P([(166, 216, 18)], fur, pad, key))
@@ -79,9 +79,8 @@ def prop(kind, fur, pad, key, ink=None):
             for i, (x, y, r) in enumerate(((30, 44, -22), (208, 34, 26), (56, 96, 14),
                                            (196, 104, -18), (14, 140, 8), (232, 138, -12)))
         )
-        return (bits + P([(48, 176, -34), (208, 176, 34)], fur, pad, key)
-                + f'<path d="M40 138v-16M216 130v-16" stroke="{fur}" stroke-width="8" '
-                'stroke-linecap="round"/>')
+        # paws thrown up, confetti flying
+        return bits + P([(54, 120, -34), (202, 120, 34)], fur, pad, key)
 
     if kind == "thinking":
         return (f'<path d="M232 82a26 26 0 0 1-26 26h-38a24 24 0 0 1-4-47 27 27 0 0 1 52-5 26 26 0 0 1 '
@@ -153,9 +152,9 @@ def prop(kind, fur, pad, key, ink=None):
                 f'<rect x="156" y="198" width="54" height="13" rx="7" fill="{WOOD}"/>'
                 '<ellipse cx="106" cy="194" rx="22" ry="8" fill="#FFFFFF"/>'
                 '<circle cx="106" cy="192" r="7" fill="#FFD86B"/>'
-                f'<g fill="none" stroke="{L}" stroke-width="7" stroke-linecap="round">'
+                f'<g fill="none" stroke="{LINE}" stroke-width="6" stroke-linecap="round">'
                 '<path d="M92 174c-8-10 8-18 0-28"/><path d="M124 174c-8-10 8-18 0-28"/></g>'
-                + P([(46, 216, -16)], fur, pad, key))
+                + P([(196, 204, -16)], fur, pad, key))
 
     if kind == "exercising":
         return (f'<rect x="98" y="202" width="60" height="16" rx="8" fill="{LINE}"/>'
@@ -175,8 +174,8 @@ def prop(kind, fur, pad, key, ink=None):
                 + P([(48, 212, -14), (208, 212, 14)], fur, pad, key))
 
     if kind == "singing":
-        return (f'<rect x="110" y="164" width="38" height="60" rx="19" fill="{fur}"/>'
-                f'<rect x="119" y="176" width="20" height="34" rx="10" fill="{pad}"/>'
+        return (f'<rect x="110" y="164" width="38" height="60" rx="19" fill="#5A5560"/>'
+                f'<rect x="119" y="176" width="20" height="34" rx="10" fill="#B9C0CC"/>'
                 f'<path d="M98 208a31 31 0 0 0 62 0" fill="none" stroke="{L}" stroke-width="8" '
                 'stroke-linecap="round"/>'
                 f'<path d="M129 226v20" stroke="{L}" stroke-width="8" stroke-linecap="round"/>'

@@ -702,19 +702,29 @@ def render_extra(animal, kind):
             f'  {art}\n</svg>\n')
 
 
+# Prop accents in the action layer. Not the limb colour: a black bag in a black paw
+# (panda) or a russet phone in a russet paw (red panda) disappears.
+PROP_ACCENT = {
+    "red_panda": ("#F28A2E", "#FFE3C4"), "rabbit": ("#F2A99A", "#FFE0D6"),
+    "panda": ("#8FC46A", "#E2F3D2"), "hamster": ("#F4A48C", "#FFE0D6"),
+    "raccoon": ("#7FA7D9", "#DCEAFB"), "owl": ("#F2B630", "#FFF0C2"),
+}
+
+
 def render_action(animal, kind):
     """Face in the upper two thirds, prop below, paws gripping it."""
     pal = PAW_PALETTE[animal]
     slug = f"{kind}_{animal}"
     label = f'{ANIMALS[animal]["label"]} — {ACTION_LABELS[kind]}'
     ink = INKS[animal]
-    held = prop(kind, pal["fur"], pal["pad"], None, ink)
+    accent, light = PROP_ACCENT[animal]
+    held = prop(kind, accent, light, None, ink)
     held = sticker(held, ink, 3.2)      # its own contour, so a fur-coloured prop reads over the body
     face = sticker(_face_art(animal, behind=False), ink, 3.2 / 0.62)
     art = seated(animal, face, held, list(ACTION_GRIPS))
     art = sticker(art, _ink(animal), OUTLINE_SCENE)
-    if animal in TILT:
-        art = f'<g transform="rotate({TILT[animal]} 128 150)">{art}</g>'
+    # the owl's head tilt is already in its face art; tilting the whole scene
+    # would knock feet, boards and poles off level
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" '
             f'role="img" aria-labelledby="t-{slug}">\n  <title id="t-{slug}">{label}</title>\n'
             f'  {art}\n</svg>\n')
@@ -725,8 +735,8 @@ def render_body(animal, pose):
     label = f'{ANIMALS[animal]["label"]} — {POSE_LABELS[pose]}'
     art = body_pose(animal, pose, _face_art(animal, behind=False))
     art = sticker(art, _ink(animal), OUTLINE_SCENE)
-    if animal in TILT:
-        art = f'<g transform="rotate({TILT[animal]} 128 150)">{art}</g>'
+    # the owl's head tilt is already in its face art; tilting the whole scene
+    # would knock feet, boards and poles off level
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" '
             f'role="img" aria-labelledby="t-{slug}">\n  <title id="t-{slug}">{label}</title>\n'
             f'  {art}\n</svg>\n')
@@ -757,8 +767,8 @@ def render_job(animal, job):
     cut = art.index('<g transform="translate(128,74)')
     art = behind + art[:cut] + worn + _after_head(art, cut, hat)
     art = sticker(art, _ink(animal), OUTLINE_SCENE)
-    if animal in TILT:
-        art = f'<g transform="rotate({TILT[animal]} 128 150)">{art}</g>'
+    # the owl's head tilt is already in its face art; tilting the whole scene
+    # would knock feet, boards and poles off level
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" '
             f'role="img" aria-labelledby="t-{slug}">\n  <title id="t-{slug}">{label}</title>\n'
             f'  {art}\n</svg>\n')

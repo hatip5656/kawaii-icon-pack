@@ -250,9 +250,9 @@ def tool(kind):
                 '<path d="M172 182c0 18 15 28 34 28s34-10 34-28" fill="none" stroke="#B9C0CC" '
                 'stroke-width="8" stroke-linecap="round"/>')
     if kind == "magnifier":
-        return ('<circle cx="200" cy="152" r="32" fill="#FFFFFF" fill-opacity="0.6" '
+        return ('<circle cx="190" cy="144" r="30" fill="#FFFFFF" fill-opacity="0.6" '
                 'stroke="#5A5560" stroke-width="10"/>'
-                '<path d="m224 176 24 24" stroke="#5A5560" stroke-width="12" stroke-linecap="round"/>')
+                '<path d="m212 166 20 20" stroke="#5A5560" stroke-width="12" stroke-linecap="round"/>')
     if kind == "pointer":
         return ('<path d="M186 208 232 122" stroke="#C9A87C" stroke-width="9" stroke-linecap="round"/>'
                 '<circle cx="234" cy="118" r="9" fill="#E4574C"/>')
@@ -266,8 +266,11 @@ def tool(kind):
                 '<circle cx="204" cy="126" r="17" fill="#CFE6F5" stroke="#B9C0CC" stroke-width="5"/>'
                 '<rect x="197" y="140" width="14" height="66" rx="7" fill="#B9C0CC"/></g>')
     if kind == "wings":
-        return ('<path d="M164 158h84M170 148l-16 10 16 10M242 148l16 10-16 10" fill="none" '
-                'stroke="#FFD86B" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>')
+        # a pin on the chest, not a bar through the paw
+        return ('<g transform="translate(128 140) scale(0.5) translate(-206 -158)">'
+                '<path d="M164 158h84M170 148l-16 10 16 10M242 148l16 10-16 10" fill="none" '
+                'stroke="#FFD86B" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>'
+                '<circle cx="206" cy="158" r="12" fill="#FFD86B"/></g>')
     if kind == "scalpel":
         return ('<g transform="rotate(38 204 160)"><path d="M198 116h14v44h-14z" fill="#CFE6F5"/>'
                 '<rect x="196" y="160" width="18" height="48" rx="6" fill="#B9C0CC"/></g>')
@@ -297,7 +300,7 @@ TOOL_GRIP = {
     "laptop": (170, 194), "gavel": _r((204, 198), -32, (204, 156)), "briefcase": (206, 140),
     "tray": (198, 156), "rolling_pin": _r((160, 165), -20, (204, 168)), "cup": (176, 174),
     "pitchfork": (204, 172), "cleaver": _r((204, 198), 24, (204, 160)), "box": (172, 186),
-    "wheel": (170, 170), "anchor": (206, 176), "magnifier": (236, 188), "pointer": (192, 196),
+    "wheel": (170, 170), "anchor": (206, 176), "magnifier": (224, 178), "pointer": (192, 196),
     "wand": _r((204, 190), 24, (204, 162)), "mirror": _r((204, 190), 34, (204, 160)),
     "wings": None, "scalpel": _r((205, 194), 38, (204, 160)),
 }
