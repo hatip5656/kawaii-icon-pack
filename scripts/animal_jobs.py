@@ -274,6 +274,39 @@ def tool(kind):
     return ""
 
 
+# Where the paw closes on each tool, in the tool's own coordinates (rotated tools
+# have their handle point rotated the same way). None = nothing to hold.
+import math
+
+
+def _r(p, ang, c):
+    a = math.radians(ang)
+    x, y = p[0] - c[0], p[1] - c[1]
+    return (round(c[0] + x * math.cos(a) - y * math.sin(a), 1),
+            round(c[1] + x * math.sin(a) + y * math.cos(a), 1))
+
+
+TOOL_GRIP = {
+    "stethoscope": (184, 182), "clipboard": (180, 176), "syringe": _r((203, 168), 38, (204, 156)),
+    "pill_bottle": (184, 184), "hose": (198, 150), "badge": (186, 194), "medkit": (178, 182),
+    "float": (172, 180), "book": (172, 186), "flask": (206, 142),
+    "wrench": _r((222, 190), 35, (204, 164)), "hammer": _r((206, 196), 28, (204, 160)),
+    "saw": _r((242, 160), -24, (202, 166)), "bulb": (204, 192), "roller": (191, 198),
+    "mop": (204, 162), "torch": (184, 186), "palette": (176, 182),
+    "guitar": _r((196, 140), 28, (196, 172)), "camera": (170, 180), "notepad": (180, 188),
+    "laptop": (170, 194), "gavel": _r((204, 198), -32, (204, 156)), "briefcase": (206, 140),
+    "tray": (198, 156), "rolling_pin": _r((160, 165), -20, (204, 168)), "cup": (176, 174),
+    "pitchfork": (204, 172), "cleaver": _r((204, 198), 24, (204, 160)), "box": (172, 186),
+    "wheel": (170, 170), "anchor": (206, 176), "magnifier": (236, 188), "pointer": (192, 196),
+    "wand": _r((204, 190), 24, (204, 162)), "mirror": _r((204, 190), 34, (204, 160)),
+    "wings": None, "scalpel": _r((205, 194), 38, (204, 160)),
+}
+
+
+def grip(job):
+    return TOOL_GRIP.get(JOBS[job][3])
+
+
 # ----------------------------------------------------------------- backdrop
 def backdrop(kind):
     """Drawn behind the whole body, so the character stands in front of it."""
@@ -357,9 +390,9 @@ JOB_LABELS = {k: v[0] for k, v in JOBS.items()}
 
 
 def outfit(job):
-    """(behind, under-head, over-everything) — a backdrop, the uniform, then hat and tool."""
+    """(behind, under-head, over-head, held) — a backdrop, the uniform, the hat, the tool."""
     row = JOBS[job]
     _, head, body, held = row[:4]
     behind = backdrop(row[4]) if len(row) > 4 else ""
     worn = "".join(hat(h) for h in (head or "").split("+") if h)
-    return behind, uniform(body or ""), worn + tool(held or "")
+    return behind, uniform(body or ""), worn, tool(held or "")

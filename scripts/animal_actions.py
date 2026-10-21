@@ -25,15 +25,11 @@ GRIPS = []      # where the paws landed on the last prop, so arms can reach them
 
 
 def _pads(spots, fur, pad, key):
-    """Paw pads gripping the prop."""
-    stroke = f' stroke="{key}" stroke-width="6"' if key else ""
-    out = []
-    for x, y, rot in spots:
+    """Record where the paws close on the prop; the body engine draws the arms and
+    paws, so a paw is always on the end of an arm."""
+    for x, y, _rot in spots:
         GRIPS.append((x, y))
-        out.append(f'<g transform="rotate({rot} {x} {y})">'
-                   f'<ellipse cx="{x}" cy="{y}" rx="21" ry="26" fill="{fur}"{stroke}/>'
-                   f'<ellipse cx="{x}" cy="{y + 3}" rx="11" ry="14" fill="{pad}"/></g>')
-    return "".join(out)
+    return ""
 
 
 def prop(kind, fur, pad, key, ink=None):
@@ -92,7 +88,8 @@ def prop(kind, fur, pad, key, ink=None):
                 f'16 26z" fill="{PAPER}" stroke="{L}" stroke-width="7"/>'
                 + "".join(f'<circle cx="{cx}" cy="82" r="6" fill="{fur}"/>' for cx in (176, 196, 216))
                 + f'<circle cx="160" cy="126" r="11" fill="{PAPER}" stroke="{L}" stroke-width="6"/>'
-                f'<circle cx="142" cy="146" r="6" fill="{PAPER}" stroke="{L}" stroke-width="5"/>')
+                f'<circle cx="142" cy="146" r="6" fill="{PAPER}" stroke="{L}" stroke-width="5"/>'
+                + P([(150, 162, 0)], fur, pad, key))
 
     if kind == "drinking":
         return (f'<path d="M86 174h72v48a26 26 0 0 1-26 26h-20a26 26 0 0 1-26-26z" fill="{PAPER}" '
@@ -117,7 +114,8 @@ def prop(kind, fur, pad, key, ink=None):
                 + "".join(f'<circle cx="{cx}" cy="{cy}" r="9" fill="{CONFETTI[i]}"/>'
                           for i, (cx, cy) in enumerate(((86, 190), (110, 182), (134, 190), (86, 216))))
                 + f'<path d="m182 240 30-52" stroke="{WOOD}" stroke-width="11" stroke-linecap="round"/>'
-                f'<path d="m208 194 12-22" stroke="{fur}" stroke-width="16" stroke-linecap="round"/>')
+                f'<path d="m208 194 12-22" stroke="{fur}" stroke-width="16" stroke-linecap="round"/>'
+                + P([(194, 220, 0), (52, 210, 0)], fur, pad, key))
 
     if kind == "mailing":
         return (f'<rect x="62" y="172" width="132" height="76" rx="10" fill="{PAPER}" '
@@ -165,7 +163,8 @@ def prop(kind, fur, pad, key, ink=None):
                 f'<rect x="158" y="184" width="30" height="52" rx="11" fill="{fur}"/>'
                 f'<rect x="76" y="196" width="14" height="28" rx="7" fill="{pad}"/>'
                 f'<rect x="166" y="196" width="14" height="28" rx="7" fill="{pad}"/>'
-                '<path d="M212 150c-7 10-11 15-11 19a11 11 0 0 0 22 0c0-4-4-9-11-19z" fill="#7EC8E3"/>')
+                '<path d="M212 150c-7 10-11 15-11 19a11 11 0 0 0 22 0c0-4-4-9-11-19z" fill="#7EC8E3"/>'
+                + P([(83, 212, 0), (173, 212, 0)], fur, pad, key))
 
     if kind == "travelling":
         return (f'<rect x="68" y="184" width="120" height="64" rx="13" fill="{fur}"/>'
@@ -186,26 +185,8 @@ def prop(kind, fur, pad, key, ink=None):
                 f'<circle cx="51" cy="197" r="7" fill="{CONFETTI[0]}"/>'
                 f'<circle cx="73" cy="192" r="7" fill="{CONFETTI[0]}"/>'
                 f'<path d="M196 182v-22" stroke="{CONFETTI[2]}" stroke-width="7" stroke-linecap="round"/>'
-                f'<circle cx="191" cy="183" r="7" fill="{CONFETTI[2]}"/>')
+                f'<circle cx="191" cy="183" r="7" fill="{CONFETTI[2]}"/>'
+                + P([(129, 214, 0)], fur, pad, key))
 
     raise ValueError(kind)
 
-
-def body(torso, belly, limb, ink, inner=3.2):
-    """A seated body under the face, and arms that actually reach the paws.
-
-    Drawn behind the prop: the torso grounds the face, and each arm runs from
-    the shoulder to wherever `prop` put a paw, so no paw floats."""
-    out = [f'<ellipse cx="128" cy="206" rx="64" ry="44" fill="{torso}" stroke="{ink}" '
-           f'stroke-width="{inner}"/>',
-           f'<ellipse cx="128" cy="214" rx="38" ry="28" fill="{belly}"/>']
-    for x, y in GRIPS:
-        sx = 128 - 44 if x < 128 else 128 + 44
-        sy = 176
-        mx, my = (sx + x) / 2 + (-14 if x < 128 else 14), max(sy, y) + 10
-        d = f"M{sx} {sy}Q{mx:.0f} {my:.0f} {x} {y}"
-        out.append(f'<path d="{d}" fill="none" stroke="{ink}" stroke-width="{30 + 2 * inner:g}" '
-                   'stroke-linecap="round"/>')
-        out.append(f'<path d="{d}" fill="none" stroke="{limb}" stroke-width="30" '
-                   'stroke-linecap="round"/>')
-    return "".join(out)

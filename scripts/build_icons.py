@@ -20,10 +20,10 @@ from pathlib import Path
 from animal_paws import GESTURE_LABELS, GESTURE_ORDER
 from animal_paws import PALETTE as PAW_PALETTE
 from animal_paws import render as render_paw
-from animal_bodies import BODY, POSE_LABELS, POSE_ORDER, pose as body_pose
-from animal_jobs import JOB_LABELS, JOB_ORDER, outfit
+from animal_bodies import BODY, POSE_LABELS, POSE_ORDER, pose as body_pose, seated
+from animal_jobs import JOB_LABELS, JOB_ORDER, outfit, grip as job_grip
 from animal_actions import ACTION_LABELS, ACTION_ORDER, prop
-from animal_actions import body as action_body
+from animal_actions import GRIPS as ACTION_GRIPS
 from animal_extras import ACCESSORY_LABELS, ACCESSORY_ORDER, SNACKS, SNACK_LABEL, accessory
 from outline import INKS, sticker
 from ui_icons import FACES, UI_ICONS, groups
@@ -710,11 +710,8 @@ def render_action(animal, kind):
     ink = INKS[animal]
     held = prop(kind, pal["fur"], pal["pad"], None, ink)
     held = sticker(held, ink, 3.2)      # its own contour, so a fur-coloured prop reads over the body
-    torso, belly, limb, _ = BODY[animal]
-    face = sticker(_face_art(animal), ink, 3.2 / 0.62)
-    art = (action_body(torso, belly, limb, ink)
-           + f'<g transform="translate(128,92) scale(0.62) translate(-128,-126)">{face}</g>'
-           + held)
+    face = sticker(_face_art(animal, behind=False), ink, 3.2 / 0.62)
+    art = seated(animal, face, held, list(ACTION_GRIPS))
     art = sticker(art, _ink(animal), OUTLINE_SCENE)
     if animal in TILT:
         art = f'<g transform="rotate({TILT[animal]} 128 150)">{art}</g>'
@@ -735,14 +732,30 @@ def render_body(animal, pose):
             f'  {art}\n</svg>\n')
 
 
+def _after_head(art, cut, hat):
+    """Insert the hat right after the head group that starts at `cut`."""
+    depth, i = 0, cut
+    while True:
+        o, c = art.find("<g", i), art.find("</g>", i)
+        if o != -1 and o < c:
+            depth += 1
+            i = o + 2
+        else:
+            depth -= 1
+            i = c + 4
+            if depth == 0:
+                return art[cut:i] + hat + art[i:]
+
+
 def render_job(animal, job):
     """Standing body, with the uniform tucked under the head and the hat and tool over it."""
     slug = f"{job}_{animal}"
     label = f'{ANIMALS[animal]["label"]} — {JOB_LABELS[job]}'
-    art = body_pose(animal, "standing", _face_art(animal, behind=False))
-    behind, worn, held = outfit(job)
-    cut = art.rindex('<g transform="translate(128,')
-    art = behind + art[:cut] + worn + art[cut:] + held
+    behind, worn, hat, tool = outfit(job)
+    # the tool goes between the arm and the paw that closes on it
+    art = body_pose(animal, "holding", _face_art(animal, behind=False), grip=job_grip(job), held=tool)
+    cut = art.index('<g transform="translate(128,74)')
+    art = behind + art[:cut] + worn + _after_head(art, cut, hat)
     art = sticker(art, _ink(animal), OUTLINE_SCENE)
     if animal in TILT:
         art = f'<g transform="rotate({TILT[animal]} 128 150)">{art}</g>'
