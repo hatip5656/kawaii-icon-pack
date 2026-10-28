@@ -3,3 +3,5 @@ preview/contact-sheet.svg
 *.tgz
 .DS_Store
 dist/
+/.idea/
+
